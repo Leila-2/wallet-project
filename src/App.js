@@ -1,3 +1,5 @@
+
+import { Container } from "./styles/Container";
 import { Suspense, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
 import { GlobalStyles } from "./styles/GlobalStyles";
