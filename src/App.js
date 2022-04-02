@@ -1,7 +1,6 @@
 import { Suspense, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
 import { GlobalStyles } from "./styles/GlobalStyles";
-import Navigation from "./components/Navigation/Navigation";
 
 const LoginPage = lazy(() => import("./pages/LoginPage/LoginPage"));
 const RegisterPage = lazy(() => import("./pages/RegisterPage/RegisterPage"));
@@ -15,13 +14,11 @@ function App() {
 		<>
 			<GlobalStyles />
 
-			<Navigation />
-
 			<Suspense fallback={<p>Loading...</p>}>
 				<Routes>
-					<Route path="/*" element={<LoginPage />} />
+					<Route path="/login" element={<LoginPage />} />
 					<Route path="/register" element={<RegisterPage />} />
-					<Route path="/main" element={<MainPage />} />
+					<Route path="/" element={<MainPage />} />
 					<Route path="/statisctics" element={<StatisticsPage />} />
 				</Routes>
 			</Suspense>
