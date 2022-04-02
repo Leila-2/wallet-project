@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { baseTheme } from "../../stylesheet/theme";
+import { baseTheme } from "./variables";
 
 export const Container = styled.div`
 margin: auto;

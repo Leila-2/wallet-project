@@ -1,11 +1,11 @@
-import styled from 'styled-components'
-import { GlobalStyle } from './stylesheet/GlobalStyle';
+import { GlobalStyles } from "./styles/GlobalStyles";
+
 function App() {
   return (
-    <div >
-      <GlobalStyle />
-      Hello
-    </div>
+    <>
+      HEllo
+      <GlobalStyles />
+    </>
   );
 }
 
