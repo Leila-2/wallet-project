@@ -1,11 +1,9 @@
+import { Container } from "./styles/Container";
 import { GlobalStyles } from "./styles/GlobalStyles";
 
 function App() {
   return (
-    <>
-      HEllo
-      <GlobalStyles />
-    </>
+    <GlobalStyles />
   );
 }
 
