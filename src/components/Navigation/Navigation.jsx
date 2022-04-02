@@ -9,7 +9,7 @@ export default function Navigation() {
 					<NavLink to="/">Main</NavLink>
 				</li>
 				<li>
-					<NavLink to="/statisctics">Statisctics</NavLink>
+					<NavLink to="/statistics">Statistics</NavLink>
 				</li>
 			</ul>
 		</nav>
