@@ -15,6 +15,7 @@ function App() {
       <Suspense fallback={<p>Loading...</p>}>
         <Routes>
           <Route path="/login" element={<AuthPage />} />
+          <Route path="/register" element={<AuthPage />} />
           <Route path="/" element={<MainPage />} />
           <Route path="/statistics" element={<StatisticsPage />} />
         </Routes>

@@ -3,7 +3,7 @@ import styled from "styled-components";
 const StyledAuthPage = styled.div`
   background: rgb(231, 234, 242);
 
-  width: 100%;
+  min-width: 100%;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -13,29 +13,24 @@ const StyledAuthPage = styled.div`
     display: flex;
   }
   .authPage-left-side {
-    /* height: 100vh; */
-    /* width: 48%; */
-
-    /* background-size: auto auto; */
-    /* background-repeat: no-repeat; */
+    background: rgb(231, 234, 242);
+    min-width: 521px;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-position: left bottom;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
     .image {
-      /* position: relative; */
-      /* padding: 150px 38px 150px 95px; */
-    }
-
-    .ellipse {
-      position: absolute;
+      width: 435px;
     }
   }
 
   .authPage-right-side {
-    height: 100vh;
     min-width: 731px;
+    height: 100vh;
     background-repeat: no-repeat;
     background-size: auto auto;
 
