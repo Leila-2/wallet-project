@@ -17,4 +17,5 @@ export const baseTheme = {
         tabletMax: "(max-width: 1279px)",
         desktop: "(min-width: 1280px)",
     },
+    fonts: { mainFont: "Circe", titleFont: "Poppins" },
 };
