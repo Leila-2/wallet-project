@@ -13,7 +13,6 @@ function App() {
   return (
     <>
       <GlobalStyles />
-
       <Suspense fallback={<p>Loading...</p>}>
         <Routes>
           <Route path="/login" element={<LoginPage />} />

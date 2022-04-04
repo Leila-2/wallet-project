@@ -5,8 +5,8 @@ const StyledFormLink = styled.div`
   width: 300px;
   height: 50px;
 
-  background: ${baseTheme.colors.primary};
-  border: 1px solid ${baseTheme.colors.blueTextColor};
+  background: ${baseTheme.colors.white};
+  border: 1px solid ${baseTheme.colors.purple};
   box-sizing: border-box;
   border-radius: 20px;
 
@@ -20,7 +20,7 @@ const StyledFormLink = styled.div`
   letter-spacing: 0.1em;
   text-transform: uppercase;
 
-  color: ${baseTheme.colors.blueTextColor};
+  color: ${baseTheme.colors.purple};
 
   .link {
     width: 100%;

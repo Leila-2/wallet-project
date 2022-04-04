@@ -1,26 +1,21 @@
 export const baseTheme = {
   colors: {
-    primary: " #ffffff",
-    greenBgColor: "#24cca7",
-    purpleBgColor: "#4a56e2",
-    blueBgColor: "#6E78E8",
-    redBgColor: "#ff6596",
-
-    mainTextColor: "#000000",
-    secondTextColor: "#ffffff",
-    greenTextColor: "#24cca7",
-    blueTextColor: "#4a56e2",
-    redTextColor: "#ff6596",
-    greyTextColor: "#bdbdbd",
-    lightGrayTextColor: "#e0e0e0",
+    white: " #ffffff",
+    green: "#24cca7",
+    purple: "#4a56e2",
+    blue: "#6E78E8",
+    red: "#ff6596",
+    black: "#000000",
+    grey: "#bdbdbd",
+    lightGray: "#e0e0e0",
   },
 
   media: {
-    mobile: "(max-width: 320px)",
+    mobile: "(min-width: 320px)",
     mobileMax: "(max-width: 767px)",
-    tablet: "(max-width: 768px)",
+    tablet: "(min-width: 768px)",
     tabletMax: "(max-width: 1279px)",
-    desctop: "(max-width: 1280px)",
+    desktop: "(min-width: 1280px)",
   },
   fonts: { mainFont: "Circe", titleFont: "Poppins" },
 };
