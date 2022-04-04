@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import Input from "../Input";
+import PasswordStrenght from "./PasswordStrenght";
 
 import { ReactComponent as EmailIcon } from "../../icons/email.svg";
 import { ReactComponent as LockIcon } from "../../icons/lock.svg";
@@ -88,6 +89,8 @@ function RegisterForm() {
 							placeholder="Подтвердите пароль"
 							className="field"
 						/>
+
+						<PasswordStrenght password={password} />
 
 						<Input
 							label={<NameIcon width={24} height={24} />}
