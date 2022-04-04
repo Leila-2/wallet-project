@@ -8,7 +8,7 @@ const StyledInput = styled.div`
 		justify-content: center;
 		margin-bottom: 34px;
 		padding-left: 14px;
-		border-bottom: 1px solid ${baseTheme.colors.lightGrayTextColor};
+		border-bottom: 1px solid ${baseTheme.colors.lightGray};
 
 		@media screen and ${baseTheme.media.desctopMin} and (max-height: 719px) {
 			margin-bottom: 10px;

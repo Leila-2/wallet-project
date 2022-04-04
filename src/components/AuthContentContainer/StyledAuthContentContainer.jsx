@@ -9,7 +9,7 @@ const StyledAuthContentContainer = styled.div`
 		margin-right: auto;
 		display: flex;
 		flex-direction: column;
-		background-color: ${baseTheme.colors.primary};
+		background-color: ${baseTheme.colors.white};
 
 		@media screen and (min-width: 480px) {
 			max-width: 480px;

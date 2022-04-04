@@ -32,7 +32,7 @@ const StyledRegisterForm = styled.div`
 		font-size: 18px;
 		padding: 10px 20px 10px 22px;
 		border: none;
-		background-color: ${baseTheme.colors.primary};
+		background-color: ${baseTheme.colors.white};
 		outline: none;
 
 		@media screen and ${baseTheme.media.desctopMin} and (max-height: 719px) {
@@ -54,7 +54,7 @@ const StyledRegisterForm = styled.div`
 	}
 
 	.field::placeholder {
-		color: ${baseTheme.colors.greyTextColor};
+		color: ${baseTheme.colors.grey};
 		font-size: 18px;
 		font-family: "Circe", sans-serif;
 		font-weight: 400;
