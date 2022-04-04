@@ -13,7 +13,7 @@ function App() {
   return (
     <>
       <GlobalStyles />
-      <Suspense fallback={<p>Loading...</p>}>
+      <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
