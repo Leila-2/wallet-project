@@ -2,10 +2,6 @@ import { Container } from "./styles/Container";
 import { Suspense, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
 import { GlobalStyles } from "./styles/GlobalStyles";
-// import { useSelector } from "react-redux";
-// import PrivateRoute from "./components/Routes/PrivateRoute";
-// import PublicRoute from "./components/Routes/PublicRoute";
-// import authSelectors from "./store/auth/auth-selectors";
 
 const LoginPage = lazy(() => import("./pages/LoginPage/LoginPage"));
 const RegisterPage = lazy(() => import("./pages/RegisterPage/RegisterPage"));
@@ -15,10 +11,7 @@ const StatisticsPage = lazy(() =>
 );
 
 function App() {
-	// const isFetchingCurrentUser = useSelector(authSelectors.getIsFetchingCurrent);
-
 	return (
-		// !isFetchingCurrentUser && (
 		<>
 			<GlobalStyles />
 			<Suspense fallback={<p>Loading...</p>}>
@@ -33,7 +26,6 @@ function App() {
 			</Suspense>
 		</>
 	);
-	// );
 }
 
 export default App;
