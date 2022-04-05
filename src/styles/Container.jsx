@@ -9,8 +9,6 @@ export const Container = styled.div`
     max-width: 768px;
   }
   @media screen and ${baseTheme.media.desktop} {
-    max-width: 1200px;
-    padding-left: 40px;
-    padding-right: 40px;
+    max-width: 1280px;
   }
 `;
