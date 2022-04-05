@@ -74,7 +74,14 @@ export const renderTablet = path => {
         </div>
         <div className="authPage-tablet-content-area">
           {path === '/login' && <div className="content">LOGIN</div>}
-          {path === '/register' && <div className="content">REGISTER</div>}
+          {path === '/register' && (
+            <div className="content">
+              <AuthContentContainer authContainer={'register-form-container'}>
+                <RegisterHeader text={'Wallet'} />
+                <RegisterForm />
+              </AuthContentContainer>
+            </div>
+          )}
         </div>
       </div>
     </div>
@@ -85,7 +92,14 @@ export const renderMobile = path => {
   return (
     <div className="authPage-mobile">
       {path === '/login' && <div className="content">LOGIN</div>}
-      {path === '/register' && <div className="content">REGISTER</div>}
+      {path === '/register' && (
+        <div className="content">
+          <AuthContentContainer authContainer={'register-form-container'}>
+            <RegisterHeader text={'Wallet'} />
+            <RegisterForm />
+          </AuthContentContainer>
+        </div>
+      )}
     </div>
   );
 };

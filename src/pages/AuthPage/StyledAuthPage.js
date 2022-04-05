@@ -50,12 +50,14 @@ const StyledAuthPage = styled.div`
   }
 
   .content {
+    @media screen and ${baseTheme.media.tabletMax} {
+      padding-bottom: 48px;
+    }
   }
 
   /* tablet */
 
   .authPage-tablet {
-    height: 1024px;
     width: 100%;
     background-repeat: no-repeat;
     background-position: left bottom;
