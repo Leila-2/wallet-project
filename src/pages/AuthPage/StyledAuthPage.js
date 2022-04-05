@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { baseTheme } from "../../styles/variables";
 
 const StyledAuthPage = styled.div`
   background: rgb(231, 234, 242);
@@ -25,6 +26,16 @@ const StyledAuthPage = styled.div`
 
     .image {
       width: 435px;
+    }
+    .authPage-title {
+      margin-top: 28px;
+
+      font-family: ${baseTheme.fonts.titleFont};
+      font-size: 30px;
+      font-weight: 400;
+      line-height: 1.5;
+      text-align: center;
+      color: ${baseTheme.colors.black};
     }
   }
 

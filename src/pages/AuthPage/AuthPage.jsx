@@ -1,9 +1,9 @@
 import StyledAuthPage from "./StyledAuthPage";
 import { Container } from "../../styles/Container";
 import image_1 from "../../img/loginPage.png";
-import image_2 from "../../img/RegisterPage.png";
-import background_1 from "../../img/Ellipse_1.png";
-import background_2 from "../../img/Rectangle_3.png";
+import image_2 from "../../img/registerPage.png";
+import background_1 from "../../img/ellipse_1.png";
+import background_2 from "../../img/ellipse_2.png";
 import { useLocation } from "react-router-dom";
 
 export default function AuthPage() {
@@ -19,14 +19,17 @@ export default function AuthPage() {
               backgroundImage: `url(${background_1})`,
             }}
           >
-            <img
-              src={
-                (pathname === "/login" && image_1) ||
-                (pathname === "/register" && image_2)
-              }
-              alt="user"
-              className="image"
-            />
+            <div>
+              <img
+                src={
+                  (pathname === "/login" && image_1) ||
+                  (pathname === "/register" && image_2)
+                }
+                alt="user"
+                className="image"
+              />
+              <h2 className="authPage-title">Finance App</h2>
+            </div>
           </div>
           <div
             className="authPage-right-side"
@@ -35,7 +38,9 @@ export default function AuthPage() {
             }}
           >
             {pathname === "/login" && <div className="content">LOGIN</div>}
-            {pathname === "/register" && <div className="content">REGISTER</div>}
+            {pathname === "/register" && (
+              <div className="content">REGISTER</div>
+            )}
           </div>
         </div>
       </Container>
