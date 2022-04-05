@@ -1,18 +1,20 @@
 import { Suspense, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
 import { GlobalStyles } from "./styles/GlobalStyles";
-import AuthPage from "./pages/AuthPage";
+import Loader from './components/Loader/Loader'; 
 
-const MainPage = lazy(() => import("./pages/MainPage/MainPage"));
+const AuthPage = lazy(() => import('./pages/AuthPage'));
+const MainPage = lazy(() => import('./pages/MainPage/MainPage'));
 const StatisticsPage = lazy(() =>
-  import("./pages/StatisticsPage/StatisticsPage")
+  import('./pages/StatisticsPage/StatisticsPage'),
 );
 
 function App() {
+
   return (
     <>
       <GlobalStyles />
-      <Suspense fallback={<p>Loading...</p>}>
+      <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/login" element={<AuthPage />} />
           <Route path="/register" element={<AuthPage />} />
@@ -22,6 +24,7 @@ function App() {
       </Suspense>
     </>
   );
+
 }
 
 export default App;
