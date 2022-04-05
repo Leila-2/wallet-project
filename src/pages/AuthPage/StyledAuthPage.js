@@ -7,6 +7,10 @@ const StyledAuthPage = styled.div`
   min-width: 100%;
   height: 100vh;
 
+  @media screen and ${baseTheme.media.mobileMax} {
+    background: none;
+  }
+
   .authPage {
     display: flex;
   }
@@ -46,18 +50,7 @@ const StyledAuthPage = styled.div`
   }
 
   .content {
-    min-width: 533px;
-    background-color: white;
-
-    font-family: "Poppins";
-    font-style: normal;
-    font-weight: 700;
-    font-size: 30px;
-    line-height: 45px;
-    display: flex;
-    align-items: center;
-
-    color: #000000;
+   border: 1px solid green;
   }
 
   /* tablet */
@@ -94,6 +87,16 @@ const StyledAuthPage = styled.div`
         color: ${baseTheme.colors.black};
       }
     }
+  }
+
+  /* mobile */
+
+  .authPage-mobile {
+    min-width: 320px;
+    height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 `;
 

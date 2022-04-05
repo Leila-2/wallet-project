@@ -72,6 +72,11 @@ export const renderTablet = (path) => {
 };
 
 export const renderMobile = (path) => {
-  return  path === "/login" && <div className="content">LOGIN</div>
+  return (
+    <div className="authPage-mobile">
+      {path === "/login" && <div className="content">LOGIN</div>}
+      {path === "/register" && <div className="content">REGISTER</div>}
+    </div>
+  );
 
 };
