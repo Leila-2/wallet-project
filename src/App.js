@@ -1,6 +1,6 @@
 import { Suspense, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
-import Header from "./components/Header/Header";
+
 import { GlobalStyles } from "./styles/GlobalStyles";
 const LoginPage = lazy(() => import("./pages/LoginPage/LoginPage"));
 const RegisterPage = lazy(() => import("./pages/RegisterPage/RegisterPage"));
@@ -12,7 +12,6 @@ const StatisticsPage = lazy(() =>
 function App() {
 	return (
 		<>
-			<Header/>
 			<GlobalStyles />
 			<Suspense fallback={<p>Loading...</p>}>
 				<Routes>
