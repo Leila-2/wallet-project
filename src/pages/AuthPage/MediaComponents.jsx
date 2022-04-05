@@ -1,6 +1,6 @@
 import image_1 from "../../img/loginPage.png";
-import image_2 from "../../img/registerPage.png";
-import background_1 from "../../img/ellipse_1.png";
+import image_2 from "../../img/RegisterPage.png";
+import background_1 from "../../img/Ellipse_1.png";
 import background_2 from "../../img/ellipse_2.png";
 import background_3 from "../../img/ellipse_3.png";
 
