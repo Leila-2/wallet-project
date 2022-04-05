@@ -13,11 +13,11 @@ export default function AuthPage() {
       <Media
         queries={{
           small: baseTheme.media.mobileMax,
-          medium: `${baseTheme.media.tabletMax} and ${baseTheme.media.tablet}`,
+          medium: `${baseTheme.media.tabletMin} and ${baseTheme.media.tabletMax}`,
           large: baseTheme.media.desktop,
         }}
       >
-        {(matches) => (
+        {matches => (
           <Container>
             {matches.small && renderMobile(pathname)}
             {matches.medium && renderTablet(pathname)}

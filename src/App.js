@@ -5,6 +5,8 @@ import Loader from './components/Loader/Loader';
 
 const AuthPage = lazy(() => import('./pages/AuthPage'));
 const MainPage = lazy(() => import('./pages/MainPage/MainPage'));
+
+
 const StatisticsPage = lazy(() =>
   import('./pages/StatisticsPage/StatisticsPage'),
 );
