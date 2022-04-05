@@ -12,13 +12,11 @@ export const baseTheme = {
 	},
     
 	media: {
-		mobile: "(max-width: 320px)",
+		mobileMin: "(max-width: 320px)",
 		mobileMax: "(max-width: 767px)",
-		tablet: "(max-width: 768px)",
 		tabletMin: "(min-width: 768px)",
 		tabletMax: "(max-width: 1279px)",
-		desctop: "(max-width: 1280px)",
-		desctopMin: "(min-width: 1280px)",
+		desktop: "(min-width: 1280px)",
 	},
     
 	fonts: { mainFont: "Circe", titleFont: "Poppins" },
