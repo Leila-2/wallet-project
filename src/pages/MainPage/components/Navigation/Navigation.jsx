@@ -1,31 +1,36 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import styles from './Navigation.module.css';
+import StyledNavLink from './StyledNavLink';
+import styles from './NavLink.module.css';
+import MainSvg from '../icons/MainSvg';
+import StatSvg from '../icons/StatSvg';
 
 export default function Navigation() {
   return (
     <nav>
       <ul>
-        <li>
+        <StyledNavLink>
           <NavLink
             to="/"
             className={({ isActive }) =>
-              isActive ? styles.linkStyleActive : styles.linkStyle
+              isActive ? 'linkStyleActive' : 'linkStyle'
             }
           >
+            <MainSvg className={'SvgActive'} />
             Главная
           </NavLink>
-        </li>
-        <li>
+        </StyledNavLink>
+        <StyledNavLink>
           <NavLink
             to="/statistics"
             className={({ isActive }) =>
-              isActive ? styles.linkStyleActive : styles.linkStyle
+              isActive ? 'linkStyleActive' : 'linkStyle'
             }
           >
+            <StatSvg className={'SvgActive'} />
             Статистика
           </NavLink>
-        </li>
+        </StyledNavLink>
       </ul>
     </nav>
   );
