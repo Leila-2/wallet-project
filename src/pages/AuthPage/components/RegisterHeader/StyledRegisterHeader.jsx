@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { baseTheme } from "../../styles/variables";
+import { baseTheme } from "../../../../styles/variables";
 
 const StyledRegisterHeader = styled.div`
 	.header-wrapper {

@@ -1,10 +1,13 @@
-import image_1 from "../../img/loginPage.png";
-import image_2 from "../../img/RegisterPage.png";
-import background_1 from "../../img/Ellipse_1.png";
-import background_2 from "../../img/ellipse_2.png";
-import background_3 from "../../img/ellipse_3.png";
+import image_1 from '../../img/loginPage.png';
+import image_2 from '../../img/RegisterPage.png';
+import background_1 from '../../img/Ellipse_1.png';
+import background_2 from '../../img/ellipse_2.png';
+import background_3 from '../../img/ellipse_3.png';
+import AuthContentContainer from './components/AuthContentContainer';
+import RegisterHeader from './components/RegisterHeader';
+import RegisterForm from './components/RegisterForm';
 
-export const renderDesktop = (path) => {
+export const renderDesktop = path => {
   return (
     <div className="authPage">
       <div
@@ -16,8 +19,8 @@ export const renderDesktop = (path) => {
         <div>
           <img
             src={
-              (path === "/login" && image_1) ||
-              (path === "/register" && image_2)
+              (path === '/login' && image_1) ||
+              (path === '/register' && image_2)
             }
             alt="user"
           />
@@ -30,14 +33,21 @@ export const renderDesktop = (path) => {
           backgroundImage: `url(${background_2})`,
         }}
       >
-        {path === "/login" && <div className="content">LOGIN</div>}
-        {path === "/register" && <div className="content">REGISTER</div>}
+        {path === '/login' && <div className="content">LOGIN</div>}
+        {path === '/register' && (
+          <div className="content">
+            <AuthContentContainer authContainer={'register-form-container'}>
+              <RegisterHeader text={'Wallet'} />
+              <RegisterForm />
+            </AuthContentContainer>
+          </div>
+        )}
       </div>
     </div>
   );
 };
 
-export const renderTablet = (path) => {
+export const renderTablet = path => {
   return (
     <div
       className="authPage-tablet"
@@ -54,8 +64,8 @@ export const renderTablet = (path) => {
         <div className="authPage-tablet-title-area">
           <img
             src={
-              (path === "/login" && image_1) ||
-              (path === "/register" && image_2)
+              (path === '/login' && image_1) ||
+              (path === '/register' && image_2)
             }
             alt="user"
             className="authPage-tablet-image"
@@ -63,20 +73,19 @@ export const renderTablet = (path) => {
           <h2 className="authPage-tablet-title">Finance App</h2>
         </div>
         <div className="authPage-tablet-content-area">
-          {path === "/login" && <div className="content">LOGIN</div>}
-          {path === "/register" && <div className="content">REGISTER</div>}
+          {path === '/login' && <div className="content">LOGIN</div>}
+          {path === '/register' && <div className="content">REGISTER</div>}
         </div>
       </div>
     </div>
   );
 };
 
-export const renderMobile = (path) => {
+export const renderMobile = path => {
   return (
     <div className="authPage-mobile">
-      {path === "/login" && <div className="content">LOGIN</div>}
-      {path === "/register" && <div className="content">REGISTER</div>}
+      {path === '/login' && <div className="content">LOGIN</div>}
+      {path === '/register' && <div className="content">REGISTER</div>}
     </div>
   );
-
 };

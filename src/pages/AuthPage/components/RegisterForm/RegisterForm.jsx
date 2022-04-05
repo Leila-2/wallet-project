@@ -6,12 +6,12 @@ import { Formik, Form } from 'formik';
 import Input from '../Input';
 import PasswordStrenght from './PasswordStrenght';
 import validationsSchema from './validation';
-
-import { ReactComponent as EmailIcon } from '../../icons/email.svg';
-import { ReactComponent as LockIcon } from '../../icons/lock.svg';
-import { ReactComponent as NameIcon } from '../../icons/name.svg';
-
+import { ReactComponent as EmailIcon } from '../icons/email.svg';
+import { ReactComponent as LockIcon } from '../icons/lock.svg';
+import { ReactComponent as NameIcon } from '../icons/name.svg';
 import StyledRegisterForm from './StyledRegisterForm';
+import FormButton from '../../../../components/FormButton';
+import FormLink from '../../../../components/FormLink';
 
 function RegisterForm() {
   // const dispatch = useDispatch();
@@ -85,8 +85,14 @@ function RegisterForm() {
               className="field"
               id="name"
             />
-
-            {/* Buttons */}
+            <ul className="buttons-area">
+              <li>
+                <FormButton title={'Регистрация'} />
+              </li>
+              <li className="link_item">
+                <FormLink title={'Вход'} path={'/login'} />
+              </li>
+            </ul>
           </Form>
         )}
       </Formik>
