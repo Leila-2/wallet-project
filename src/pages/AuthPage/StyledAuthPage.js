@@ -48,6 +48,16 @@ const StyledAuthPage = styled.div`
   .content {
     min-width: 533px;
     background-color: white;
+
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 45px;
+    display: flex;
+    align-items: center;
+
+    color: #000000;
   }
 
   /* tablet */

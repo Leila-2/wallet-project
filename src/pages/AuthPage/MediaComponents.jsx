@@ -72,5 +72,6 @@ export const renderTablet = (path) => {
 };
 
 export const renderMobile = (path) => {
-  return <div>MOBILE</div>;
+  return  path === "/login" && <div className="content">LOGIN</div>
+
 };
