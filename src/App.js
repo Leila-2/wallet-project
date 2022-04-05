@@ -1,4 +1,3 @@
-import { Container } from "./styles/Container";
 import { Suspense, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
 import { GlobalStyles } from "./styles/GlobalStyles";
@@ -15,14 +14,12 @@ function App() {
 		<>
 			<GlobalStyles />
 			<Suspense fallback={<p>Loading...</p>}>
-				<Container>
-					<Routes>
-						<Route path="/login" element={<LoginPage />} />
-						<Route path="/register" element={<RegisterPage />} />
-						<Route path="/" element={<MainPage />} />
-						<Route path="/statistics" element={<StatisticsPage />} />
-					</Routes>
-				</Container>
+				<Routes>
+					<Route path="/login" element={<LoginPage />} />
+					<Route path="/register" element={<RegisterPage />} />
+					<Route path="/" element={<MainPage />} />
+					<Route path="/statistics" element={<StatisticsPage />} />
+				</Routes>
 			</Suspense>
 		</>
 	);
