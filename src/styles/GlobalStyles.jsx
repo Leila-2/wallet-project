@@ -15,6 +15,7 @@ ul {
 
 body {
   min-height: 100vh;
+  margin: 0;
   
 a {
 text-decoration: none;

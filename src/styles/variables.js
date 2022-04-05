@@ -1,4 +1,5 @@
 export const baseTheme = {
+  
 	colors: {
 		white: " #ffffff",
 		green: "#24cca7",
@@ -9,6 +10,7 @@ export const baseTheme = {
 		grey: "#bdbdbd",
 		lightGray: "#e0e0e0",
 	},
+    
 	media: {
 		mobile: "(max-width: 320px)",
 		mobileMax: "(max-width: 767px)",
@@ -18,5 +20,6 @@ export const baseTheme = {
 		desctop: "(max-width: 1280px)",
 		desctopMin: "(min-width: 1280px)",
 	},
+    
 	fonts: { mainFont: "Circe", titleFont: "Poppins" },
 };
