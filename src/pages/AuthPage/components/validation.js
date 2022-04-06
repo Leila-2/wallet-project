@@ -1,6 +1,6 @@
 import * as Yup from 'yup';
 
-const validationsSchema = Yup.object({
+export const registerValidationsSchema = Yup.object({
   email: Yup.string()
     .email('Введите корректный e-mail')
     .required('Обязательное поле для заполнения!'),
@@ -18,4 +18,12 @@ const validationsSchema = Yup.object({
     .required('Обязательное поле для заполнения!'),
 });
 
-export default validationsSchema;
+export const loginValidationsSchema = Yup.object({
+  email: Yup.string()
+    .email('Введите корректный e-mail')
+    .required('Обязательное поле для заполнения!'),
+  password: Yup.string()
+    .min(6, 'Пароль должен состоять минимум из 6 символов')
+    .max(12, 'Пароль должен состоять максимум из 12 символов')
+    .required('Обязательное поле для заполнения!'),
+});

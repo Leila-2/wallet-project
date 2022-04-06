@@ -1,16 +1,17 @@
-import { React } from 'react';
-import { Formik, Form } from 'formik';
-import { ReactComponent as EmailIcon } from '../icons/email.svg';
-import { ReactComponent as LockIcon } from '../icons/lock.svg';
-import Input from '../Input';
-import validationsSchema from '../RegisterForm/validation';
 import StyledRegisterForm from '../RegisterForm/StyledRegisterForm';
 import FormButton from '../../../../components/FormButton';
 import FormLink from '../../../../components/FormLink';
+import Input from '../Input';
+import { React } from 'react';
+import { Formik, Form } from 'formik';
+import { loginValidationsSchema } from '../validation';
+import { ReactComponent as EmailIcon } from '../icons/email.svg';
+import { ReactComponent as LockIcon } from '../icons/lock.svg';
 
 function LoginForm() {
-  const handleRegister = ({ name, email, password }) => {
-    console.log('click');
+  const handleRegister = ({ email, password }) => {
+    const login = { email, password };
+    console.log(login);
   };
 
   return (
@@ -22,7 +23,7 @@ function LoginForm() {
         }}
         validateOnBlur
         onSubmit={handleRegister}
-        validationSchema={validationsSchema}
+        validationSchema={loginValidationsSchema}
       >
         {({ handleChange, handleBlur, values }) => (
           <Form className="form">

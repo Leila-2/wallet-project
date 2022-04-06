@@ -1,26 +1,22 @@
-import { React } from 'react';
-import { useState } from 'react';
-// import { useDispatch } from "react-redux";
-import { useNavigate } from 'react-router-dom';
-import { Formik, Form } from 'formik';
-import Input from '../Input';
-import PasswordStrenght from './PasswordStrenght';
-import validationsSchema from './validation';
-import { ReactComponent as EmailIcon } from '../icons/email.svg';
-import { ReactComponent as LockIcon } from '../icons/lock.svg';
-import { ReactComponent as NameIcon } from '../icons/name.svg';
 import StyledRegisterForm from './StyledRegisterForm';
 import FormButton from '../../../../components/FormButton';
 import FormLink from '../../../../components/FormLink';
+import Input from '../Input';
+import PasswordStrenght from './PasswordStrenght';
+import { React } from 'react';
+import { useState } from 'react';
+import { Formik, Form } from 'formik';
+import { registerValidationsSchema } from '../validation';
+import { ReactComponent as EmailIcon } from '../icons/email.svg';
+import { ReactComponent as LockIcon } from '../icons/lock.svg';
+import { ReactComponent as NameIcon } from '../icons/name.svg';
 
 function RegisterForm() {
-  // const dispatch = useDispatch();
-  const navigate = useNavigate();
   const [password, setPassword] = useState('');
 
   const handleRegister = ({ name, email, password }) => {
-    // dispatch();
-    navigate('/login');
+    const register = { name, email, password };
+    console.log(register);
   };
 
   return (
@@ -34,7 +30,7 @@ function RegisterForm() {
         }}
         validateOnBlur
         onSubmit={handleRegister}
-        validationSchema={validationsSchema}
+        validationSchema={registerValidationsSchema}
       >
         {({ handleChange, handleBlur, values }) => (
           <Form className="form">
