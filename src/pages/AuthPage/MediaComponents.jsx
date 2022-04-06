@@ -6,6 +6,7 @@ import background_3 from '../../img/ellipse_3.png';
 import AuthContentContainer from './components/AuthContentContainer';
 import RegisterHeader from './components/RegisterHeader';
 import RegisterForm from './components/RegisterForm';
+import LoginForm from './components/LoginForm';
 
 export const renderDesktop = path => {
   return (
@@ -33,7 +34,14 @@ export const renderDesktop = path => {
           backgroundImage: `url(${background_2})`,
         }}
       >
-        {path === '/login' && <div className="content">LOGIN</div>}
+        {path === '/login' && (
+          <div className="content">
+            <AuthContentContainer authContainer={'register-form-container'}>
+              <RegisterHeader text={'Wallet'} />
+              <LoginForm />
+            </AuthContentContainer>
+          </div>
+        )}
         {path === '/register' && (
           <div className="content">
             <AuthContentContainer authContainer={'register-form-container'}>
@@ -73,7 +81,14 @@ export const renderTablet = path => {
           <h2 className="authPage-tablet-title">Finance App</h2>
         </div>
         <div className="authPage-tablet-content-area">
-          {path === '/login' && <div className="content">LOGIN</div>}
+          {path === '/login' && (
+            <div className="content">
+              <AuthContentContainer authContainer={'register-form-container'}>
+                <RegisterHeader text={'Wallet'} />
+                <LoginForm />
+              </AuthContentContainer>
+            </div>
+          )}
           {path === '/register' && (
             <div className="content">
               <AuthContentContainer authContainer={'register-form-container'}>
@@ -91,7 +106,14 @@ export const renderTablet = path => {
 export const renderMobile = path => {
   return (
     <div className="authPage-mobile">
-      {path === '/login' && <div className="content">LOGIN</div>}
+      {path === '/login' && (
+        <div className="content">
+          <AuthContentContainer authContainer={'register-form-container'}>
+            <RegisterHeader text={'Wallet'} />
+            <LoginForm />
+          </AuthContentContainer>
+        </div>
+      )}
       {path === '/register' && (
         <div className="content">
           <AuthContentContainer authContainer={'register-form-container'}>
