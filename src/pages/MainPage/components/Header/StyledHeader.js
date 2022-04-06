@@ -11,7 +11,7 @@ const StyledHeader = styled.div`
       height: 80px;
     }
   }
-  .ContainerGroops {
+  .FlexGroops {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -35,6 +35,12 @@ const StyledHeader = styled.div`
     @media ${baseTheme.media.tablet} {
       font-size: 30px;
     }
+  }
+  .Avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: green;
   }
   .HeaderButton {
     background: ${baseTheme.colors.white};
