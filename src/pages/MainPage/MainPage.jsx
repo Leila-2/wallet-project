@@ -1,3 +1,4 @@
+import Modal from "../../components/Modal/Modal";
 import Navigation from "../../components/Navigation/Navigation";
 
 export default function MainPage() {
@@ -5,6 +6,7 @@ export default function MainPage() {
 		<>
 			<Navigation />
 			<h1>MainPage</h1>
+			
 		</>
 	);
 }
