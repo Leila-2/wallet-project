@@ -1,7 +1,17 @@
-export default function RegisterPage() {
+import React from "react";
+import AuthContentContainer from "../../components/AuthContentContainer";
+import RegisterForm from "../../components/RegisterForm";
+import RegisterHeader from "../../components/RegisterHeader/RegisterHeader";
+
+const RegisterPage = () => {
 	return (
 		<>
-			<h1>RegisterPage</h1>
+			<AuthContentContainer authContainer="SignupFormContainer">
+				<RegisterHeader text={"Wallet"} />
+				<RegisterForm />
+			</AuthContentContainer>
 		</>
 	);
-}
+};
+
+export default RegisterPage;

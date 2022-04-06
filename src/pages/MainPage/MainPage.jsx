@@ -1,10 +1,12 @@
-import Navigation from '../../pages/MainPage/components/Navigation/Navigation';
+import Navigation from "../../components/Navigation/Navigation";
+import Header from "./components/Header/Header";
 
 export default function MainPage() {
-  return (
-    <>
-      <Navigation />
-      <h1>MainPage</h1>
-    </>
-  );
+	return (
+		<>
+			<Navigation />
+			<Header/>
+			<h1>MainPage</h1>
+		</>
+	);
 }
