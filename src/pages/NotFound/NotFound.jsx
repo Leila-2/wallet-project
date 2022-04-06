@@ -1,14 +1,17 @@
 import StyledH1 from './StyledH1';
+import StyledP from './StyledP';
 import { Container } from '../../styles/Container';
+import StyledDiv from './StyledDiv';
 
 export default function NotFound() {
   return (
     <>
-      <Container>
-        <StyledH1>
-          <h1>Error 404: Page not found!</h1>
-        </StyledH1>
-      </Container>
+      <StyledDiv>
+        <Container>
+          <StyledH1>404</StyledH1>
+          <StyledP>Page not found!</StyledP>
+        </Container>
+      </StyledDiv>
     </>
   );
 }
