@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import StyledNavLink from './StyledNavLink';
-import styles from './NavLink.module.css';
 import MainSvg from '../icons/MainSvg';
 import StatSvg from '../icons/StatSvg';
 
@@ -16,10 +15,11 @@ export default function Navigation() {
               isActive ? 'linkStyleActive' : 'linkStyle'
             }
           >
-            <MainSvg className={'SvgActive'} />
+            <MainSvg />
             Главная
           </NavLink>
         </StyledNavLink>
+
         <StyledNavLink>
           <NavLink
             to="/statistics"
@@ -27,7 +27,7 @@ export default function Navigation() {
               isActive ? 'linkStyleActive' : 'linkStyle'
             }
           >
-            <StatSvg className={'SvgActive'} />
+            <StatSvg />
             Статистика
           </NavLink>
         </StyledNavLink>
