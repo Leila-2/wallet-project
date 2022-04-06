@@ -18,6 +18,7 @@ const StyledNavLink = styled.li`
   svg {
     margin-right: 23px;
     border-radius: 2px;
+    fill: ${baseTheme.colors.blue};
   }
 
   .linkStyleActive {
@@ -28,6 +29,7 @@ const StyledNavLink = styled.li`
 
     svg {
       box-shadow: 0px 3px 10px rgba(74, 86, 226, 0.5);
+      fill: ${baseTheme.colors.purple};
     }
   }
 `;

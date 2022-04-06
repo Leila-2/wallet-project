@@ -1,12 +1,15 @@
-import Navigation from "../../components/Navigation/Navigation";
-import Header from "./components/Header/Header";
+import Navigation from '../../pages/MainPage/components/Navigation/Navigation';
+import Header from './components/Header/Header';
+import { Container } from '../../styles/Container';
 
 export default function MainPage() {
-	return (
-		<>
-			<Navigation />
-			<Header/>
-			<h1>MainPage</h1>
-		</>
-	);
+  return (
+    <>
+      <Header />
+      <Container>
+        <Navigation />
+        <h1>MainPage</h1>
+      </Container>
+    </>
+  );
 }
