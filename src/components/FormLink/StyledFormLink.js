@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { baseTheme } from "../../styles/variables";
+import styled from 'styled-components';
+import { baseTheme } from '../../styles/variables';
 
 const StyledFormLink = styled.div`
   width: 300px;
@@ -13,17 +13,16 @@ const StyledFormLink = styled.div`
   display: flex;
   align-items: center;
 
-  font-family: ${baseTheme.fonts.mainFont};
-  font-size: 18px;
-  line-height: 1.5;
-  text-align: center;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-
-  color: ${baseTheme.colors.purple};
-
   .link {
     width: 100%;
+    font-family: ${baseTheme.fonts.mainFont};
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.5;
+    text-align: center;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: ${baseTheme.colors.purple};
   }
 
   @media screen and ${baseTheme.media.mobileMax} {

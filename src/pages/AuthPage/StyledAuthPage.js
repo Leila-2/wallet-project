@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { baseTheme } from "../../styles/variables";
+import styled from 'styled-components';
+import { baseTheme } from '../../styles/variables';
 
 const StyledAuthPage = styled.div`
   background: rgb(231, 234, 242);
@@ -50,13 +50,14 @@ const StyledAuthPage = styled.div`
   }
 
   .content {
-   border: 1px solid green;
+    @media screen and ${baseTheme.media.tabletMax} {
+      padding-bottom: 48px;
+    }
   }
 
   /* tablet */
 
   .authPage-tablet {
-    height: 1024px;
     width: 100%;
     background-repeat: no-repeat;
     background-position: left bottom;
@@ -93,7 +94,7 @@ const StyledAuthPage = styled.div`
 
   .authPage-mobile {
     min-width: 320px;
-    height:100vh;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
