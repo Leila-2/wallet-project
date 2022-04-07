@@ -1,5 +1,4 @@
 export const baseTheme = {
-  
 	colors: {
 		white: " #ffffff",
 		green: "#24cca7",
@@ -19,5 +18,5 @@ export const baseTheme = {
 		desktop: "(min-width: 1280px)",
 	},
     
-	fonts: { mainFont: "Circe", titleFont: "Poppins" },
+	fonts: { mainFont: "Circe", titleFont: "Poppins", cyrylic: 'Verdana'},
 };
