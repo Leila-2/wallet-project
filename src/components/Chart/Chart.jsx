@@ -1,19 +1,47 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-// import transactionsSelectors from '../../redux/transactions/transaction-selectors';
+// import { useSelector } from 'react-redux';
+// import transactionsSelectors from '../../store/transactions/trancaction-selectors';
+import 'chart.js/auto';
 import { Doughnut } from 'react-chartjs-2';
 import ChartBalance from './ChartBalance';
 
 import StyledChart from './StyledChart';
 
-export default function MyChart() {
-  // const { categoriesSummary, totalSpend } = useSelector(
-  //   transactionsSelectors.getStatistics,
-  // );
-  const data = {
+const statistics = {
+  categories: {
+    main: 500,
+    food: 1000,
+    car: 1300,
+    me: 4000,
+    children: 370,
+    house: 130,
+    education: 850,
+    leisure: 2350,
+    other: 1230,
+  },
+  totalBalance: '10 350.00',
+};
+
+const Chart = () => {
+  // const { totalBalance } = useSelector(transactionsSelectors.getTransactions);
+  // const { statistic } = useSelector(transactionsSelectors.getStatistics);
+  const options = {
+    plugins: {
+      legend: {
+        display: false,
+      },
+    },
+    maintainAspectRatio: false,
+  };
+
+  const chart = {
+    labels: [...Object.keys(statistics.categories)],
     datasets: [
       {
-        data: categoriesSummary ? Object.values(categoriesSummary) : null,
+        data: statistics.categories
+          ? Object.values(statistics.categories)
+          : null,
+        label: '# of Votes',
         backgroundColor: [
           '#FED057',
           '#F7A594',
@@ -36,7 +64,8 @@ export default function MyChart() {
           '#24CCA7',
           '#00AD84',
         ],
-        borderWidth: 1,
+        borderWidth: 2,
+        hoverOffset: 2,
         cutout: 85,
       },
     ],
@@ -47,17 +76,14 @@ export default function MyChart() {
       <h3 className="title">Статистика</h3>
       <div className="chart">
         <div className="containerChart">
-          <ChartBalance totalSpend />
+          <ChartBalance balance={statistics.totalBalance} />
           <div className="doughnut">
-            <Doughnut
-              options={{ maintainAspectRatio: false }}
-              height={280}
-              width={280}
-              data={data}
-            />
+            <Doughnut options={options} height={280} width={280} data={chart} />
           </div>
         </div>
       </div>
     </StyledChart>
   );
-}
+};
+
+export default Chart;
