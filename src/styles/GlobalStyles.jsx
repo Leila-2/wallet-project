@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
 *,
@@ -15,6 +15,8 @@ ul {
 
 body {
   min-height: 100vh;
+  margin: 0;
+  font-family:sans-serif;
   
 a {
 text-decoration: none;

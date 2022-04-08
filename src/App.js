@@ -2,9 +2,11 @@ import { Suspense, lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { GlobalStyles } from './styles/GlobalStyles';
 import Loader from './components/Loader/Loader';
-const LoginPage = lazy(() => import('./pages/LoginPage/LoginPage'));
-const RegisterPage = lazy(() => import('./pages/RegisterPage/RegisterPage'));
+import NotFound from './pages/NotFound/NotFound';
+
+const AuthPage = lazy(() => import('./pages/AuthPage'));
 const MainPage = lazy(() => import('./pages/MainPage/MainPage'));
+
 const StatisticsPage = lazy(() =>
   import('./pages/StatisticsPage/StatisticsPage'),
 );
@@ -15,10 +17,11 @@ function App() {
       <GlobalStyles />
       <Suspense fallback={<Loader />}>
         <Routes>
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/login" element={<AuthPage />} />
+          <Route path="/register" element={<AuthPage />} />
           <Route path="/" element={<MainPage />} />
           <Route path="/statistics" element={<StatisticsPage />} />
+          <Route path="*" element={<NotFound />}></Route>
         </Routes>
       </Suspense>
     </>
