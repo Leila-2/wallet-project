@@ -16,7 +16,6 @@ export const register = async (name, email, password) => {
 export const login = async (email, password) => {
   try {
     const res = await axios.post(`/users/login`, { email, password });
-    // console.log(res);
     return res;
   } catch (error) {
     console.error(error);
@@ -27,7 +26,6 @@ export const login = async (email, password) => {
 export const logout = async () => {
   try {
     const res = await axios.post(`/users/logout`);
-    // console.log(res);
     return res;
   } catch (error) {
     console.error(error);
@@ -38,7 +36,6 @@ export const logout = async () => {
 export const current = async () => {
   try {
     const res = await axios.get(`/users/current`);
-    // console.log(res);
     return res;
   } catch (error) {
     console.error(error);
@@ -49,7 +46,6 @@ export const current = async () => {
 export const transactionsAll = async () => {
   try {
     const res = await axios.get(`/transactions/all`);
-    // console.log(res);
     return res;
   } catch (error) {
     console.error(error);
@@ -60,7 +56,6 @@ export const transactionsAll = async () => {
 export const transactionsCreate = async () => {
   try {
     const res = await axios.post(`/transactions/create`);
-    // console.log(res);
     return res;
   } catch (error) {
     console.error(error);
@@ -71,7 +66,6 @@ export const transactionsCreate = async () => {
 export const transactionsStat = async () => {
   try {
     const res = await axios.get(`/transactions/statistics/?{month}&{year}`);
-    // console.log(res);
     return res;
   } catch (error) {
     console.error(error);
@@ -82,7 +76,6 @@ export const transactionsStat = async () => {
 export const transactionsId = async () => {
   try {
     const res = await axios.get(`/transactions/:transactionId`);
-    // console.log(res);
     return res;
   } catch (error) {
     console.error(error);
@@ -93,7 +86,6 @@ export const transactionsId = async () => {
 export const transactionsUpdate = async () => {
   try {
     const res = await axios.put(`/transactions/:transactionId`);
-    // console.log(res);
     return res;
   } catch (error) {
     console.error(error);
@@ -104,7 +96,6 @@ export const transactionsUpdate = async () => {
 export const transactionsDelete = async () => {
   try {
     const res = await axios.delete(`/transactions/:transactionId`);
-    // console.log(res);
     return res;
   } catch (error) {
     console.error(error);
@@ -115,7 +106,6 @@ export const transactionsDelete = async () => {
 export const categories = async () => {
   try {
     const res = await axios.get(`/transactions/categories`);
-    // console.log(res);
     return res;
   } catch (error) {
     console.error(error);
