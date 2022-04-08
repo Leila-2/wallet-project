@@ -8,8 +8,10 @@ export const baseTheme = {
 		black: "#000000",
 		grey: "#bdbdbd",
 		lightGray: "#e0e0e0",
+		lightGray2: "#A6A6A6",
+
 	},
-    
+
 	media: {
 		mobileMin: "(max-width: 320px)",
 		mobileMax: "(max-width: 767px)",
@@ -17,6 +19,6 @@ export const baseTheme = {
 		tabletMax: "(max-width: 1279px)",
 		desktop: "(min-width: 1280px)",
 	},
-    
-	fonts: { mainFont: "Circe", titleFont: "Poppins", cyrylic: 'Verdana'},
+
+	fonts: { mainFont: "Circe", titleFont: "Poppins", cyrylic: 'Verdana' },
 };

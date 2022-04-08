@@ -1,11 +1,12 @@
 import React from 'react';
 import s from './Loader.module.css';
+import { Container } from '../../styles/Container';
 
 function Loader() {
   return (
-    <div className={s.container}>
+    <Container>
       <div className={s.loader}></div>
-    </div>
+    </Container>
   );
 }
 
