@@ -5,11 +5,15 @@ import ButtonAddTransaction from '../../components/BtnAddTransaction/BtnAddTrans
 import Modal from '../../components/Modal/Modal';
 import { useEffect, useState } from 'react';
 import { Container } from '../../styles/Container';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleModal } from '../../store/modal/actions';
 
 export default function MainPage() {
-  const [showModal, setShowModal] = useState(false);
+  const dispatch = useDispatch();
+  const showModal = useSelector(state => state.modal);
+
   const onClose = () => {
-    setShowModal(!showModal);
+    dispatch(toggleModal());
   };
   return (
     <>
@@ -21,7 +25,7 @@ export default function MainPage() {
         </Container>
       </MainBg>
       <ButtonAddTransaction onClick={onClose} />
-      {showModal && <Modal showModal={showModal} setShowModal={setShowModal} />}
+      {showModal && <Modal />}
     </>
   );
 }

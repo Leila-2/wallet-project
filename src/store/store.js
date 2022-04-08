@@ -9,6 +9,7 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+import { modalReducer } from './modal/reducer';
 
 import transactionsReducer from './transactions/transaction-reducer';
 
@@ -30,6 +31,7 @@ export const store = configureStore({
   reducer: {
     // auth: persistReducer(authPersistConfig, authReducer),
     transactions: transactionsReducer,
+    modal: modalReducer,
   },
   middleware,
   devTools: process.env.NODE_ENV === 'development',

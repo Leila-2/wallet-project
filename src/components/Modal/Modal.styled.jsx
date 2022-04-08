@@ -3,6 +3,7 @@ import { baseTheme } from '../../styles/variables';
 import plus from './plus.svg';
 import minus from './minus.svg';
 import FormButton from '../FormButton/StyledFormButton';
+
 export const ModalWrapper = styled.div`
   position: fixed;
   top: 0;
@@ -64,7 +65,7 @@ export const ModalWrapper = styled.div`
   border-left: none;
   border-right: none;
   border-bottom: 1px solid;
-  border-color:grey;
+  border-color:${baseTheme.colors.lightGray};
   }
 .comment::placeholder {
   color: ${baseTheme.colors.lightGray};
@@ -94,7 +95,7 @@ justify-content:space-around;
 export const Checkbox = styled.div`
 text-align: center;
 margin-bottom: 40px;
-color: grey;
+color: ${baseTheme.colors.gray};
 }
 .checkbox__label-right{
 color:${baseTheme.colors.lightGray}
