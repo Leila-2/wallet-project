@@ -1,12 +1,12 @@
-import {MainBgImage} from './MainBg.styled.jsx'
+import { MainBgImage } from './MainBg.styled.jsx';
 
-export default function MainBg({RigthComponent, LeftComponent}) {
+export default function MainBg({ RigthComponent, LeftComponent }) {
   return (
-      <>
-          <MainBgImage>
-            <div className="wrapper-right">{RigthComponent}</div>
-            <div>{LeftComponent}</div></MainBgImage>
-      </>
-
-  )
+    <>
+      <MainBgImage>
+        <div className="wrapper-right">{RigthComponent}</div>
+        <div>{LeftComponent}</div>
+      </MainBgImage>
+    </>
+  );
 }
