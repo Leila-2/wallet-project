@@ -10,13 +10,17 @@ import { registerValidationsSchema } from '../validation';
 import { ReactComponent as EmailIcon } from '../icons/email.svg';
 import { ReactComponent as LockIcon } from '../icons/lock.svg';
 import { ReactComponent as NameIcon } from '../icons/name.svg';
+import { useDispatch } from 'react-redux';
+
+import { actionRegister } from '../../../../store/auth/authActions';
 
 function RegisterForm() {
   const [password, setPassword] = useState('');
+  const dispatch = useDispatch();
 
   const handleRegister = ({ name, email, password }) => {
-    const register = { name, email, password };
-    console.log(register);
+    const registerData = { name, email, password };
+    dispatch(actionRegister(registerData));
   };
 
   return (

@@ -9,8 +9,8 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-
 import transactionsReducer from './transactions/transaction-reducer';
+import authReducer from './auth/authReducer'
 
 const middleware = [
   ...getDefaultMiddleware({
@@ -28,7 +28,7 @@ const authPersistConfig = {
 
 export const store = configureStore({
   reducer: {
-    // auth: persistReducer(authPersistConfig, authReducer),
+    auth: authReducer,
     transactions: transactionsReducer,
   },
   middleware,

@@ -7,11 +7,16 @@ import { Formik, Form } from 'formik';
 import { loginValidationsSchema } from '../validation';
 import { ReactComponent as EmailIcon } from '../icons/email.svg';
 import { ReactComponent as LockIcon } from '../icons/lock.svg';
+import { actionLogin } from '../../../../store/auth/authActions';
+import { useDispatch } from 'react-redux';
 
 function LoginForm() {
+  const dispatch = useDispatch();
+
   const handleRegister = ({ email, password }) => {
     const login = { email, password };
-    console.log(login);
+
+    dispatch(actionLogin(login));
   };
 
   return (
