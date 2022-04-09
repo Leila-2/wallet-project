@@ -1,13 +1,16 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import StyledNavLink from './StyledNavLink';
+import StyledCurrencyLink from './StyledCurrencyLink';
+import StyledNavList from './StyledNavList';
 import MainSvg from '../icons/MainSvg';
 import StatSvg from '../icons/StatSvg';
+import CurrSvg from '../icons/CurrSvg';
 
 export default function Navigation() {
   return (
     <nav>
-      <ul>
+      <StyledNavList>
         <StyledNavLink>
           <NavLink
             to="/"
@@ -16,7 +19,7 @@ export default function Navigation() {
             }
           >
             <MainSvg />
-            Главная
+            <span>Главная</span>
           </NavLink>
         </StyledNavLink>
 
@@ -28,10 +31,22 @@ export default function Navigation() {
             }
           >
             <StatSvg />
-            Статистика
+            <span>Статистика</span>
           </NavLink>
         </StyledNavLink>
-      </ul>
+
+        <StyledCurrencyLink>
+          <NavLink
+            to="/currency"
+            className={({ isActive }) =>
+              isActive ? 'linkStyleActive' : 'linkStyle'
+            }
+          >
+            <CurrSvg />
+            <span>Валюта</span>
+          </NavLink>
+        </StyledCurrencyLink>
+      </StyledNavList>
     </nav>
   );
 }
