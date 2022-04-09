@@ -20,5 +20,5 @@ export const baseTheme = {
 		desktop: "(min-width: 1280px)",
 	},
 
-	fonts: { mainFont: "Circe", titleFont: "Poppins", cyrylic: 'Verdana' },
+	fonts: { mainFont: "Montserrat", titleFont: "Montserrat", cyrylic: 'Montserrat' },
 };
