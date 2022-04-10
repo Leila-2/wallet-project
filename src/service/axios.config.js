@@ -2,14 +2,15 @@ import axios from 'axios';
 
 axios.defaults.baseURL = `https://wallet-team-backend.herokuapp.com/api`;
 
-axios.defaults.headers.common['Authorization'] =
-  localStorage.getItem('AUTH_TOKEN');
+axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem(
+  'AUTH_TOKEN',
+)}`;
 
 //==================REGISTER====================
 export const register = async (name, email, password) => {
   try {
     const res = await axios.post(`/users/signup`, { name, email, password });
-    
+
     return res;
   } catch (error) {
     alert(error.response.data.message);
@@ -22,7 +23,7 @@ export const login = async (email, password) => {
     const res = await axios.post(`/users/login`, { email, password });
     return res;
   } catch (error) {
-    console.error(error.message);
+    alert(error.response.data.message);
   }
 };
 
@@ -42,7 +43,7 @@ export const current = async () => {
     const res = await axios.get(`/users/current`);
     return res;
   } catch (error) {
-    console.error(error);
+    alert(error.response.data.message);
   }
 };
 

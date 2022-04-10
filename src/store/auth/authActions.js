@@ -1,5 +1,5 @@
 import { AUTH_ACTIONS } from './actionTypes';
-import { register, login } from '../../service/axios.config';
+import { register, login, current } from '../../service/axios.config';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 export const actionRegister = createAsyncThunk(
@@ -24,6 +24,19 @@ export const actionLogin = createAsyncThunk(
 
       localStorage.setItem('AUTH_TOKEN', response.data.user.token);
       return response.data.user;
+    } catch (err) {
+      return rejectWithValue(err.response.data);
+    }
+  },
+);
+
+export const actionCurrent = createAsyncThunk(
+  AUTH_ACTIONS.CURRENT,
+  async (data, { rejectWithValue }) => {
+    try {
+      const response = await current();
+
+      return response.data;
     } catch (err) {
       return rejectWithValue(err.response.data);
     }
