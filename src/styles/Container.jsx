@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { baseTheme } from "./variables";
+import styled from 'styled-components';
+import { baseTheme } from './variables';
 
 export const Container = styled.div`
   width: 100%;

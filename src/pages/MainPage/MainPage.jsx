@@ -3,7 +3,7 @@ import Navigation from './components/Navigation/Navigation';
 import Header from './components/Header/Header';
 import ButtonAddTransaction from '../../components/BtnAddTransaction/BtnAddTransaction';
 import Modal from '../../components/Modal/Modal';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 export default function MainPage() {
   const [showModal, setShowModal] = useState(false);
@@ -13,6 +13,7 @@ export default function MainPage() {
   return (
     <>
       <Header />
+
       <MainBg RigthComponent={<Navigation />} />
       <ButtonAddTransaction onClick={onClose} />
       {showModal && <Modal showModal={showModal} setShowModal={setShowModal} />}
