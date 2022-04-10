@@ -53,9 +53,21 @@ export const transactionsAll = async () => {
 };
 
 //===================TRANSACTIONS CREATE=====================
-export const transactionsCreate = async () => {
+export const transactionsCreate = async (
+  date,
+  category,
+  comments,
+  amount,
+  type,
+) => {
   try {
-    const res = await axios.post(`/transactions/create`);
+    const res = await axios.post(`/transactions/create`, {
+      date,
+      category,
+      comments,
+      amount,
+      type,
+    });
     return res;
   } catch (error) {
     console.error(error);
