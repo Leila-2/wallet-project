@@ -7,8 +7,9 @@ export const MainBgImage = styled.div`
   background-color: rgba(255, 255, 255, 0.4);
   height: 100vh;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  
+
+
   @media screen and ${baseTheme.media.tabletMin} {
     background-image: url(${img});
     width: 100%;
@@ -17,6 +18,8 @@ export const MainBgImage = styled.div`
     align-items: flex-start;
     .wrapper-right {
       padding: 40px 35px 47px 35px;
+    }
+    
     }
   }
   @media screen and ${baseTheme.media.desktop} {
@@ -33,6 +36,10 @@ export const MainBgImage = styled.div`
       box-shadow: 1px 0 0 0 rgba(255, 255, 255, 0.8),
         -1px 0px rgba(0, 0, 0, 0.05);
     }
+.wrapper-left {
+      padding: 40px 16px 47px 69px;
+    }
+
   }
 
   @media screen and ${baseTheme.media.mobileMax} {

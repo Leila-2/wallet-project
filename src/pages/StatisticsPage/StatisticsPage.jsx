@@ -7,7 +7,8 @@ import Modal from '../../components/Modal/Modal';
 import ButtonAddTransaction from '../../components/BtnAddTransaction/BtnAddTransaction';
 import { useState } from 'react';
 import Balance from '../../components/Balance/Balance';
-import TableBalance from '../../components/TableBalans/TableBalansElement';
+// import TableBalance from '../../components/TableBalans/TableBalansElement';
+import TableStatistic from '../../components/TableStatistic/TableStatistic';
 
 export default function StatisticsPage() {
   const [showModal, setShowModal] = useState(false);
@@ -24,8 +25,14 @@ export default function StatisticsPage() {
             <Navigation /> <Balance />
           </>
         }
-        LeftComponent={<Chart />}
+        LeftComponent={
+          <>
+            <Chart />
+            <TableStatistic />
+          </>
+        }
       />
+
       <ButtonAddTransaction onClick={onClose} />
       {showModal && <Modal showModal={showModal} setShowModal={setShowModal} />}
     </>

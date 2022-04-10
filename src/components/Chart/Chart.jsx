@@ -66,7 +66,7 @@ const Chart = () => {
         ],
         borderWidth: 1,
         hoverOffset: 1,
-        cutout: 85,
+        cutout: 100,
       },
     ],
   };
