@@ -46,16 +46,14 @@ const StyledTableStatistic = styled.div`
   }
 
   .header-table {
+    height: 58px;
     background: #ffffff;
   }
 
   .table-categori {
-    padding-left: 53px;
-  }
-
-  .table-data {
-    padding-right: 20px;
-    text-align: right;
+    padding-left: 16px;
+    border-bottom: 1px;
+    box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
   }
 
   .first-table {
@@ -72,27 +70,30 @@ const StyledTableStatistic = styled.div`
     border-radius: 0 30px 30px 0;
   }
 
-  .table-list td {
-    position: relative;
-    border-bottom: 1px solid #dcdcdf;
+  .table-list .table-data {
+    padding-right: 20px;
+    text-align: right;
+    border-bottom: 1px;
+    box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
   }
 
-  .table-list .table-categori::after {
-    position: absolute;
-    content: '';
-    display: block;
+  .last-data{
+    padding-right: 20px;
+    text-align: right;
+  }
+
+  .square{
+    display: inline-block;
+    margin-right: 15px;
+    margin-bottom: -8px;
+    background: ${color};
     width: 24px;
     height: 24px;
-    top: 13px;
-    left: 15px;
-    background: ${color};
-    border-radius: 2px;
   }
 
   .table-list .table-title {
     text-align: left;
     padding-left: 15px;
-    border-bottom: 1px solid #dcdcdf;
   }
 `;
 
