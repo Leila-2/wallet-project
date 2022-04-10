@@ -17,11 +17,6 @@ const StyledChartBalance = styled.div`
     color: ${baseTheme.colors.black};
     width: 140px;
     height: 24px;
-
-    @media ${baseTheme.media.tabletMin} {
-      width: 93px;
-      height: 27px;
-    }
   }
 `;
 
