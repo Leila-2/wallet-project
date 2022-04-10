@@ -8,12 +8,19 @@ import ButtonAddTransaction from '../../components/BtnAddTransaction/BtnAddTrans
 import { useState } from 'react';
 import Balance from '../../components/Balance/Balance';
 import TableBalance from '../../components/TableBalans/TableBalansElement';
+import Period from '../../components/Period';
 
 export default function StatisticsPage() {
   const [showModal, setShowModal] = useState(false);
   const onClose = () => {
     setShowModal(!showModal);
   };
+
+  const years = 2022 || [];
+  const date = new Date();
+  const [month, setMonth] = useState(() => date.getUTCMonth() + 1);
+  const [year, setYear] = useState(() => date.getFullYear());
+
   return (
     <>
       <Header />
@@ -24,7 +31,14 @@ export default function StatisticsPage() {
             <Navigation /> <Balance />
           </>
         }
-        LeftComponent={<Chart />}
+        LeftComponent={<>
+          <Chart />
+          <Period
+          setRequestedMonth={setMonth}
+          setRequestedYear={setYear}
+          years={years}
+          />
+        </>}
       />
       <ButtonAddTransaction onClick={onClose} />
       {showModal && <Modal showModal={showModal} setShowModal={setShowModal} />}
