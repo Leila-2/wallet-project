@@ -1,0 +1,99 @@
+import styled from 'styled-components';
+
+const colors = [
+  '#FED057',
+  '#F7A594',
+  '#FCBEB1',
+  '#C5BAFF',
+  '#6E78E8',
+  '#4A56E2',
+  '#81E1FF',
+  '#24CCA7',
+  '#00AD84',
+];
+
+const borderColor = function (colors) {
+  for (let i = 1; i < colors.length; i += 1){
+    return colors[i]
+  }
+};
+
+const color = borderColor(colors)
+
+const StyledTableStatistic = styled.div`
+  .global-table {
+    border-collapse: collapse;
+    min-width: 395px;
+    min-height: 606px;
+    margin-left: auto;
+    margin-right: 0;
+    left: 869px;
+    top: 247px;
+    @media screen and (min-width: 768px) and (max-width: 1199.9px) {
+      margin-right: auto;
+      min-width: 336px;
+      min-height: 596px;
+      left: 400px;
+      top: 404px;
+    }
+    @media screen and and (min-width: 320px) and (max-width: 767.9px) {
+      margin-right: auto;
+      min-width: 280px;
+      min-height: 604px;
+      left: 20px;
+      top: 661px;
+    }
+  }
+
+  .header-table {
+    background: #ffffff;
+  }
+
+  .table-categori {
+    padding-left: 53px;
+  }
+
+  .table-data {
+    padding-right: 20px;
+    text-align: right;
+  }
+
+  .first-table {
+    text-align: left;
+    padding-left: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-radius: 30px 0 0 30px;
+  }
+
+  .last-table {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-radius: 0 30px 30px 0;
+  }
+
+  .table-list td {
+    position: relative;
+    border-bottom: 1px solid #dcdcdf;
+  }
+
+  .table-list .table-categori::after {
+    position: absolute;
+    content: '';
+    display: block;
+    width: 24px;
+    height: 24px;
+    top: 13px;
+    left: 15px;
+    background: ${color};
+    border-radius: 2px;
+  }
+
+  .table-list .table-title {
+    text-align: left;
+    padding-left: 15px;
+    border-bottom: 1px solid #dcdcdf;
+  }
+`;
+
+export default StyledTableStatistic;
