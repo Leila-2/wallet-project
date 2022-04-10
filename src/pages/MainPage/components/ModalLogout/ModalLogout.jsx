@@ -1,5 +1,5 @@
 import StyledModal from './StyledModal';
-import { useEffect } from 'react';
+//import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import FormButton from '../../../../components/FormButton/FormButton';
 import FormLink from '../../../../components/FormLink/FormLink';
@@ -26,7 +26,12 @@ const ModalLogout = ({ setM }) => {
                 }}
               ></FormButton>
             </div>
-            <div className="ModalLogoutButtonCancel"  onClick={()=>{setM(false)}}>
+            <div
+              className="ModalLogoutButtonCancel"
+              onClick={() => {
+                setM(false);
+              }}
+            >
               <FormLink title="Отмена" path="/"></FormLink>
             </div>
           </div>
