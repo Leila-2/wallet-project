@@ -29,13 +29,11 @@ export default function StatisticsPage() {
     <>
       <Header />
 
-      <MainBg
-        RigthComponent={
+      <MainBg RigthComponent={
           <>
             <Navigation /> <Balance />
           </>
         }
-
         LeftComponent={<>
           <Chart />
           <Period
@@ -44,9 +42,10 @@ export default function StatisticsPage() {
              years={years}
           />
  <TableStatistic />
-        </>}
-     
+        </>}>
 
+      </MainBg>
+     
       <ButtonAddTransaction onClick={onClose} />
       {showModal && <Modal showModal={showModal} setShowModal={setShowModal} />}
     </>

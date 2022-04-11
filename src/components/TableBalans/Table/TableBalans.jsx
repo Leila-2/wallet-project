@@ -1,6 +1,6 @@
 import StyledTableBalans from './StyledTableBalanse';
 
-export default function TableBalans() {
+export default function TableBalans({ transactions }) {
   return (
     <StyledTableBalans>
       <table className="global-table">
@@ -16,14 +16,16 @@ export default function TableBalans() {
         </thead>
 
         <tbody>
-          <tr className="table-list">
-            <td>Ячейка 1</td>
-            <td>Ячейка 2</td>
-            <td>Ячейка 3</td>
-            <td>Ячейка 4</td>
-            <td>Ячейка 5</td>
-            <td>Ячейка 6</td>
-          </tr>
+          {transactions.map(transaction => (
+            <tr className="table-list" key={transaction.id}>
+              <td>{transaction.date}</td>
+              <td>{transaction.type === 'expenses' ? '-' : '+'}</td>
+              <td>{transaction.category}</td>
+              <td>{transaction.comment}</td>
+              <td>{transaction.amount}</td>
+              <td>Ячейка 6</td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </StyledTableBalans>
