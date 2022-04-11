@@ -3,7 +3,7 @@ import Navigation from './components/Navigation/Navigation';
 import Header from './components/Header/Header';
 import ButtonAddTransaction from '../../components/BtnAddTransaction/BtnAddTransaction';
 import Modal from '../../components/Modal/Modal';
-
+import { toggleModal } from '../../store/modal/actions';
 import { useEffect,useState } from 'react';
 import Balance from '../../components/Balance/Balance';
 import TableBalance from '../../components/TableBalans/TableBalansElement';

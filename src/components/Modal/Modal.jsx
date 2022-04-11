@@ -1,17 +1,13 @@
-
-import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { ModalWrapper, Checkbox, СancelBtn } from './Modal.styled';
-import { ReactComponent as AddIconClose } from './closeBtn.svg';
-import FormButton from '../FormButton/FormButton';
+import { ModalWrapper } from './Modal.styled';
+import { ReactComponent as AddIconClose } from './closeBtn.svg'
 import { useDispatch, useSelector } from 'react-redux';
-  import { toggleModal } from '../../store/modal/actions';
-  import ModalAddTransaction from '../ModalAddTransaction/ModalAddTransaction'; 
-  
+import { toggleModal } from '../../store/modal/actions';
+import ModalAddTransaction from '../ModalAddTransaction/ModalAddTransaction';
+import { useEffect } from 'react';
 const modalRoot = document.querySelector('#modal-root');
 
-export default function Modal({ showModal, setShowModal, children }) {
-
+export default function Modal() {
   const dispatch = useDispatch();
   const onClose = () => {
     dispatch(toggleModal());
@@ -24,10 +20,9 @@ export default function Modal({ showModal, setShowModal, children }) {
   });
   const onEscapeClose = e => {
     if (e.code === 'Escape') {
-      onClose();
+      onClose()
     }
-  };
-
+  }
   const handleClickBackdrop = e => {
     if (e.target === e.currentTarget) {
       onClose();
@@ -40,11 +35,9 @@ export default function Modal({ showModal, setShowModal, children }) {
 
   return createPortal(
     <ModalWrapper onClick={handleClickBackdrop}>
-
       <div className="content"><AddIconClose className="closeBtn" type='button' onClick={onClose} />
         <p className="title">Добавить транзакцию</p>
         <ModalAddTransaction/>
-
       </div>
     </ModalWrapper>,
     modalRoot,
