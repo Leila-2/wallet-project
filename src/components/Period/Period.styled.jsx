@@ -17,9 +17,14 @@ export const StyledPeriod = styled.div`
     margin-bottom: 20px;
 
     @media screen and ${baseTheme.media.tabletMin} {
-        width: 166px;
+        width: 160px;
         margin-bottom: 0;
         margin-right: 16px;
+    }
+
+    @media screen and ${baseTheme.media.desktop} {
+        width: 182px;
+        margin-right: 32px;
     }
 }
 
@@ -28,8 +33,12 @@ export const StyledPeriod = styled.div`
     margin: 0;
 
     @media screen and ${baseTheme.media.tabletMin} {
-        width: 166px;
+        width: 160px;
     }
+
+     @media screen and ${baseTheme.media.desktop} {
+         width: 182px;
+     }
 }
 
 .svgArrowDown {
