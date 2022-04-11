@@ -10,14 +10,16 @@ import { ReactComponent as LockIcon } from '../icons/lock.svg';
 import { actionLogin } from '../../../../store/auth/authActions';
 import { useDispatch } from 'react-redux';
 
+
 function LoginForm() {
   const dispatch = useDispatch();
 
-  const handleRegister = ({ email, password }) => {
+  const handleLogin = ({ email, password }) => {
     const login = { email, password };
 
     dispatch(actionLogin(login));
   };
+
 
   return (
     <StyledRegisterForm>
@@ -27,7 +29,7 @@ function LoginForm() {
           password: '',
         }}
         validateOnBlur
-        onSubmit={handleRegister}
+        onSubmit={handleLogin}
         validationSchema={loginValidationsSchema}
       >
         {({ handleChange, handleBlur, values }) => (

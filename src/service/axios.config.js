@@ -43,7 +43,7 @@ export const current = async () => {
     const res = await axios.get(`/users/current`);
     return res;
   } catch (error) {
-    alert(error.response.data.message);
+    console.log(error.response.data.message);
   }
 };
 
