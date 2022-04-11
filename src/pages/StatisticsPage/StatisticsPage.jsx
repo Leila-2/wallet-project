@@ -28,12 +28,12 @@ export default function StatisticsPage() {
     <>
       <Header />
 
-      <MainBg
-        RigthComponent={
+      <MainBg RigthComponent={
           <>
             <Navigation /> <Balance />
           </>
         }
+
         LeftComponent={
           <>
             <Chart />
@@ -49,6 +49,9 @@ export default function StatisticsPage() {
         }
       />
 
+
+      </MainBg>
+     
       <ButtonAddTransaction onClick={onClose} />
       {showModal && <Modal showModal={showModal} setShowModal={setShowModal} />}
     </>

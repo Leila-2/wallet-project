@@ -19,8 +19,6 @@ const getTransactions = () => async dispatch => {
   try {
     const { data } = await axios.get('/transactions/all');
 
-    console.log('Fetch data', data);
-
     dispatch(getTransactionsSuccess(data));
   } catch (error) {
     dispatch(getTransactionsError(error.message));
@@ -35,7 +33,6 @@ const getStatistics = params => async dispatch => {
     const { data } = await axios.get(
       `/transactions/statistics?${month}&${year}`,
     );
-    // console.log(data.statistic.transactions);
     dispatch(getStatisticsSuccess(data.statistic.transactions));
   } catch (error) {
     dispatch(getStatisticsError(error.message));

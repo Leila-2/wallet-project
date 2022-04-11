@@ -8,7 +8,14 @@ import {
   getStatisticsError,
 } from './transaction-actions';
 
-const result = createReducer([], {
+const initialState = {
+  data: {
+    totalBalance: 0,
+    transactions: [],
+  },
+};
+
+const result = createReducer(initialState, {
   [getTransactionsSuccess]: (_, { payload }) => payload,
   [getStatisticsSuccess]: (_, { payload }) => payload,
   [getTransactionsError]: (_, { payload }) => payload,
