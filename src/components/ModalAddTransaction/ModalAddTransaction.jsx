@@ -1,10 +1,21 @@
 import { FormModal, Checkbox, СancelBtn } from './ModalAddTransaction.styled';
 import FormButton from '../FormButton/FormButton';
-import {categories} from '../../service/axios.config';
-import { useState } from 'react';
+import { categories } from '../../service/axios.config';
+import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import getAllCategories from '../../store/categories/categories-selectors';
+import { getCategories } from '../../store/categories/categories-actions';
 
 export default function ModalAddTransaction() {
-    const [category, setCategory] = useState('Выберите категорию');
+  const [category, setCategory] = useState('Выберите категорию');
+  const dispatch = useDispatch();
+
+  const { categories } = useSelector(getAllCategories);
+
+  useEffect(() => {
+    dispatch(getCategories());
+  }, []);
+
   return (
     <FormModal className="form">
       <Checkbox>
@@ -23,11 +34,14 @@ export default function ModalAddTransaction() {
       <select
         className="select"
         placeholder="Выберите категорию"
-      value={category}
+        value={category}
       >
-    
+        {categories?.map(el => (
+          <option key={el} value={el}>
+            {el}
+          </option>
+        ))}
       </select>
-
       <div className="inputCont">
         <input
           className="numberInput"
