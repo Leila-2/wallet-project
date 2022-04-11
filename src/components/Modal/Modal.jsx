@@ -1,16 +1,15 @@
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { ModalWrapper, Checkbox, СancelBtn } from './Modal.styled';
+import { ModalWrapper } from './Modal.styled';
 import { ReactComponent as AddIconClose } from './closeBtn.svg'
-import FormButton from '../FormButton/FormButton';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleModal } from '../../store/modal/actions';
+import ModalAddTransaction from '../ModalAddTransaction/ModalAddTransaction';
 
 const modalRoot = document.querySelector('#modal-root');
 
 export default function Modal() {
   const dispatch = useDispatch();
-  const showModal = useSelector(state => state.modal)
   const onClose = () => {
     dispatch(toggleModal());
   };
@@ -35,45 +34,7 @@ export default function Modal() {
     <ModalWrapper onClick={handleClickBackdrop}>
       <div className="content"><AddIconClose className="closeBtn" type='button' onClick={onClose} />
         <p className="title">Добавить транзакцию</p>
-        <form className='form'>
-          <Checkbox>
-            <span className="checkbox__label-right">Доход</span>
-            <span className="checkbox__toggle">
-              <input
-                name='type'
-                type='checkbox'
-                className="checkboxInput"
-                id='checkbox'
-              />
-              <label htmlFor='checkbox'></label>
-            </span>
-            <span className="checkbox__label-left">Расход</span>
-          </Checkbox>
-          <select
-            className="select"
-            placeholder='Выберите категорию'
-          />
-          <div className='inputCont'>
-            <input
-              className="numberInput"
-              type='number'
-              placeholder='0.00'
-              required
-            />
-            <input
-              className="dateInput"
-              type='date'
-              required
-            />
-          </div>
-          <textarea
-            className="comment"
-            name='comment'
-            placeholder='Комментарий'
-          />
-          <FormButton title={"Добавить"} />
-          <СancelBtn>Отмена</СancelBtn>
-        </form>
+        <ModalAddTransaction/>
       </div>
     </ModalWrapper>,
     modalRoot,
