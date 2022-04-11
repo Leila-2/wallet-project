@@ -1,6 +1,6 @@
 export const AUTH_ACTIONS = {
   REGISTER: 'REGISTER',
   LOGIN: 'LOGIN',
-  CURRENT: 'CURRENT'
-};
-
+  CURRENT: 'CURRENT',
+  LOGOUT: 'LOGOUT',
+}

@@ -5,8 +5,10 @@ import { useLocation } from 'react-router-dom';
 import { baseTheme } from '../../styles/variables';
 import { renderDesktop, renderTablet, renderMobile } from './MediaComponents';
 
+
 export default function AuthPage() {
   const { pathname } = useLocation();
+
 
   return (
     <StyledAuthPage>
