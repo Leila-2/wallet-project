@@ -6,6 +6,7 @@ import Modal from '../../components/Modal/Modal';
 import { useState } from 'react';
 import Balance from '../../components/Balance/Balance';
 import TableBalance from '../../components/TableBalans/TableBalansElement';
+import Currency from '../../components/Currency/Currency';
 
 export default function MainPage() {
   const [showModal, setShowModal] = useState(false);
@@ -22,6 +23,7 @@ export default function MainPage() {
           <>
             <Navigation />
             <Balance />
+            <Currency />
           </>
         }
         LeftComponent={<TableBalance />}
