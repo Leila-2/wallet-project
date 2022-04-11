@@ -1,13 +1,15 @@
-import React from 'react';
-import s from './Loader.module.css';
+import { StyledLoader } from './Loader.styled';
 import { Container } from '../../styles/Container';
 
-function Loader() {
+export default function Loader() {
   return (
     <Container>
-      <div className={s.loader}></div>
+      <StyledLoader>
+        <div className="loader"></div>
+      </StyledLoader>
     </Container>
   );
 }
 
-export default Loader;
+
+
