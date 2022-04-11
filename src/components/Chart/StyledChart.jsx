@@ -24,24 +24,24 @@ const StyledChart = styled.div`
   .containerChart {
     margin-left: auto;
     margin-right: auto;
-    width: 280px;
-    height: 280px;
+    width: 288px;
+    height: 288px;
 
-    @media screen and ${baseTheme.media.tabletMin} {
-      width: 320px;
-      height: 320px;
+    @media screen and ${baseTheme.media.tabletMax} {
+      width: 336px;
+      height: 336px;
       position: relative;
       margin: 0;
     }
   }
 
   .doughnut {
-    width: 280px;
-    height: 280px;
+    width: 288px;
+    height: 288px;
 
-    @media screen and ${baseTheme.media.tabletMin} {
-      width: 320px;
-      height: 320px;
+    @media screen and ${baseTheme.media.tabletMax} {
+      width: 336px;
+      height: 336px;
     }
   }
 `;

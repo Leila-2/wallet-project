@@ -4,11 +4,14 @@ export default function TableStatistic() {
   return (
     <StyledTableStatistic>
       <table className="global-table">
+        <thead>
           <tr className="header-table">
             <th className="first-table">Категория</th>
             <th className="last-table">Сумма</th>
           </tr>
+        </thead>
 
+        <tbody>
           <tr className="table-list">
             <td className="table-categori">
               <div className="square"></div>
@@ -80,6 +83,7 @@ export default function TableStatistic() {
             <th className="table-title">Доходы:</th>
             <td className="last-data">5000</td>
           </tr>
+        </tbody>
       </table>
     </StyledTableStatistic>
   );

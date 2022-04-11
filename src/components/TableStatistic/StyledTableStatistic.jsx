@@ -13,12 +13,12 @@ const colors = [
 ];
 
 const borderColor = function (colors) {
-  for (let i = 1; i < colors.length; i += 1){
-    return colors[i]
+  for (let i = 1; i < colors.length; i += 1) {
+    return colors[i];
   }
 };
 
-const color = borderColor(colors)
+const color = borderColor(colors);
 
 const StyledTableStatistic = styled.div`
   .global-table {
@@ -29,6 +29,8 @@ const StyledTableStatistic = styled.div`
     margin-right: 0;
     left: 869px;
     top: 247px;
+    margin-top: 20px;
+
     @media screen and (min-width: 768px) and (max-width: 1199.9px) {
       margin-right: auto;
       min-width: 336px;
@@ -52,7 +54,7 @@ const StyledTableStatistic = styled.div`
 
   .table-categori {
     padding-left: 16px;
-    border-bottom: 1px;
+    border-bottom: 1px solid #dcdcdf;
     box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
   }
 
@@ -73,16 +75,16 @@ const StyledTableStatistic = styled.div`
   .table-list .table-data {
     padding-right: 20px;
     text-align: right;
-    border-bottom: 1px;
+    border-bottom: 1px solid #dcdcdf;
     box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
   }
 
-  .last-data{
+  .last-data {
     padding-right: 20px;
     text-align: right;
   }
 
-  .square{
+  .square {
     display: inline-block;
     margin-right: 15px;
     margin-bottom: -8px;
