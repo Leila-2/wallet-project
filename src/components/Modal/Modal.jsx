@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { ModalWrapper } from './Modal.styled';
 import { ReactComponent as AddIconClose } from './closeBtn.svg'
