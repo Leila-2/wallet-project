@@ -6,6 +6,9 @@ import {
   getStatisticsRequest,
   getStatisticsSuccess,
   getStatisticsError,
+  addTransRequest,
+  addTransSuccess,
+  addTransError
 } from './transaction-actions';
 
 
@@ -38,10 +41,24 @@ const getStatistics = params => async dispatch => {
     dispatch(getStatisticsError(error.message));
   }
 };
+const addTransaction = transaction => async dispatch => {
+  dispatch(addTransRequest());
+  try {
+    const { data } = await axios.post('/transactions/create', transaction);
+
+    console.log('Add data', data);
+
+    dispatch(addTransSuccess(data));
+  } catch (error) {
+    dispatch(addTransError(error.message));
+  }
+};
+
 
 const transactionOperations = {
   getTransactions,
   getStatistics,
+  addTransaction,
 };
 
 export default transactionOperations;

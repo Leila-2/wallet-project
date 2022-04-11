@@ -21,3 +21,6 @@ export const getStatisticsSuccess = createAction(
 export const getStatisticsError = createAction(
   'transactions/getStatisticsError',
 );
+export const addTransRequest = createAction('transaction/addTransRequest');
+export const addTransSuccess = createAction('transaction/addTransSuccess');
+export const addTransError = createAction('transaction/addTransError');
