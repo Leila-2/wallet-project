@@ -34,9 +34,9 @@ export default function StatisticsPage() {
         LeftComponent={<>
           <Chart />
           <Period
-          setRequestedMonth={setMonth}
-          setRequestedYear={setYear}
-          years={years}
+             setRequestedMonth={setMonth}
+             setRequestedYear={setYear}
+             years={years}
           />
         </>}
       />

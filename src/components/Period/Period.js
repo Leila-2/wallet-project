@@ -93,7 +93,6 @@ const Period = ({ setRequestedMonth, setRequestedYear, years }) => {
             name="SelectedMonth"
             onChange={validateMonth}
             options={sortMonth(allMonths)}
-            // placeholder={monthState}
             placeholder="Месяц"
             styles={customStyles}
           />
@@ -107,7 +106,6 @@ const Period = ({ setRequestedMonth, setRequestedYear, years }) => {
             name="SelectedYear"
             onChange={validateYears}
             options={sortYears(allYears())}
-            // placeholder={yearState}
             placeholder="Год"
             styles={customStyles}
           />
