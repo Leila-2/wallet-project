@@ -41,7 +41,7 @@ const StyledHeader = styled.div`
   }
   .name {
     text-align: end;
-    width: 80px;
+    width: 50px;
   }
   .exit {
     width: 51px;

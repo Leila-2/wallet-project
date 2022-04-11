@@ -12,6 +12,7 @@ import storage from 'redux-persist/lib/storage';
 import { modalReducer } from './modal/reducer';
 
 import transactionsReducer from './transactions/transaction-reducer';
+import authReducer from './auth/authReducer';
 
 const middleware = [
   ...getDefaultMiddleware({
@@ -21,15 +22,9 @@ const middleware = [
   }),
 ];
 
-const authPersistConfig = {
-  key: 'auth',
-  storage,
-  whitelist: ['assessToken'],
-};
-
 export const store = configureStore({
   reducer: {
-    // auth: persistReducer(authPersistConfig, authReducer),
+    auth: authReducer,
     transactions: transactionsReducer,
     modal: modalReducer,
   },
@@ -38,4 +33,3 @@ export const store = configureStore({
 });
 
 export const persistor = persistStore(store);
-

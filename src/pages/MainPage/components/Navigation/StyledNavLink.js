@@ -32,6 +32,12 @@ const StyledNavLink = styled.li`
       fill: ${baseTheme.colors.purple};
     }
   }
+
+  @media screen and ${baseTheme.media.mobileMax} {
+    span {
+      display: none;
+    }
+  }
 `;
 
 export default StyledNavLink;

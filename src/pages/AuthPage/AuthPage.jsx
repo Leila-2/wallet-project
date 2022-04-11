@@ -1,12 +1,14 @@
-import StyledAuthPage from "./StyledAuthPage";
-import Media from "react-media";
-import { Container } from "../../styles/Container";
-import { useLocation } from "react-router-dom";
-import { baseTheme } from "../../styles/variables";
-import { renderDesktop, renderTablet, renderMobile } from "./MediaComponents";
+import StyledAuthPage from './StyledAuthPage';
+import Media from 'react-media';
+import { Container } from '../../styles/Container';
+import { useLocation } from 'react-router-dom';
+import { baseTheme } from '../../styles/variables';
+import { renderDesktop, renderTablet, renderMobile } from './MediaComponents';
+
 
 export default function AuthPage() {
   const { pathname } = useLocation();
+
 
   return (
     <StyledAuthPage>

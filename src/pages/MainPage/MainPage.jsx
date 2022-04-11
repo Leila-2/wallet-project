@@ -15,15 +15,21 @@ export default function MainPage() {
   const onClose = () => {
     dispatch(toggleModal());
   };
+
   return (
     <>
       <Header />
-      <Navigation />
-      <MainBg>
-        <Container>
-          <h1>MainPage</h1>
-        </Container>
-      </MainBg>
+
+      <MainBg
+        RigthComponent={
+          <>
+            <Navigation />
+            <Balance />
+            <Currency />
+          </>
+        }
+        LeftComponent={<TableBalance />}
+      />
       <ButtonAddTransaction onClick={onClose} />
       {showModal && <Modal />}
     </>

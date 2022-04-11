@@ -64,9 +64,9 @@ const Chart = () => {
           '#24CCA7',
           '#00AD84',
         ],
-        borderWidth: 2,
-        hoverOffset: 2,
-        cutout: 85,
+        borderWidth: 1,
+        hoverOffset: 1,
+        cutout: 100,
       },
     ],
   };

@@ -29,6 +29,10 @@ export default function Modal() {
     }
   };
 
+  const onSubmit = () => {
+    dispatch();
+  };
+
   return createPortal(
     <ModalWrapper onClick={handleClickBackdrop}>
       <div className="content"><AddIconClose className="closeBtn" type='button' onClick={onClose} />
