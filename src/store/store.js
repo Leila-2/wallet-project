@@ -8,8 +8,10 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
+
 import storage from 'redux-persist/lib/storage';
 import { modalReducer } from './modal/reducer';
+
 
 import transactionsReducer from './transactions/transaction-reducer';
 import authReducer from './auth/authReducer';

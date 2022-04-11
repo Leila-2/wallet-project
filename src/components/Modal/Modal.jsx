@@ -4,7 +4,7 @@ import { ReactComponent as AddIconClose } from './closeBtn.svg'
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleModal } from '../../store/modal/actions';
 import ModalAddTransaction from '../ModalAddTransaction/ModalAddTransaction';
-
+import { useEffect } from 'react';
 const modalRoot = document.querySelector('#modal-root');
 
 export default function Modal() {
