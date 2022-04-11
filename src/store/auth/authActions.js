@@ -42,3 +42,5 @@ export const actionCurrent = createAsyncThunk(
     }
   },
 );
+
+export const actionLogout = payload => ({ type: AUTH_ACTIONS.LOGOUT});

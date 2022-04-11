@@ -3,13 +3,16 @@ import Navigation from './components/Navigation/Navigation';
 import Header from './components/Header/Header';
 import ButtonAddTransaction from '../../components/BtnAddTransaction/BtnAddTransaction';
 import Modal from '../../components/Modal/Modal';
+
 import { useState, useEffect } from 'react';
 import Balance from '../../components/Balance/Balance';
 import TableBalance from '../../components/TableBalans/TableBalansElement';
 import Currency from '../../components/Currency/Currency';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import  transactionOperations  from '../../store/transactions/transaction-operations';
 // import  transactionsSelectors  from '../../store/transactions/transaction-selectors';
+import { Container } from '../../styles/Container';
+import { toggleModal } from '../../store/modal/actions';
 
 export default function MainPage() {
   const dispatch = useDispatch();
@@ -18,11 +21,13 @@ export default function MainPage() {
   useEffect(() => {
     dispatch(transactionOperations.getTransactions());
   }, [dispatch]);
+const showModal = useSelector(state => state.modal);
+  
 
-  const [showModal, setShowModal] = useState(false);
   const onClose = () => {
-    setShowModal(!showModal);
+    dispatch(toggleModal());
   };
+
   return (
     <>
       <Header />
@@ -38,7 +43,7 @@ export default function MainPage() {
         LeftComponent={<TableBalance />}
       />
       <ButtonAddTransaction onClick={onClose} />
-      {showModal && <Modal showModal={showModal} setShowModal={setShowModal} />}
+      {showModal && <Modal />}
     </>
   );
 }

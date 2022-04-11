@@ -38,6 +38,7 @@ export const MainBgImage = styled.div`
     }
 .wrapper-left {
       padding: 40px 16px 47px 69px;
+      display:flex;
     }
 
   }

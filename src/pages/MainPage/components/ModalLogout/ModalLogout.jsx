@@ -1,15 +1,21 @@
 import StyledModal from './StyledModal';
-//import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import FormButton from '../../../../components/FormButton/FormButton';
 import FormLink from '../../../../components/FormLink/FormLink';
+import React from 'react';
 
-const modalRoot = document.getElementById('modal-root');
-
-const ModalLogout = ({ setM }) => {
+export default function ModalLogout({ setM }) {
   const handleClickBackdrop = e => {
     if (e.target === e.currentTarget) setM(false);
   };
+
+  const logoutHandler = () => {
+    localStorage.removeItem('AUTH_TOKEN');
+
+    window.location.reload();
+  };
+
+  const modalRoot = document.getElementById('modal-root');
 
   return createPortal(
     <StyledModal>
@@ -18,13 +24,7 @@ const ModalLogout = ({ setM }) => {
           <p className="ModalLogoutQuestion">Вы действительно хотите выйти?</p>
           <div className="ModalLogoutFlex">
             <div className="ModalLogoutButtonYes">
-              <FormButton
-                title="Выйти"
-                handler={() => {
-                  alert('токен очищен, пользователь вышел');
-                  setM(false);
-                }}
-              ></FormButton>
+              <FormButton title="Выйти" handler={logoutHandler} />
             </div>
             <div
               className="ModalLogoutButtonCancel"
@@ -40,6 +40,4 @@ const ModalLogout = ({ setM }) => {
     </StyledModal>,
     modalRoot,
   );
-};
-
-export default ModalLogout;
+}
