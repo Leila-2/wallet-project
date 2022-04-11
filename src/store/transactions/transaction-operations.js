@@ -8,14 +8,15 @@ import {
   getStatisticsError,
 } from './transaction-actions';
 
-// axios.defaults.baseURL = 'https://wallet-team-backend.herokuapp.com/api';
+
+axios.defaults.baseURL = 'https://wallet-team-backend.herokuapp.com/api';
 
 const getTransactions = () => async dispatch => {
   dispatch(getTransactionsRequest());
   try {
     const { data } = await axios.get('/transactions/all');
 
-    // console.log('Fetch data', data);
+    console.log('Fetch data', data);
 
     dispatch(getTransactionsSuccess(data));
   } catch (error) {

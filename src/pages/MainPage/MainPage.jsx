@@ -12,6 +12,7 @@ export default function MainPage() {
   const onClose = () => {
     setShowModal(!showModal);
   };
+
   return (
     <>
       <Header />
