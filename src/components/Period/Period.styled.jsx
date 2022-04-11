@@ -1,8 +1,12 @@
+import styled from 'styled-components';
+import { baseTheme } from '../../styles/variables';
+
+export const StyledPeriod = styled.div`
 .form {
     display: flex;
     flex-direction: column;
 
-    @media screen and (min-width: 768px) {
+    @media screen and ${baseTheme.media.tabletMin} {
         flex-direction: row;
         height: 50px;
     }
@@ -12,7 +16,7 @@
     position: relative;
     margin-bottom: 20px;
 
-    @media screen and (min-width: 768px) {
+    @media screen and ${baseTheme.media.tabletMin} {
         width: 166px;
         margin-bottom: 0;
         margin-right: 16px;
@@ -23,7 +27,7 @@
     position: relative;
     margin: 0;
 
-    @media screen and (min-width: 768px) {
+    @media screen and ${baseTheme.media.tabletMin} {
         width: 166px;
     }
 }
@@ -37,3 +41,4 @@
     cursor: pointer;
     pointer-events: none;
 }
+`;
