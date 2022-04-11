@@ -3,6 +3,7 @@ import FormButton from '../../../../components/FormButton';
 import FormLink from '../../../../components/FormLink';
 import Input from '../Input';
 import PasswordStrenght from './PasswordStrenght';
+import authSelectors from '../../../../store/auth/authSelectors';
 import { React } from 'react';
 import { useState } from 'react';
 import { Formik, Form } from 'formik';
@@ -10,13 +11,19 @@ import { registerValidationsSchema } from '../validation';
 import { ReactComponent as EmailIcon } from '../icons/email.svg';
 import { ReactComponent as LockIcon } from '../icons/lock.svg';
 import { ReactComponent as NameIcon } from '../icons/name.svg';
+import { useDispatch } from 'react-redux';
+import { actionRegister } from '../../../../store/auth/authActions';
+import { useNavigate } from 'react-router-dom';
 
 function RegisterForm() {
   const [password, setPassword] = useState('');
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleRegister = ({ name, email, password }) => {
-    const register = { name, email, password };
-    console.log(register);
+    const registerData = { name, email, password };
+    dispatch(actionRegister(registerData));
+    navigate('/login');
   };
 
   return (

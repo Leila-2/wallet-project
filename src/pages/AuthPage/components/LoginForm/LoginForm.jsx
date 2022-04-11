@@ -7,12 +7,19 @@ import { Formik, Form } from 'formik';
 import { loginValidationsSchema } from '../validation';
 import { ReactComponent as EmailIcon } from '../icons/email.svg';
 import { ReactComponent as LockIcon } from '../icons/lock.svg';
+import { actionLogin } from '../../../../store/auth/authActions';
+import { useDispatch } from 'react-redux';
+
 
 function LoginForm() {
-  const handleRegister = ({ email, password }) => {
+  const dispatch = useDispatch();
+
+  const handleLogin = ({ email, password }) => {
     const login = { email, password };
-    console.log(login);
+
+    dispatch(actionLogin(login));
   };
+
 
   return (
     <StyledRegisterForm>
@@ -22,7 +29,7 @@ function LoginForm() {
           password: '',
         }}
         validateOnBlur
-        onSubmit={handleRegister}
+        onSubmit={handleLogin}
         validationSchema={loginValidationsSchema}
       >
         {({ handleChange, handleBlur, values }) => (
