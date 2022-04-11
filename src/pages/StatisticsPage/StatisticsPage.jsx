@@ -8,7 +8,6 @@ import ButtonAddTransaction from '../../components/BtnAddTransaction/BtnAddTrans
 import { useState } from 'react';
 import Balance from '../../components/Balance/Balance';
 
-
 import Period from '../../components/Period';
 
 // import TableBalance from '../../components/TableBalans/TableBalansElement';
@@ -35,17 +34,18 @@ export default function StatisticsPage() {
             <Navigation /> <Balance />
           </>
         }
-
-        LeftComponent={<>
-          <Chart />
-          <Period
-             setRequestedMonth={setMonth}
-             setRequestedYear={setYear}
-             years={years}
-          />
- <TableStatistic />
-        </>}
-     
+        LeftComponent={
+          <>
+            <Chart />
+            <Period
+              setRequestedMonth={setMonth}
+              setRequestedYear={setYear}
+              years={years}
+            />
+            <TableStatistic />
+          </>
+        }
+      />
 
       <ButtonAddTransaction onClick={onClose} />
       {showModal && <Modal showModal={showModal} setShowModal={setShowModal} />}
