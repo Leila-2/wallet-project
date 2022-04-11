@@ -32,8 +32,14 @@ const Header = () => {
         {matches => (
           <Container>
             {matches.small &&
-              ((m && ModalLogout({ m, setM })) || RenderMobile({ m, setM }))}
-            {matches.medium && ((m && ModalLogout({ m, setM })) || render({ m, setM }))}
+              (m ? (
+                <ModalLogout open={m} modal={setM} />
+              ) : (
+                RenderMobile({ m, setM })
+              ))}
+
+            {matches.medium &&
+              ((m && ModalLogout({ m, setM })) || render({ m, setM }))}
           </Container>
         )}
       </Media>
