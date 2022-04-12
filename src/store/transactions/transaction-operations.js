@@ -8,9 +8,8 @@ import {
   getStatisticsError,
   addTransRequest,
   addTransSuccess,
-  addTransError
+  addTransError,
 } from './transaction-actions';
-
 
 axios.defaults.baseURL = 'https://wallet-team-backend.herokuapp.com/api';
 
@@ -50,7 +49,6 @@ const addTransaction = transaction => async dispatch => {
     dispatch(addTransError(error.message));
   }
 };
-
 
 const transactionOperations = {
   getTransactions,

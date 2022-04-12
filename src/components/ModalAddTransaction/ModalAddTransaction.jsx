@@ -5,7 +5,8 @@ import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import getAllCategories from '../../store/categories/categories-selectors';
 import { getCategories } from '../../store/categories/categories-actions';
-import  addTransaction from '../../store/transactions/transaction-operations'
+import  addTransaction from '../../store/transactions/transaction-operations';
+
 export default function ModalAddTransaction() {
   const [category, setCategory] = useState('Выберите категорию');
   const dispatch = useDispatch();
@@ -54,8 +55,6 @@ export default function ModalAddTransaction() {
       case 'comment':
         setComment(value);
         break;
-
-      // no default
     }
   };
   const reset = () => {
@@ -67,7 +66,7 @@ export default function ModalAddTransaction() {
   };
   const handleSubmit = e => {
     e.preventDefault();
-console.log('object');
+console.log('click');
     const transaction = {
       date,
       type,
@@ -75,16 +74,9 @@ console.log('object');
       comment,
       amount,
     };
-
-    addTransaction( transaction ).then(({ data, error }) => {
-      console.log(data);
-      if (data) {
-        console.log('Success', data);
+    dispatch(addTransaction(transaction ));
         reset();
-      } else if (error) {
-        console.log(error.data.message);
-      }
-    });
+      
   };
 
   return (
