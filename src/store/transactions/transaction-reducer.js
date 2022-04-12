@@ -6,9 +6,9 @@ import {
   getStatisticsRequest,
   getStatisticsSuccess,
   getStatisticsError,
-  addTransSuccess,
   addTransError,
   addTransRequest,
+  addTransSuccess,
 } from './transaction-actions';
 
 const initialState = {
@@ -33,8 +33,7 @@ const result = createReducer(initialState, {
     };
   },
   [getTransactionsError]: (_, { payload }) => payload,
-  [addTransSuccess]: (_, { payload }) => payload,
-  [addTransError]: (_, { payload }) => payload,
+  [addTransSuccess]: (state, { payload }) => [...state, payload],
 });
 
 const loading = createReducer(false, {
@@ -44,9 +43,9 @@ const loading = createReducer(false, {
   [getStatisticsRequest]: () => true,
   [getStatisticsSuccess]: () => false,
   [getStatisticsError]: () => false,
-  [addTransError]: () => false,
-  [addTransSuccess]: () => true,
+  [addTransSuccess]: () => false,
   [addTransRequest]: () => true,
+  [addTransError]: () => false,
 });
 
 const error = createReducer(null, {

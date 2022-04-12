@@ -59,17 +59,17 @@ export const transactionsAll = async () => {
 
 //===================TRANSACTIONS CREATE=====================
 export const transactionsCreate = async (
-  date,
-  category,
-  comments,
-  amount,
-  type,
+  { date,
+    category,
+    comment,
+    amount,
+    type, }
 ) => {
   try {
     const res = await axios.post(`/transactions/create`, {
       date,
       category,
-      comments,
+      comment,
       amount,
       type,
     });

@@ -1,14 +1,15 @@
 import { FormModal, Checkbox, СancelBtn } from './ModalAddTransaction.styled';
 import FormButton from '../FormButton/FormButton';
-
+import { toggleModal } from '../../store/modal/actions';
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import getAllCategories from '../../store/categories/categories-selectors';
 import { getCategories } from '../../store/categories/categories-actions';
-import { addTransRequest } from '../../store/transactions/transaction-actions';
-import addTransaction from '../../store/transactions/transaction-operations';
+import { transactionsCreate } from '../../service/axios.config';
+import transactionOperations from '../../store/transactions/transaction-operations';
+
 export default function ModalAddTransaction() {
-  const [category, setCategory] = useState('Выберите категорию');
+  const [category, setCategory] = useState('');
   const dispatch = useDispatch();
   const [type, setType] = useState(false);
   const [amount, setAmount] = useState('');
@@ -22,24 +23,9 @@ export default function ModalAddTransaction() {
     dispatch(getCategories());
   }, []);
 
-  useEffect(() => {
-    if (type) {
-      setCat(income);
-      setCategory(income);
-    } else {
-      setCat(expense);
-      setCategory(expense);
-    }
-  }, [expense, income, type]);
-
   const handleInputChange = e => {
     const { name, value, checked } = e.target;
-
     switch (name) {
-      case 'type':
-        setType(checked);
-        break;
-
       case 'amount':
         setAmount(value);
         break;
@@ -55,9 +41,10 @@ export default function ModalAddTransaction() {
       case 'comment':
         setComment(value);
         break;
-
-      // no default
     }
+  };
+  const handleCheckbox = () => {
+    setType(!type);
   };
   const reset = () => {
     setType(false);
@@ -68,26 +55,27 @@ export default function ModalAddTransaction() {
   };
   const handleSubmit = e => {
     e.preventDefault();
+    let typeCheck = '';
+    if (type === true) {
+      typeCheck = 'incomes';
+    } else {
+      typeCheck = 'expenses';
+    }
     const transaction = {
       date,
-      type,
+      type: typeCheck,
       category,
       comment,
       amount,
     };
 
-    const res = dispatch(addTransRequest(transaction));
-    // console.log(res);
-
-    // addTransaction(transaction).then(({ data, error }) => {
-    //   console.log(data);
-    //   if (data) {
-    //     console.log('Success', data);
-    //     reset();
-    //   } else if (error) {
-    //     console.log(error.data.message);
-    //   }
-    // });
+    console.log(transaction);
+    transactionsCreate(transaction);
+    reset();
+    setTimeout(() => {
+      dispatch(transactionOperations.getTransactions());
+      dispatch(toggleModal());
+    }, 1000);
   };
 
   return (
@@ -101,7 +89,7 @@ export default function ModalAddTransaction() {
             className="checkboxInput"
             id="checkbox"
             checked={type}
-            onChange={handleInputChange}
+            onChange={handleCheckbox}
           />
           <label htmlFor="checkbox"></label>
         </span>
@@ -115,7 +103,7 @@ export default function ModalAddTransaction() {
         onChange={handleInputChange}
       >
         {categories?.map(el => (
-          <option key={el.title} value={el.title}>
+          <option key={el.title} value={el.value}>
             {el.title}
           </option>
         ))}
@@ -146,7 +134,7 @@ export default function ModalAddTransaction() {
         placeholder="Комментарий"
         onChange={handleInputChange}
       />
-      <FormButton title={'Добавить'} type="submit" handler={handleSubmit} />
+      <FormButton title={'Добавить'} handler={handleSubmit} />
       <СancelBtn>Отмена</СancelBtn>
     </FormModal>
   );
