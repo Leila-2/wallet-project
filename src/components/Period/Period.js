@@ -2,8 +2,9 @@ import { useState } from 'react';
 import Select from 'react-select';
 import { ArrowDown } from './ArrowDown';
 
+import { StyledPeriod } from './Period.styled';
+
 import customStyles from './customStyles';
-import styles from './Period.module.css';
 
 const allMonths = [
   { name: 'Все месяцы', id: '0' },
@@ -86,31 +87,33 @@ const Period = ({ setRequestedMonth, setRequestedYear, years }) => {
 
   return (
     <>
-      <form className={styles.form}>
-        <div className={styles.inputWrapperMonth}>
-          <Select
-            defaultValue="Month"
-            name="SelectedMonth"
-            onChange={validateMonth}
-            options={sortMonth(allMonths)}
-            placeholder="Месяц"
-            styles={customStyles}
-          />
-          <ArrowDown svg={styles.svgArrowDown} />
-        </div>
+      <StyledPeriod>
+        <form className="form">
+          <div className="inputWrapperMonth">
+            <Select
+              defaultValue="Month"
+              name="SelectedMonth"
+              onChange={validateMonth}
+              options={sortMonth(allMonths)}
+              placeholder="Месяц"
+              styles={customStyles}
+            />
+            <ArrowDown svg="svgArrowDown" />
+          </div>
 
-        <div className={styles.inputWrapperYear}>
-          <ArrowDown svg={styles.svgArrowDown} />
-          <Select
-            defaultValue="Year"
-            name="SelectedYear"
-            onChange={validateYears}
-            options={sortYears(allYears())}
-            placeholder="Год"
-            styles={customStyles}
-          />
-        </div>
-      </form>
+          <div className="inputWrapperYear">
+            <ArrowDown svg="svgArrowDown" />
+            <Select
+              defaultValue="Year"
+              name="SelectedYear"
+              onChange={validateYears}
+              options={sortYears(allYears())}
+              placeholder="Год"
+              styles={customStyles}
+            />
+          </div>
+        </form>
+      </StyledPeriod>
     </>
   );
 };
