@@ -1,30 +1,22 @@
 import React from 'react';
-// import { useSelector } from 'react-redux';
-// import transactionsSelectors from '../../store/transactions/trancaction-selectors';
+import { useSelector } from 'react-redux';
+import transactionsSelectors from '../../store/transactions/transaction-selectors';
 import 'chart.js/auto';
 import { Doughnut } from 'react-chartjs-2';
 import ChartBalance from './ChartBalance';
 
 import StyledChart from './StyledChart';
 
-const statistics = {
-  categories: {
-    main: 500,
-    food: 1000,
-    car: 1300,
-    me: 4000,
-    children: 370,
-    house: 130,
-    education: 850,
-    leisure: 2350,
-    other: 1230,
-  },
-  totalBalance: '10 350.00',
-};
-
 const Chart = () => {
-  // const { totalBalance } = useSelector(transactionsSelectors.getTransactions);
-  // const { statistic } = useSelector(transactionsSelectors.getStatistics);
+  const totalBalance = useSelector(transactionsSelectors.getChartBalance);
+  const chartStatistics = useSelector(transactionsSelectors.getChartStatistics);
+
+  const statistics = {
+    categories: {
+      ...chartStatistics,
+    },
+  };
+
   const options = {
     plugins: {
       legend: {
@@ -76,7 +68,7 @@ const Chart = () => {
       <h3 className="title">Статистика</h3>
       <div className="chart">
         <div className="containerChart">
-          <ChartBalance balance={statistics.totalBalance} />
+          <ChartBalance balance={totalBalance} />
           <div className="doughnut">
             <Doughnut options={options} height={280} width={280} data={chart} />
           </div>

@@ -5,9 +5,8 @@ import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import getAllCategories from '../../store/categories/categories-selectors';
 import { getCategories } from '../../store/categories/categories-actions';
-import  addTransaction from '../../store/transactions/transaction-operations';
-import {transactionsCreate} from '../../service/axios.config'
-import  transactionOperations  from '../../store/transactions/transaction-operations';
+import { transactionsCreate } from '../../service/axios.config';
+import transactionOperations from '../../store/transactions/transaction-operations';
 
 export default function ModalAddTransaction() {
   const [category, setCategory] = useState('');
@@ -24,11 +23,9 @@ export default function ModalAddTransaction() {
     dispatch(getCategories());
   }, []);
 
-
   const handleInputChange = e => {
     const { name, value, checked } = e.target;
     switch (name) {
-  
       case 'amount':
         setAmount(value);
         break;
@@ -46,9 +43,9 @@ export default function ModalAddTransaction() {
         break;
     }
   };
-  const handleCheckbox=()=>{
-   setType(!type)
-  }
+  const handleCheckbox = () => {
+    setType(!type);
+  };
   const reset = () => {
     setType(false);
     setCat([]);
@@ -58,31 +55,31 @@ export default function ModalAddTransaction() {
   };
   const handleSubmit = e => {
     e.preventDefault();
-    let typeCheck=''
-if(type===true){
-  typeCheck='incomes'
-}else{
-  typeCheck='expenses'
-}
+    let typeCheck = '';
+    if (type === true) {
+      typeCheck = 'incomes';
+    } else {
+      typeCheck = 'expenses';
+    }
     const transaction = {
       date,
-      type:typeCheck,
+      type: typeCheck,
       category,
       comment,
       amount,
     };
-    
+
     console.log(transaction);
-    transactionsCreate(transaction );
-        reset();
-        setTimeout(()=>{
-          dispatch(transactionOperations.getTransactions());
-          dispatch(toggleModal());
-        },1000) 
-      }
+    transactionsCreate(transaction);
+    reset();
+    setTimeout(() => {
+      dispatch(transactionOperations.getTransactions());
+      dispatch(toggleModal());
+    }, 1000);
+  };
 
   return (
-    <FormModal className="form"  onSubmit={handleSubmit}>
+    <FormModal className="form">
       <Checkbox>
         <span className="checkbox__label-right">Доход</span>
         <span className="checkbox__toggle">
@@ -99,10 +96,10 @@ if(type===true){
         <span className="checkbox__label-left">Расход</span>
       </Checkbox>
       <select
+        name="category"
         className="select"
         placeholder="Выберите категорию"
         value={category}
-        name='category'
         onChange={handleInputChange}
       >
         {categories?.map(el => (
@@ -115,16 +112,29 @@ if(type===true){
         <input
           className="numberInput"
           type="number"
-          name='amount'
+          name="amount"
           value={amount}
           placeholder="0.00"
           onChange={handleInputChange}
           required
         />
-        <input className="dateInput" type="date" name='date'   value={date} required  onChange={handleInputChange}/>
+        <input
+          className="dateInput"
+          type="date"
+          name="date"
+          value={date}
+          required
+          onChange={handleInputChange}
+        />
       </div>
-      <textarea className="comment" name="comment"   value={comment} placeholder="Комментарий" onChange={handleInputChange} />
-      <FormButton title={'Добавить'}  handler={handleSubmit}/>
+      <textarea
+        className="comment"
+        name="comment"
+        value={comment}
+        placeholder="Комментарий"
+        onChange={handleInputChange}
+      />
+      <FormButton title={'Добавить'} handler={handleSubmit} />
       <СancelBtn>Отмена</СancelBtn>
     </FormModal>
   );

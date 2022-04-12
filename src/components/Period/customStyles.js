@@ -15,7 +15,7 @@ const customStyles = {
       width: 280,
     },
     '@media screen and (min-width: 768px)': {
-      width: 166,
+      width: 160,
     },
     height: 50,
   }),
@@ -81,7 +81,6 @@ const customStyles = {
     },
     '::-webkit-scrollbar-thumb': {
       borderRadius: 10,
-      //   backgroundColor: '#FF6596',
       backgroundColor: '#24CCA7',
     },
     '::-webkit-scrollbar-track': {
@@ -95,12 +94,6 @@ const customStyles = {
     borderRadius: 30,
 
     cursor: 'pointer',
-    // '&:hover': {
-    //   borderColor: '#24CCA7',
-    // },
-    // '&:focus': {
-    //   borderColor: '#24CCA7',
-    // },
   }),
   singleValue: provided => ({
     ...provided,

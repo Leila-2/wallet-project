@@ -1,9 +1,4 @@
-import {
-  actionRegister,
-  actionLogin,
-  actionCurrent,
-  actionLogout,
-} from './authActions';
+import { actionRegister, actionLogin, actionCurrent, actionLogout } from './authActions';
 import { createReducer } from '@reduxjs/toolkit';
 const initialState = {
   login: {},
@@ -23,7 +18,7 @@ const authReducer = createReducer(initialState, {
     return { ...state, registerError: payload };
   },
   [actionLogin.fulfilled]: (state, { payload }) => {
-    return { ...state, login: payload, isLoggedIn: true };
+    return { ...state, login: payload, currentUser: payload, isLoggedIn: true };
   },
   [actionLogin.rejected]: (state, { payload }) => {
     return { ...state, loginError: payload };
@@ -34,8 +29,9 @@ const authReducer = createReducer(initialState, {
   [actionCurrent.rejected]: (state, { payload }) => {
     return { ...state, currentUserError: payload, isLoggedIn: false };
   },
-  [actionLogout.fulfilled]: (state, { payload }) => {
-    return { ...state, isLoggedIn: false };
+  [actionLogout.fulfilled]: (state, _) => {
+    state.isLoggedIn = false;
+    state.currentUser = {};
   },
 });
 

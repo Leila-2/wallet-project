@@ -28,10 +28,10 @@ const StyledHeader = styled.div`
     color: ${baseTheme.colors.black};
   }
   .avatar {
+    margin-right: 12px;
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background: green;
   }
   .headerButton {
     background: ${baseTheme.colors.white};
@@ -40,8 +40,7 @@ const StyledHeader = styled.div`
     height: 24px;
   }
   .name {
-    text-align: end;
-    width: 50px;
+    text-align: center;
   }
   .exit {
     width: 51px;

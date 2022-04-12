@@ -1,6 +1,16 @@
 import StyledTableBalans from './StyledTableBalanse';
 
 export default function TableBalans({ transactions }) {
+  const categories = {
+    main: 'Основной',
+    food: 'Еда',
+    car: 'Авто',
+    me: 'Развитие',
+    children: 'Дети',
+    house: 'Дом',
+    education: 'Образование',
+    other: 'Остальные',
+  };
   return (
     <StyledTableBalans>
       <table className="global-table">
@@ -20,10 +30,10 @@ export default function TableBalans({ transactions }) {
             <tr className="table-list" key={transaction.id}>
               <td>{transaction.date}</td>
               <td>{transaction.type === 'expenses' ? '-' : '+'}</td>
-              <td>{transaction.category}</td>
+              <td>{categories[transaction.category]}</td>
               <td>{transaction.comment}</td>
               <td>{transaction.amount}</td>
-              <td>Ячейка 6</td>
+              <td>{transaction.balance}</td>
             </tr>
           ))}
         </tbody>

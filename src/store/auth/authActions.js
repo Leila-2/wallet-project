@@ -1,6 +1,7 @@
 import { AUTH_ACTIONS } from './actionTypes';
-import { register, login, current } from '../../service/axios.config';
+import { register, login, current, logout } from '../../service/axios.config';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
 
 export const actionRegister = createAsyncThunk(
   AUTH_ACTIONS.REGISTER,
@@ -43,4 +44,11 @@ export const actionCurrent = createAsyncThunk(
   },
 );
 
-export const actionLogout = payload => ({ type: AUTH_ACTIONS.LOGOUT});
+export const actionLogout = createAsyncThunk(AUTH_ACTIONS.LOGOUT, async () => {
+  try {
+    await logout();
+    localStorage.removeItem('AUTH_TOKEN');
+  } catch (err) {
+
+  }
+});

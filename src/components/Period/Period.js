@@ -1,9 +1,12 @@
 import { useState } from 'react';
 import Select from 'react-select';
 import { ArrowDown } from './ArrowDown';
+import { useDispatch } from 'react-redux';
+import transactionOperations from '../../store/transactions/transaction-operations';
+
+import { StyledPeriod } from './Period.styled';
 
 import customStyles from './customStyles';
-import styles from './Period.module.css';
 
 const allMonths = [
   { name: 'Все месяцы', id: '0' },
@@ -28,7 +31,12 @@ const Period = ({ setRequestedMonth, setRequestedYear, years }) => {
   );
   const [yearState, setYearState] = useState(() => date.getFullYear());
 
-  console.log({ monthState, yearState });
+  const requestData = {
+    month: monthState,
+    year: yearState,
+  };
+
+  const dispatch = useDispatch();
 
   const allYears = () => {
     const yearsArr = ['Год', 2019, 2020, 2021, 2022];
@@ -50,6 +58,8 @@ const Period = ({ setRequestedMonth, setRequestedYear, years }) => {
       return;
     }
     setRequestedMonth(monthId);
+    requestData.month = monthId;
+    dispatch(transactionOperations.getStatistics(requestData));
   };
 
   const validateYears = e => {
@@ -59,6 +69,10 @@ const Period = ({ setRequestedMonth, setRequestedYear, years }) => {
     }
     setRequestedYear(label);
     setYearState(label);
+    const searchMonth = allMonths.find(item => item.name === requestData.month);
+    requestData.month = searchMonth.id;
+    requestData.year = label;
+    dispatch(transactionOperations.getStatistics(requestData));
   };
 
   const sortMonth = arr => {
@@ -86,31 +100,33 @@ const Period = ({ setRequestedMonth, setRequestedYear, years }) => {
 
   return (
     <>
-      <form className={styles.form}>
-        <div className={styles.inputWrapperMonth}>
-          <Select
-            defaultValue="Month"
-            name="SelectedMonth"
-            onChange={validateMonth}
-            options={sortMonth(allMonths)}
-            placeholder="Месяц"
-            styles={customStyles}
-          />
-          <ArrowDown svg={styles.svgArrowDown} />
-        </div>
+      <StyledPeriod>
+        <form className="form">
+          <div className="inputWrapperMonth">
+            <Select
+              defaultValue="Month"
+              name="SelectedMonth"
+              onChange={validateMonth}
+              options={sortMonth(allMonths)}
+              placeholder={monthState}
+              styles={customStyles}
+            />
+            <ArrowDown svg="svgArrowDown" />
+          </div>
 
-        <div className={styles.inputWrapperYear}>
-          <ArrowDown svg={styles.svgArrowDown} />
-          <Select
-            defaultValue="Year"
-            name="SelectedYear"
-            onChange={validateYears}
-            options={sortYears(allYears())}
-            placeholder="Год"
-            styles={customStyles}
-          />
-        </div>
-      </form>
+          <div className="inputWrapperYear">
+            <ArrowDown svg="svgArrowDown" />
+            <Select
+              defaultValue="Year"
+              name="SelectedYear"
+              onChange={validateYears}
+              options={sortYears(allYears())}
+              placeholder={yearState}
+              styles={customStyles}
+            />
+          </div>
+        </form>
+      </StyledPeriod>
     </>
   );
 };

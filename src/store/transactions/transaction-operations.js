@@ -24,25 +24,23 @@ const getTransactions = () => async dispatch => {
   }
 };
 
-const getStatistics = params => async dispatch => {
-  const { year, month } = params;
-
-  dispatch(getStatisticsRequest());
-  try {
-    const { data } = await axios.get(
-      `/transactions/statistics?${month}&${year}`,
-    );
-    dispatch(getStatisticsSuccess(data.statistic.transactions));
-  } catch (error) {
-    dispatch(getStatisticsError(error.message));
-  }
-};
+const getStatistics =
+  ({ year, month }) =>
+  async dispatch => {
+    dispatch(getStatisticsRequest());
+    try {
+      const { data } = await axios.get(
+        `/transactions/statistics?month=${month}&year=${year}`,
+      );
+      dispatch(getStatisticsSuccess(data));
+    } catch (error) {
+      dispatch(getStatisticsError(error.message));
+    }
+  };
 const addTransaction = transaction => async dispatch => {
   dispatch(addTransRequest());
   try {
     const { data } = await axios.post('/transactions/create', transaction);
-
-    console.log('Add data', data);
 
     dispatch(addTransSuccess(data));
   } catch (error) {
