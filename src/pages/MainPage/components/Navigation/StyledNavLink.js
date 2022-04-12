@@ -22,9 +22,13 @@ const StyledNavLink = styled.li`
   }
 
   svg {
-    /* margin-right: 23px; */
+   
     border-radius: 2px;
     fill: ${baseTheme.colors.blue};
+@media screen and ${baseTheme.media.tabletMin}{
+   margin-right: 23px; 
+}
+
   }
 
   .linkStyleActive {

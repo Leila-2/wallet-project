@@ -31,6 +31,7 @@ export const StyledBalance = styled.div`
   }
   @media screen and ${baseTheme.media.desktop} {
     width: 395px;
+    margin-bottom: 32px;
   }
   @media screen and ${baseTheme.media.tabletMin} and ${baseTheme.media
       .tabletMax} {

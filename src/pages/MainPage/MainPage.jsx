@@ -55,25 +55,52 @@ export default function MainPage() {
                   </MobileBg>
                 </>
               )}
-              {matches.medium && <p>I am medium!</p>}
-              {matches.large && <p>I am large!</p>}
+              {matches.medium && (
+                <>
+                  <Header />
+
+                  <MainBg
+                    RigthComponent={
+                      <>
+                        <div
+                          style={{
+                            display: 'flex',
+                            justifyContent: 'space-between',
+                          }}
+                        >
+                          <div>
+                            <Navigation />
+                            <Balance />
+                          </div>
+
+                          <Currency />
+                        </div>
+
+                        <TableBalance />
+                      </>
+                    }
+                  />
+                </>
+              )}
+              {matches.large && (
+                <>
+                  <Header />
+                  <MainBg
+                    RigthComponent={
+                      <>
+                        <Navigation />
+                        <Balance />
+                        <Currency />
+                      </>
+                    }
+                  />
+                </>
+              )}
             </Fragment>
           )}
         </Media>
       </div>
-      <Navigation />
-      {/* <Header />
 
-      <MainBg
-        RigthComponent={
-          <>
-           
-            <Balance />
-            <Currency />
-          </>
-        }
-        LeftComponent={<TableBalance />}
-      /> */}
       <ButtonAddTransaction onClick={onClose} />
       {showModal && <Modal />}
     </>

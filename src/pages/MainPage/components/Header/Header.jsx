@@ -19,9 +19,9 @@ const Header = () => {
   const dispatch = useDispatch();
 
   const exit = () => {
-    dispatch(actionLogout())
-  }
-  
+    dispatch(actionLogout());
+  };
+
   useEffect(() => {
     window.addEventListener('keydown', closeModalByClickESC);
 
@@ -44,8 +44,11 @@ const Header = () => {
         {matches => (
           <Container>
             {matches.small &&
-              ((m && ModalLogout({ m, setM, exit })) || RenderMobile({ m, setM, name, avatar}))}
-            {matches.medium && ((m && ModalLogout({ m, setM, exit })) || render({ m, setM, name, avatar}))}
+              ((m && ModalLogout({ m, setM, exit })) ||
+                RenderMobile({ m, setM, name, avatar }))}
+            {matches.medium &&
+              ((m && ModalLogout({ m, setM, exit })) ||
+                render({ m, setM, name, avatar }))}
           </Container>
         )}
       </Media>
