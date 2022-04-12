@@ -4,8 +4,10 @@ import { baseTheme } from '../../styles/variables';
 const StyledChart = styled.div`
   .title {
     font-family: ${baseTheme.fonts.titleFont};
+    font-weight: 400;
     font-size: 30px;
     line-height: 45px;
+    margin-bottom: 10px;
   }
 
   .chart {
@@ -18,6 +20,11 @@ const StyledChart = styled.div`
     @media screen and ${baseTheme.media.tabletMin} {
       margin: 0;
       width: 320px;
+    }
+
+    @media screen and ${baseTheme.media.mobileMin} {
+      margin: 0;
+      width: 280px;
     }
   }
 
@@ -33,6 +40,13 @@ const StyledChart = styled.div`
       position: relative;
       margin: 0;
     }
+    @media screen and ${baseTheme.media.mobileMin} {
+      width: 280px;
+      height: 280px;
+      position: relative;
+
+      margin-bottom: 32px;
+    }
   }
 
   .doughnut {
@@ -42,6 +56,10 @@ const StyledChart = styled.div`
     @media screen and ${baseTheme.media.tabletMax} {
       width: 336px;
       height: 336px;
+    }
+    @media screen and ${baseTheme.media.mobileMin} {
+      width: 280px;
+      height: 280px;
     }
   }
 `;

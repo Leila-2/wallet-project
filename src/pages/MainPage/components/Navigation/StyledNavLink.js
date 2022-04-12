@@ -6,7 +6,7 @@ const StyledNavLink = styled.li`
   font-size: 18px;
   line-height: 1.5;
   letter-spacing: -0.02em;
-  margin-bottom: 12px;
+  /* margin-bottom: 12px; */
 
   .linkStyle {
     font-weight: 400;
@@ -16,7 +16,7 @@ const StyledNavLink = styled.li`
   }
 
   svg {
-    margin-right: 23px;
+    /* margin-right: 23px; */
     border-radius: 2px;
     fill: ${baseTheme.colors.blue};
   }

@@ -38,7 +38,7 @@ const StyledTableStatistic = styled.div`
       left: 400px;
       top: 404px;
     }
-    @media screen and and (min-width: 320px) and (max-width: 767.9px) {
+    @media screen and (min-width: 320px) and (max-width: 767px) {
       margin-right: auto;
       min-width: 280px;
       min-height: 604px;
@@ -69,6 +69,7 @@ const StyledTableStatistic = styled.div`
   .last-table {
     padding-top: 15px;
     padding-bottom: 15px;
+    padding-right: 15px;
     border-radius: 0 30px 30px 0;
   }
 
