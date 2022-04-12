@@ -21,6 +21,17 @@ export const getStatisticsSuccess = createAction(
 export const getStatisticsError = createAction(
   'transactions/getStatisticsError',
 );
-export const addTransRequest = createAction('transaction/addTransRequest');
+export const addTransRequest = createAction(
+  'transaction/addTransRequest',
+  ({ date, type, category, comment, amount }) => ({
+    payload: {
+      date,
+      type,
+      category,
+      comment,
+      amount,
+    },
+  }),
+);
 export const addTransSuccess = createAction('transaction/addTransSuccess');
 export const addTransError = createAction('transaction/addTransError');
