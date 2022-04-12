@@ -3,16 +3,19 @@ import { ReactComponent as Exit } from './icons/exit 1.svg';
 import { ReactComponent as Slash } from './icons/Vector 4.svg';
 import { Link } from 'react-router-dom';
 
-export const RenderMobile = ({ m, setM }) => {
+export const RenderMobile = ({ m, setM, name, avatar}) => {
   return (
     <div className="containerMobil">
-      <Link to="/" className="flexGroops">
+      {/* <Link to="/" className="flexGroops">
         <Logo className="logo" />
         <h1 className="title">Wallet</h1>
-      </Link>
+      </Link> */}
+      <a href='' className="flexGroops">
+        <Logo className="logo" />
+        <h1 className="title">Wallet</h1>
+      </a>
       <div className="flexGroops">
-        <button className="avatar"></button>
-        <p className="headerButton name">Имя</p>
+        <p className="headerButton name">{name }</p>
         <button
           className="headerButton exitIconMobil flexGroops"
           onClick={() => {
@@ -26,16 +29,20 @@ export const RenderMobile = ({ m, setM }) => {
   );
 };
 
-export const render = ({ m, setM }) => {
+export const render = ({ m, setM , name, avatar}) => {
   return (
     <div className="containerTablet">
-      <Link to="/" className="flexGroops">
+      {/* <Link to="/" className="flexGroops">
         <Logo className="logoTablet" />
         <h1 className="titleTablet">Wallet</h1>
-      </Link>
+      </Link> */}
+      <a href='' className="flexGroops">
+        <Logo className="logoTablet" />
+        <h1 className="titleTablet">Wallet</h1>
+      </a>
       <div className="flexGroops">
-        <div className="avatar"></div>
-        <p className="headerButton name">Имя</p>
+        <img className="avatar" alt='avatar' src={avatar} />
+        <p className="headerButton name">{name }</p>
         <Slash className="slash" />
         <button
           className="headerButton exitIcon flexGroops"
