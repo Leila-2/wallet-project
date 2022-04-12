@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import Select from 'react-select';
 import { ArrowDown } from './ArrowDown';
+import { useDispatch } from 'react-redux';
+import transactionOperations from '../../store/transactions/transaction-operations';
 
 import { StyledPeriod } from './Period.styled';
 
@@ -29,7 +31,12 @@ const Period = ({ setRequestedMonth, setRequestedYear, years }) => {
   );
   const [yearState, setYearState] = useState(() => date.getFullYear());
 
-  console.log({ monthState, yearState });
+  const requestData = {
+    month: monthState,
+    year: yearState,
+  };
+
+  const dispatch = useDispatch();
 
   const allYears = () => {
     const yearsArr = ['Год', 2019, 2020, 2021, 2022];
@@ -51,6 +58,8 @@ const Period = ({ setRequestedMonth, setRequestedYear, years }) => {
       return;
     }
     setRequestedMonth(monthId);
+    requestData.month = monthId;
+    dispatch(transactionOperations.getStatistics(requestData));
   };
 
   const validateYears = e => {
@@ -60,6 +69,10 @@ const Period = ({ setRequestedMonth, setRequestedYear, years }) => {
     }
     setRequestedYear(label);
     setYearState(label);
+    const searchMonth = allMonths.find(item => item.name === requestData.month);
+    requestData.month = searchMonth.id;
+    requestData.year = label;
+    dispatch(transactionOperations.getStatistics(requestData));
   };
 
   const sortMonth = arr => {
@@ -95,7 +108,7 @@ const Period = ({ setRequestedMonth, setRequestedYear, years }) => {
               name="SelectedMonth"
               onChange={validateMonth}
               options={sortMonth(allMonths)}
-              placeholder="Месяц"
+              placeholder={monthState}
               styles={customStyles}
             />
             <ArrowDown svg="svgArrowDown" />
@@ -108,7 +121,7 @@ const Period = ({ setRequestedMonth, setRequestedYear, years }) => {
               name="SelectedYear"
               onChange={validateYears}
               options={sortYears(allYears())}
-              placeholder="Год"
+              placeholder={yearState}
               styles={customStyles}
             />
           </div>

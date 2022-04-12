@@ -6,9 +6,9 @@ import {
   getStatisticsRequest,
   getStatisticsSuccess,
   getStatisticsError,
-  addTransSuccess,
   addTransError,
   addTransRequest,
+  addTransSuccess,
 } from './transaction-actions';
 
 const initialState = {
@@ -16,14 +16,24 @@ const initialState = {
     totalBalance: 0,
     transactions: [],
   },
+  statistics: { expenses: 0, incomes: 0, transactions: [] },
 };
 
 const result = createReducer(initialState, {
-  [getTransactionsSuccess]: (_, { payload }) => payload,
-  [getStatisticsSuccess]: (_, { payload }) => payload,
+  [getTransactionsSuccess]: (_, { payload }) => {
+    return {
+      ..._,
+      ...payload,
+    };
+  },
+  [getStatisticsSuccess]: (_, { payload }) => {
+    return {
+      ..._,
+      statistics: { ...payload },
+    };
+  },
   [getTransactionsError]: (_, { payload }) => payload,
-  [addTransSuccess]: (_, { payload }) => payload,
-  [addTransError]: (_, { payload }) => payload,
+  [addTransSuccess]: (state, { payload }) => [...state, payload],
 });
 
 const loading = createReducer(false, {
@@ -33,9 +43,9 @@ const loading = createReducer(false, {
   [getStatisticsRequest]: () => true,
   [getStatisticsSuccess]: () => false,
   [getStatisticsError]: () => false,
-  [addTransError]: () => false,
-  [addTransSuccess]: () => true,
+  [addTransSuccess]: () => false,
   [addTransRequest]: () => true,
+  [addTransError]: () => false,
 });
 
 const error = createReducer(null, {

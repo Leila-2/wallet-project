@@ -7,25 +7,16 @@ import ChartBalance from './ChartBalance';
 
 import StyledChart from './StyledChart';
 
-const statistics = {
-  categories: {
-    main: 500,
-    food: 1000,
-    car: 1300,
-    me: 4000,
-    children: 370,
-    house: 130,
-    education: 850,
-    leisure: 2350,
-    other: 1230,
-  },
-};
-
 const Chart = () => {
-  const totalBalance = useSelector(transactionsSelectors.getBalance);
-  const state = useSelector(transactionsSelectors.getStatistics);
+  const totalBalance = useSelector(transactionsSelectors.getChartBalance);
+  const chartStatistics = useSelector(transactionsSelectors.getChartStatistics);
 
-  console.log(state);
+  const statistics = {
+    categories: {
+      ...chartStatistics,
+    },
+  };
+
   const options = {
     plugins: {
       legend: {

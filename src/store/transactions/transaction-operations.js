@@ -30,7 +30,7 @@ const getStatistics =
     dispatch(getStatisticsRequest());
     try {
       const { data } = await axios.get(
-        `/transactions/statistics?${month}&${year}`,
+        `/transactions/statistics?month=${month}&year=${year}`,
       );
       dispatch(getStatisticsSuccess(data));
     } catch (error) {
@@ -40,10 +40,7 @@ const getStatistics =
 const addTransaction = transaction => async dispatch => {
   dispatch(addTransRequest());
   try {
-    console.log('transaction', transaction);
     const { data } = await axios.post('/transactions/create', transaction);
-
-    console.log('Add data', data);
 
     dispatch(addTransSuccess(data));
   } catch (error) {

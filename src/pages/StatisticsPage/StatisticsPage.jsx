@@ -8,9 +8,14 @@ import Chart from '../../components/Chart';
 import MainBg from '../../components/MainBg/MainBg';
 import Modal from '../../components/Modal/Modal';
 import ButtonAddTransaction from '../../components/BtnAddTransaction/BtnAddTransaction';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Balance from '../../components/Balance/Balance';
+
 import { Container } from '../../styles/Container';
+
+import transactionOperations from '../../store/transactions/transaction-operations';
+import { useDispatch, useSelector } from 'react-redux';
+
 
 import Period from '../../components/Period';
 
@@ -19,6 +24,7 @@ import Currency from '../../components/Currency/Currency';
 import TableBalans from '../../components/TableBalans/Table/TableBalans';
 
 export default function StatisticsPage() {
+  const dispatch = useDispatch();
   const [showModal, setShowModal] = useState(false);
   const onClose = () => {
     setShowModal(!showModal);
@@ -28,6 +34,15 @@ export default function StatisticsPage() {
   const date = new Date();
   const [month, setMonth] = useState(() => date.getUTCMonth() + 1);
   const [year, setYear] = useState(() => date.getFullYear());
+
+  const requestData = {
+    month,
+    year,
+  };
+
+  useEffect(() => {
+    dispatch(transactionOperations.getStatistics(requestData));
+  }, [dispatch]);
 
   return (
     <>
@@ -114,6 +129,8 @@ export default function StatisticsPage() {
           )}
         </Media>
       </div>
+
+
 
       <ButtonAddTransaction onClick={onClose} />
       {showModal && <Modal showModal={showModal} setShowModal={setShowModal} />}

@@ -1,3 +1,4 @@
+import React from 'react';
 import { useEffect, useState } from 'react';
 import { StyledCurrency } from './Cyrrency.styled';
 import {
@@ -9,17 +10,21 @@ import {
   TableCell,
 } from '@material-ui/core';
 import fetchData from '../../service/currencyAPI';
+import * as Loader from 'react-loader-spinner';
 
 function Currency() {
   const [currency, setCurrency] = useState([]);
-//   const s = useStyles();
+  const [isLoading, setLoading] = useState(false);
 
   const fetch = async () => {
+    setLoading(true);
     try {
       const data = await fetchData();
       setCurrency([...data]);
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -30,7 +35,10 @@ function Currency() {
   return (
     <>
       <StyledCurrency>
-        <TableContainer className="table_container">
+        {isLoading ? (
+         <Loader.Grid color="#4a56e2" height={80} width={80}/>
+        ) : (
+            <TableContainer className="table_container">
           <Table className="table" size="small">
             <TableHead className="head">
               <TableRow className="head_row">
@@ -66,6 +74,8 @@ function Currency() {
           </Table>
           <div className="background"></div>
         </TableContainer>
+        )
+      }
       </StyledCurrency>
     </>
   );
