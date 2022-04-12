@@ -37,7 +37,7 @@ const showModal = useSelector(state => state.modal);
           <>
             <Navigation />
             <Balance />
-            {/* <Currency /> */}
+            <Currency />
           </>
         }
         LeftComponent={<TableBalance />}

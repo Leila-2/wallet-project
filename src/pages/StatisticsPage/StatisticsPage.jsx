@@ -47,9 +47,7 @@ export default function StatisticsPage() {
             </div>
           </>
         }
-      />
-
-
+      >
       </MainBg>
      
       <ButtonAddTransaction onClick={onClose} />
