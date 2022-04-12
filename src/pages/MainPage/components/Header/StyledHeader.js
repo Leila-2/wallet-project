@@ -43,7 +43,7 @@ const StyledHeader = styled.div`
     text-align: center;
   }
   .exit {
-    width: 51px;
+ 
     margin-left: 8px;
   }
   .exitIcon {

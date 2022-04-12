@@ -19,6 +19,10 @@ export const MainBgImage = styled.div`
     .wrapper-right {
       padding: 40px 35px 47px 35px;
     }
+    .wrapper-left {
+      padding-top: 32px;
+     padding-right: 32px;
+    }
     
     }
   }
