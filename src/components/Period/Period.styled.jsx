@@ -2,46 +2,47 @@ import styled from 'styled-components';
 import { baseTheme } from '../../styles/variables';
 
 export const StyledPeriod = styled.div`
-.form {
+  margin-top: 40px;
+  .form {
     display: flex;
     flex-direction: column;
 
     @media screen and ${baseTheme.media.tabletMin} {
-        flex-direction: row;
-        height: 50px;
+      flex-direction: row;
+      height: 50px;
     }
-}
+  }
 
-.inputWrapperMonth {
+  .inputWrapperMonth {
     position: relative;
     margin-bottom: 20px;
 
     @media screen and ${baseTheme.media.tabletMin} {
-        width: 160px;
-        margin-bottom: 0;
-        margin-right: 16px;
+      width: 160px;
+      margin-bottom: 0;
+      margin-right: 16px;
     }
 
     @media screen and ${baseTheme.media.desktop} {
-        width: 182px;
-        margin-right: 32px;
+      width: 182px;
+      margin-right: 32px;
     }
-}
+  }
 
-.inputWrapperYear {
+  .inputWrapperYear {
     position: relative;
     margin: 0;
 
     @media screen and ${baseTheme.media.tabletMin} {
-        width: 160px;
+      width: 160px;
     }
 
-     @media screen and ${baseTheme.media.desktop} {
-         width: 182px;
-     }
-}
+    @media screen and ${baseTheme.media.desktop} {
+      width: 182px;
+    }
+  }
 
-.svgArrowDown {
+  .svgArrowDown {
     position: absolute;
     right: 20px;
     top: 24px;
@@ -49,5 +50,5 @@ export const StyledPeriod = styled.div`
     height: 9px;
     cursor: pointer;
     pointer-events: none;
-}
+  }
 `;

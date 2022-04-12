@@ -6,7 +6,13 @@ const StyledNavLink = styled.li`
   font-size: 18px;
   line-height: 1.5;
   letter-spacing: -0.02em;
-  /* margin-bottom: 12px; */
+@media screen and ${baseTheme.media.tabletMin} {
+    :first-child{
+      margin-bottom: 12px;
+    } 
+  }
+  
+ 
 
   .linkStyle {
     font-weight: 400;

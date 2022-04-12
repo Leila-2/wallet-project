@@ -7,7 +7,13 @@ const StyledChart = styled.div`
     font-weight: 400;
     font-size: 30px;
     line-height: 45px;
-    margin-bottom: 10px;
+
+    @media screen and ${baseTheme.media.tabletMin} {
+      margin-bottom: 20px;
+    }
+    @media screen and ${baseTheme.media.mobileMax} {
+      margin-bottom: 10px;
+    }
   }
 
   .chart {

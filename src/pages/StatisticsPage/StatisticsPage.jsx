@@ -16,6 +16,8 @@ import Period from '../../components/Period';
 
 // import TableBalance from '../../components/TableBalans/TableBalansElement';
 import TableStatistic from '../../components/TableStatistic/TableStatistic';
+import Currency from '../../components/Currency/Currency';
+import TableBalans from '../../components/TableBalans/Table/TableBalans';
 
 export default function StatisticsPage() {
   const [showModal, setShowModal] = useState(false);
@@ -57,15 +59,39 @@ export default function StatisticsPage() {
                   </MobileBg>
                 </>
               )}
-              {matches.medium && <p>I am medium!</p>}
+              {matches.medium && (
+                <>
+                  <Header />
+                  <MainBg
+                    RigthComponent={
+                      <>
+                        <Navigation />
+                        <Balance />
+                        <Chart />
+                      </>
+                    }
+                    LeftComponent={
+                      <>
+                        <Currency />
+                        <Period
+                          setRequestedMonth={setMonth}
+                          setRequestedYear={setYear}
+                          years={years}
+                        />
+                        <TableStatistic />
+                      </>
+                    }
+                  />
+                </>
+              )}
               {matches.large && <p>I am large!</p>}
             </Fragment>
           )}
         </Media>
       </div>
 
-      {/* <ButtonAddTransaction onClick={onClose} />
-      {showModal && <Modal showModal={showModal} setShowModal={setShowModal} />} */}
+      <ButtonAddTransaction onClick={onClose} />
+      {showModal && <Modal showModal={showModal} setShowModal={setShowModal} />}
     </>
   );
 }

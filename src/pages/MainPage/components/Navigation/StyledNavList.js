@@ -2,6 +2,10 @@ import styled from 'styled-components';
 import { baseTheme } from '../../../../styles/variables';
 
 const StyledNavList = styled.ul`
+
+@media screen and ${baseTheme.media.tabletMin}{
+margin-bottom:28px
+}
   @media screen and ${baseTheme.media.mobileMax} {
     display: flex;
     justify-content: space-around;
