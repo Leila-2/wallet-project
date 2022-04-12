@@ -16,11 +16,22 @@ const initialState = {
     totalBalance: 0,
     transactions: [],
   },
+  statistics: { expenses: 0, incomes: 0, transactions: [] },
 };
 
 const result = createReducer(initialState, {
-  [getTransactionsSuccess]: (_, { payload }) => payload,
-  [getStatisticsSuccess]: (_, { payload }) => payload,
+  [getTransactionsSuccess]: (_, { payload }) => {
+    return {
+      ..._,
+      ...payload,
+    };
+  },
+  [getStatisticsSuccess]: (_, { payload }) => {
+    return {
+      ..._,
+      statistics: { ...payload },
+    };
+  },
   [getTransactionsError]: (_, { payload }) => payload,
   [addTransSuccess]: (_, { payload }) => payload,
   [addTransError]: (_, { payload }) => payload,

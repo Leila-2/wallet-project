@@ -68,7 +68,6 @@ export default function ModalAddTransaction() {
   };
   const handleSubmit = e => {
     e.preventDefault();
-    console.log('object');
     const transaction = {
       date,
       type,
