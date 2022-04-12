@@ -6,10 +6,22 @@ import { Container } from '../../../../styles/Container';
 import { RenderMobile, render } from './MediaComponents';
 import { useState, useEffect } from 'react';
 import ModalLogout from '../ModalLogout/ModalLogout';
+import { useSelector, useDispatch } from 'react-redux';
+import authSelectors from '../../../../store/auth/authSelectors';
+import { actionLogout } from '../../../../store/auth/authActions';
 
 const Header = () => {
   const [m, setM] = useState(false);
 
+  const name = useSelector(authSelectors.getUserName);
+  const avatar = useSelector(authSelectors.getUserAvatar);
+
+  const dispatch = useDispatch();
+
+  const exit = () => {
+    dispatch(actionLogout())
+  }
+  
   useEffect(() => {
     window.addEventListener('keydown', closeModalByClickESC);
 
@@ -32,14 +44,8 @@ const Header = () => {
         {matches => (
           <Container>
             {matches.small &&
-              (m ? (
-                <ModalLogout open={m} modal={setM} />
-              ) : (
-                RenderMobile({ m, setM })
-              ))}
-
-            {matches.medium &&
-              ((m && ModalLogout({ m, setM })) || render({ m, setM }))}
+              ((m && ModalLogout({ m, setM, exit })) || RenderMobile({ m, setM, name, avatar}))}
+            {matches.medium && ((m && ModalLogout({ m, setM, exit })) || render({ m, setM, name, avatar}))}
           </Container>
         )}
       </Media>
