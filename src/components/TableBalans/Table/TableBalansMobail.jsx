@@ -1,6 +1,17 @@
 import StyledTableBalansMobail from './StyledTableBalansMobail';
 
 export default function TableBalansMobail({ transactions }) {
+  const categories = {
+    main: 'Основной',
+    food: 'Еда',
+    car: 'Авто',
+    me: 'Развитие',
+    children: 'Дети',
+    house: 'Дом',
+    education: 'Образование',
+    other: 'Остальные',
+  };
+
   return (
     <StyledTableBalansMobail>
       {transactions.map(transaction => (
@@ -19,7 +30,9 @@ export default function TableBalansMobail({ transactions }) {
               </tr>
               <tr className="table-string-mob">
                 <th className="table-title-mob">Категория</th>
-                <td className="table-date-mob">{transaction.category}</td>
+                <td className="table-date-mob">
+                  {categories[transaction.category]}
+                </td>
               </tr>
               <tr>
                 <th className="table-title-mob">Комментарий</th>

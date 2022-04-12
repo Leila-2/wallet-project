@@ -5,15 +5,17 @@ import Chart from '../../components/Chart';
 import MainBg from '../../components/MainBg/MainBg';
 import Modal from '../../components/Modal/Modal';
 import ButtonAddTransaction from '../../components/BtnAddTransaction/BtnAddTransaction';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Balance from '../../components/Balance/Balance';
+import transactionOperations from '../../store/transactions/transaction-operations';
+import { useDispatch, useSelector } from 'react-redux';
 
 import Period from '../../components/Period';
 
-// import TableBalance from '../../components/TableBalans/TableBalansElement';
 import TableStatistic from '../../components/TableStatistic/TableStatistic';
 
 export default function StatisticsPage() {
+  const dispatch = useDispatch();
   const [showModal, setShowModal] = useState(false);
   const onClose = () => {
     setShowModal(!showModal);
@@ -24,16 +26,25 @@ export default function StatisticsPage() {
   const [month, setMonth] = useState(() => date.getUTCMonth() + 1);
   const [year, setYear] = useState(() => date.getFullYear());
 
+  const requestData = {
+    month,
+    year,
+  };
+
+  useEffect(() => {
+    dispatch(transactionOperations.getStatistics(requestData));
+  }, [dispatch]);
+
   return (
     <>
       <Header />
 
-      <MainBg RigthComponent={
+      <MainBg
+        RigthComponent={
           <>
             <Navigation /> <Balance />
           </>
         }
-
         LeftComponent={
           <>
             <Chart />
@@ -47,9 +58,8 @@ export default function StatisticsPage() {
             </div>
           </>
         }
-      >
-      </MainBg>
-     
+      ></MainBg>
+
       <ButtonAddTransaction onClick={onClose} />
       {showModal && <Modal showModal={showModal} setShowModal={setShowModal} />}
     </>
