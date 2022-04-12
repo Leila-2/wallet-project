@@ -2,7 +2,12 @@ import styled from 'styled-components';
 import { baseTheme } from '../../styles/variables';
 
 export const StyledPeriod = styled.div`
-  margin-top: 40px;
+  @media screen and ${baseTheme.media.tabletMax} {
+    margin-top: 40px;
+  }
+  @media screen and ${baseTheme.media.desktop} {
+    margin-top: 55px;
+  }
   .form {
     display: flex;
     flex-direction: column;

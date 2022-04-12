@@ -14,7 +14,6 @@ import { Container } from '../../styles/Container';
 
 import Period from '../../components/Period';
 
-// import TableBalance from '../../components/TableBalans/TableBalansElement';
 import TableStatistic from '../../components/TableStatistic/TableStatistic';
 import Currency from '../../components/Currency/Currency';
 import TableBalans from '../../components/TableBalans/Table/TableBalans';
@@ -84,7 +83,33 @@ export default function StatisticsPage() {
                   />
                 </>
               )}
-              {matches.large && <p>I am large!</p>}
+              {matches.large && (
+                <>
+                  <Header />
+                  <MainBg
+                    RigthComponent={
+                      <>
+                        <Navigation />
+                        <Balance />
+                        <Currency />
+                      </>
+                    }
+                    LeftComponent={
+                      <>
+                        <Chart />
+                        <div>
+                          <Period
+                            setRequestedMonth={setMonth}
+                            setRequestedYear={setYear}
+                            years={years}
+                          />
+                          <TableStatistic />
+                        </div>
+                      </>
+                    }
+                  />
+                </>
+              )}
             </Fragment>
           )}
         </Media>

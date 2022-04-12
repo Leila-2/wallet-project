@@ -20,10 +20,13 @@ const StyledChart = styled.div`
     position: relative;
     margin-left: auto;
     margin-right: auto;
-    width: 280px;
+    width: 288px;
     margin-bottom: 30px;
 
-    @media screen and ${baseTheme.media.tabletMin} {
+    @media screen and ${baseTheme.media.desktop} {
+      margin-right: 32px;
+    }
+    @media screen and ${baseTheme.media.mobileMax} {
       margin: 0;
       width: 320px;
     }
