@@ -5,7 +5,8 @@ import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import getAllCategories from '../../store/categories/categories-selectors';
 import { getCategories } from '../../store/categories/categories-actions';
-import  addTransaction from '../../store/transactions/transaction-operations'
+import { addTransRequest } from '../../store/transactions/transaction-actions';
+import addTransaction from '../../store/transactions/transaction-operations';
 export default function ModalAddTransaction() {
   const [category, setCategory] = useState('Выберите категорию');
   const dispatch = useDispatch();
@@ -20,7 +21,7 @@ export default function ModalAddTransaction() {
   useEffect(() => {
     dispatch(getCategories());
   }, []);
-  
+
   useEffect(() => {
     if (type) {
       setCat(income);
@@ -67,7 +68,7 @@ export default function ModalAddTransaction() {
   };
   const handleSubmit = e => {
     e.preventDefault();
-console.log('object');
+    console.log('object');
     const transaction = {
       date,
       type,
@@ -76,19 +77,22 @@ console.log('object');
       amount,
     };
 
-    addTransaction( transaction ).then(({ data, error }) => {
-      console.log(data);
-      if (data) {
-        console.log('Success', data);
-        reset();
-      } else if (error) {
-        console.log(error.data.message);
-      }
-    });
+    const res = dispatch(addTransRequest(transaction));
+    // console.log(res);
+
+    // addTransaction(transaction).then(({ data, error }) => {
+    //   console.log(data);
+    //   if (data) {
+    //     console.log('Success', data);
+    //     reset();
+    //   } else if (error) {
+    //     console.log(error.data.message);
+    //   }
+    // });
   };
 
   return (
-    <FormModal className="form"  onSubmit={handleSubmit}>
+    <FormModal className="form">
       <Checkbox>
         <span className="checkbox__label-right">Доход</span>
         <span className="checkbox__toggle">
@@ -105,6 +109,7 @@ console.log('object');
         <span className="checkbox__label-left">Расход</span>
       </Checkbox>
       <select
+        name="category"
         className="select"
         placeholder="Выберите категорию"
         value={category}
@@ -120,16 +125,29 @@ console.log('object');
         <input
           className="numberInput"
           type="number"
-          name='amount'
+          name="amount"
           value={amount}
           placeholder="0.00"
           onChange={handleInputChange}
           required
         />
-        <input className="dateInput" type="date"   value={date} required  onChange={handleInputChange}/>
+        <input
+          className="dateInput"
+          type="date"
+          name="date"
+          value={date}
+          required
+          onChange={handleInputChange}
+        />
       </div>
-      <textarea className="comment" name="comment"   value={comment} placeholder="Комментарий" onChange={handleInputChange} />
-      <FormButton title={'Добавить'}  type='submit'/>
+      <textarea
+        className="comment"
+        name="comment"
+        value={comment}
+        placeholder="Комментарий"
+        onChange={handleInputChange}
+      />
+      <FormButton title={'Добавить'} type="submit" handler={handleSubmit} />
       <СancelBtn>Отмена</СancelBtn>
     </FormModal>
   );

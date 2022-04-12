@@ -6,6 +6,7 @@ import transactionsSelectors from '../../store/transactions/transaction-selector
 
 export default function TableBalansElement() {
   const transactions = useSelector(transactionsSelectors.getTransactions);
+  console.log(transactions);
   return (
     <>
       <Media
