@@ -6,7 +6,6 @@ const StyledFormButton = styled.button`
   height: 50px;
   background: ${baseTheme.colors.green};
   border-radius: 20px;
-
   font-family: ${baseTheme.fonts.mainFont};
   font-size: 18px;
   line-height: 1.5;
@@ -14,9 +13,8 @@ const StyledFormButton = styled.button`
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: ${baseTheme.colors.white};
-
   @media screen and ${baseTheme.media.mobileMax} {
-    width: 280px;
+    width: 200px;
   }
 `;
 

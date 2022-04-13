@@ -5,9 +5,13 @@ import minus from './minus.svg';
 import FormButton from '../FormButton/StyledFormButton';
 
 export const FormModal = styled.div`
-    display: flex;
+  display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content:center;
   padding: 0 73px;
+  @media screen and ${baseTheme.media.mobileMin} and ${baseTheme.media.mobileMax}{
+    padding: 0 40px;
   }
   .select,
   .comment,
@@ -22,38 +26,67 @@ export const FormModal = styled.div`
   border-right: none;
   border-bottom: 1px solid;
   border-color:${baseTheme.colors.lightGray};
+  @media screen and ${baseTheme.media.mobileMax} {
+    width:280px;
+  }
   }
 .comment::placeholder {
   color: ${baseTheme.colors.lightGray};
   font-size: 18px;
   margin-bottom:8px;
 }
-.comment{
+.comment,
+.select{
   height:30px;
+  width:394px;
+  @media screen and ${baseTheme.media.mobileMax} {
+    width:280px;
+    
+  }
 }
 
  .inputCont{
    display:flex;
-justify-content:space-around;
+  justify-content:space-around;
+  @media screen and ${baseTheme.media.mobileMin} and ${baseTheme.media.mobileMax}{
+  flex-direction: column;
+}
  }
  .dateInput{
    margin-left:32px;
    width:181px;
+ @media screen and ${baseTheme.media.mobileMax} {
+  margin-left:0;
+  width:280px; 
  }
+}
  .numberInput{
    width:181px;
+   @media screen and ${baseTheme.media.mobileMax} {
+    width:280px; 
+  }
  }
 .btn{
  margin-bottom:20px;
  }
-
+.formBtn{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
 `
 
 export const Checkbox = styled.div`
+@media screen and ${baseTheme.media.mobileMin} and ${baseTheme.media.mobileMax} {
+  display:flex;
+  align-item:center;
+  justify-content:center;
+}
+
 text-align: center;
 margin-bottom: 40px;
 color: ${baseTheme.colors.gray};
-}
+
 .checkbox__label-right{
 color:${baseTheme.colors.lightGray};
 font-style: normal;
@@ -132,4 +165,5 @@ background: ${baseTheme.colors.white};
 border:1px solid ${baseTheme.colors.purple};
 color:${baseTheme.colors.purple};
 margin-top:20px;
+
 `
