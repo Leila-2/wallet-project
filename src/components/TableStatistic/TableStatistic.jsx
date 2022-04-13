@@ -25,7 +25,6 @@ export default function TableStatistic({}) {
     me: 'Развитие',
     children: 'Дети',
     house: 'Дом',
-    leisure: 'Досуг',
     education: 'Образование',
     other: 'Остальные',
   };

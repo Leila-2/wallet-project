@@ -26,8 +26,19 @@ const Chart = () => {
     maintainAspectRatio: false,
   };
 
+  const categories = {
+    main: 'Основной',
+    food: 'Еда',
+    car: 'Авто',
+    me: 'Развитие',
+    children: 'Дети',
+    house: 'Дом',
+    education: 'Образование',
+    other: 'Остальные',
+  };
+
   const chart = {
-    labels: [...Object.keys(statistics.categories)],
+    labels: [...Object.values(categories)],
     datasets: [
       {
         data: statistics.categories
