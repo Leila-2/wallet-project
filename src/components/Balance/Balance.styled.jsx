@@ -39,7 +39,8 @@ export const StyledBalance = styled.div`
     margin-bottom: 20px;
   }
 
-  @media screen and ${baseTheme.media.mobileMin} {
+  @media screen and ${baseTheme.media.mobileMax} {
     width: 280px;
+    margin-bottom: 32px;
   }
 `;

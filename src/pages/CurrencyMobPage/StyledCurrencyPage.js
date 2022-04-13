@@ -6,10 +6,10 @@ const StyledCurrencyPage = styled.div`
 
   @media screen and ${baseTheme.media.mobileMax} {
     display: block;
-    min-width: 100%;
+    /* min-width: 100%;
     height: 100vh;
     background: none;
-    padding: 15px 20px 0 20px;
+    padding: 15px 20px 0 20px; */
   }
 `;
 

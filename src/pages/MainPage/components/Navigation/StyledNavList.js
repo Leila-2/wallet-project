@@ -9,7 +9,7 @@ margin-bottom:28px
   @media screen and ${baseTheme.media.mobileMax} {
     display: flex;
     justify-content: space-around;
-    margin-bottom:40px;
+   
 
     /* li:not(:last-child) {
       margin-right: 38px;

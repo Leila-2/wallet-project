@@ -36,7 +36,7 @@ function Currency() {
     <>
       <StyledCurrency>
         {isLoading ? (
-         <Loader.Grid color="#4a56e2" height={80} width={80}/>
+          <div className="spinner-container"><Loader.BallTriangle color="#4a56e2" height={80} width={80}/></div>
         ) : (
             <TableContainer className="table_container">
           <Table className="table" size="small">
