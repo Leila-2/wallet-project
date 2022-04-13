@@ -34,10 +34,10 @@ const StyledChart = styled.div`
       width: 320px;
     }
 
-    @media screen and ${baseTheme.media.mobileMin} {
+    /* @media screen and ${baseTheme.media.mobileMin} {
       margin: 0;
       width: 280px;
-    }
+    } */
   }
 
   .containerChart {
