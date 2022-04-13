@@ -1,4 +1,6 @@
 import StyledTableBalans from './StyledTableBalanse';
+import EditBtn from '../../EditBtn/EditBtn';
+import RemoveBtn from '../../RemoveBtn/RemoveBtn';
 
 export default function TableBalans({ transactions }) {
   const categories = {
@@ -29,11 +31,17 @@ export default function TableBalans({ transactions }) {
           {transactions.map(transaction => (
             <tr className="table-list" key={transaction.id}>
               <td>{transaction.date}</td>
+
               <td className='title-type'>{transaction.type === 'expenses' ? '-' : '+'}</td>
               <td className='table-title'>{categories[transaction.category]}</td>
               <td className='table-title'>{transaction.comment}</td>
               <td style={{color: `${transaction.type === 'expenses' ? '#FF6596':'#24CCA7'}` }}>{transaction.amount}</td>
-              <td>{transaction.balance}</td>
+      
+              <td>
+                {transaction.balance} <EditBtn />{' '}
+                <RemoveBtn id={transaction.id} />
+              </td>
+
             </tr>
           ))}
         </tbody>
