@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { baseTheme } from '../../styles/variables';
 
 const colors = [
   '#FED057',
@@ -49,7 +48,6 @@ const StyledTableStatistic = styled.div`
   }
 
   .header-table {
-    font-family: ${baseTheme.fonts.titleFont};
     height: 58px;
     background: #ffffff;
   }
