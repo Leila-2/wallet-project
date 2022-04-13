@@ -30,7 +30,7 @@ export const login = async (email, password) => {
 //==================LOGOUT=====================
 export const logout = async () => {
   try {
-    const res = await axios.post(`/users/logout`);
+    const res = await axios.get(`/users/logout`);
     return res;
   } catch (error) {
     console.error(error);
