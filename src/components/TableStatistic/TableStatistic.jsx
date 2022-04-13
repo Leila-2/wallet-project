@@ -9,11 +9,12 @@ export default function TableStatistic({}) {
 
   const backgroundColor = {
     main: '#FED057',
-    food: '#F7A594',
-    car: '#FCBEB1',
+    food: '#FFD8D0',
+    car: '#FD9498',
     me: '#C5BAFF',
     children: '#6E78E8',
     house: '#4A56E2',
+    leisure: '#24CCA7',
     education: '#81E1FF',
     other: '#00AD84',
   };
@@ -24,6 +25,7 @@ export default function TableStatistic({}) {
     me: 'Развитие',
     children: 'Дети',
     house: 'Дом',
+    leisure: 'Досуг',
     education: 'Образование',
     other: 'Остальные',
   };
