@@ -1,3 +1,5 @@
+import zIndex from '@material-ui/core/styles/zIndex';
+
 const getTransactions = state => state.transactions.result.data.transactions;
 const getStatistics = state => state.transactions.result.statistics;
 const getBalance = state => state.transactions.result.data.totalBalance;
@@ -6,6 +8,8 @@ const getChartBalanceIncomes = state =>
   state.transactions.result.statistics.incomes;
 const getChartStatistics = state =>
   state.transactions.result.statistics.transactions;
+const getTransactionId = state =>
+  state.transactions.result.data.transactions.id;
 
 const transactionsSelectors = {
   getTransactions,
@@ -14,6 +18,7 @@ const transactionsSelectors = {
   getChartBalance,
   getChartStatistics,
   getChartBalanceIncomes,
+  getTransactionId,
 };
 
 export default transactionsSelectors;
