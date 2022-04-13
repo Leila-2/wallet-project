@@ -27,6 +27,7 @@ export default function TableStatistic({}) {
     education: 'Образование',
     other: 'Остальные',
   };
+
   return (
     <StyledTableStatistic>
       <table className="global-table">
