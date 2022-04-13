@@ -58,13 +58,13 @@ export const transactionsAll = async () => {
 };
 
 //===================TRANSACTIONS CREATE=====================
-export const transactionsCreate = async (
-  { date,
-    category,
-    comment,
-    amount,
-    type, }
-) => {
+export const transactionsCreate = async ({
+  date,
+  category,
+  comment,
+  amount,
+  type,
+}) => {
   try {
     const res = await axios.post(`/transactions/create`, {
       date,
@@ -110,9 +110,9 @@ export const transactionsUpdate = async () => {
 };
 
 //===================TRANSACTIONS DELETE=====================
-export const transactionsDelete = async () => {
+export const transactionsDelete = async id => {
   try {
-    const res = await axios.delete(`/transactions/:transactionId`);
+    const res = await axios.delete(`/transactions/${id}`);
     return res;
   } catch (error) {
     console.error(error);
