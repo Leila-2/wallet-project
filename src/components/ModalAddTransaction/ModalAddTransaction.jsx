@@ -9,11 +9,11 @@ import { transactionsCreate } from '../../service/axios.config';
 import transactionOperations from '../../store/transactions/transaction-operations';
 
 export default function ModalAddTransaction() {
-  const [category, setCategory] = useState("Выберите категорию");
+  const [category, setCategory] = useState('Выберите категорию');
   const dispatch = useDispatch();
   const [type, setType] = useState(false);
   const [amount, setAmount] = useState('');
-  const [date, setDate] = useState();
+  const [date, setDate] = useState('');
   const [comment, setComment] = useState('');
   const { income, expense } = useSelector(getAllCategories);
   const { categories } = useSelector(getAllCategories);
@@ -48,6 +48,7 @@ export default function ModalAddTransaction() {
   };
 
   const reset = () => {
+    console.log('asdsad');
     setType(false);
     setCat([]);
     setAmount('');
@@ -58,26 +59,30 @@ export default function ModalAddTransaction() {
   const handleSubmit = e => {
     e.preventDefault();
     let typeCheck = '';
-    if (type === true) {
+    let categoryIncomes = '';
+
+    if (type) {
       typeCheck = 'incomes';
+      categoryIncomes = 'incomes';
     } else {
       typeCheck = 'expenses';
+      categoryIncomes = category;
     }
+
     const transaction = {
       date,
       type: typeCheck,
-      category,
+      category: categoryIncomes,
       comment,
       amount,
     };
 
-    console.log(transaction);
     transactionsCreate(transaction);
     reset();
     setTimeout(() => {
       dispatch(transactionOperations.getTransactions());
       dispatch(toggleModal());
-    }, 1000);
+    }, 100);
   };
 
   return (
@@ -97,19 +102,21 @@ export default function ModalAddTransaction() {
         </span>
         <span className="checkbox__label-left">Расход</span>
       </Checkbox>
-      <select
-        name="category"
-        className="select"
-        value={category}
-        onChange={handleInputChange}
-      >
-         <option disabled>Выберите категорию</option>
-        {categories?.map(el => (
-          <option key={el.title} value={el.value}>
-            {el.title}
-          </option>
-        ))}
-      </select>
+      {!type && (
+        <select
+          name="category"
+          className="select"
+          value={category}
+          onChange={handleInputChange}
+        >
+          <option disabled>Выберите категорию</option>
+          {categories?.map(el => (
+            <option key={el.title} value={el.value}>
+              {el.title}
+            </option>
+          ))}
+        </select>
+      )}
       <div className="inputCont">
         <input
           className="numberInput"
@@ -117,6 +124,7 @@ export default function ModalAddTransaction() {
           name="amount"
           value={amount}
           placeholder="0.00"
+          min="0"
           onChange={handleInputChange}
           required
         />
@@ -136,9 +144,11 @@ export default function ModalAddTransaction() {
         placeholder="Комментарий"
         onChange={handleInputChange}
       />
-      <div className='formBtn'>
-      <FormButton title={'Добавить'} handler={handleSubmit} />
-      <СancelBtn>Отмена</СancelBtn>
+      <div className="formBtn">
+        <FormButton title={'Добавить'} handler={handleSubmit} />
+        <button onClick={reset} className="resetButton">
+          Отмена
+        </button>
       </div>
     </FormModal>
   );
