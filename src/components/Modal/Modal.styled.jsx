@@ -6,8 +6,8 @@ export const ModalWrapper = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,7 +20,15 @@ export const ModalWrapper = styled.div`
     width: 540px;
     border-radius: 20px;
     background-color: ${baseTheme.colors.white};
-
+    @media screen and ${baseTheme.media.mobileMin} and ${baseTheme.media.mobileMax} {
+      width: 100%;
+      padding: 0 20px;
+    }
+    @media screen and ${baseTheme.media.mobileMax} {
+      width: 100%;
+      padding: 0 20px;
+    }
+  }
   .closeBtn{
     height: 16px;
     width: 16px;
@@ -37,13 +45,17 @@ export const ModalWrapper = styled.div`
   .title{
     font:${baseTheme.fonts.titleFont}
     color:${baseTheme.colors.black}
-    font-style: rnormal;
+    font-style: normal;
     font-weight: 400;
     font-size: 30px;
     margin-top:20px;
     margin-bottom:42px;
     line-height: 1.5;
     text-align:center;
+    @media screen and ${baseTheme.media.mobileMin} {
+      font-size: 24px;
+      margin-top:40px;
+    }
   }
   
 `;

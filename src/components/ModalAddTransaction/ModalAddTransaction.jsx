@@ -9,7 +9,7 @@ import { transactionsCreate } from '../../service/axios.config';
 import transactionOperations from '../../store/transactions/transaction-operations';
 
 export default function ModalAddTransaction() {
-  const [category, setCategory] = useState('');
+  const [category, setCategory] = useState("Выберите категорию");
   const dispatch = useDispatch();
   const [type, setType] = useState(false);
   const [amount, setAmount] = useState('');
@@ -46,6 +46,7 @@ export default function ModalAddTransaction() {
   const handleCheckbox = () => {
     setType(!type);
   };
+
   const reset = () => {
     setType(false);
     setCat([]);
@@ -53,6 +54,7 @@ export default function ModalAddTransaction() {
     setDate('');
     setComment('');
   };
+
   const handleSubmit = e => {
     e.preventDefault();
     let typeCheck = '';
@@ -98,10 +100,10 @@ export default function ModalAddTransaction() {
       <select
         name="category"
         className="select"
-        placeholder="Выберите категорию"
         value={category}
         onChange={handleInputChange}
       >
+         <option disabled>Выберите категорию</option>
         {categories?.map(el => (
           <option key={el.title} value={el.value}>
             {el.title}
@@ -134,8 +136,10 @@ export default function ModalAddTransaction() {
         placeholder="Комментарий"
         onChange={handleInputChange}
       />
+      <div className='formBtn'>
       <FormButton title={'Добавить'} handler={handleSubmit} />
       <СancelBtn>Отмена</СancelBtn>
+      </div>
     </FormModal>
   );
 }

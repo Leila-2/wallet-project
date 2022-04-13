@@ -13,7 +13,7 @@ export const baseTheme = {
 	},
 
 	media: {
-		mobileMin: "(max-width: 320px)",
+		mobileMin: "(min-width: 320px)",
 		mobileMax: "(max-width: 767px)",
 		tabletMin: "(min-width: 768px)",
 		tabletMax: "(max-width: 1279px)",
