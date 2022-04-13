@@ -43,10 +43,12 @@ export default function TableBalans({ transactions }) {
               >
                 {transaction.amount}
               </td>
+
               <td>
                 {transaction.balance} <EditBtn />{' '}
                 <RemoveBtn id={transaction.id} />
               </td>
+
             </tr>
           ))}
         </tbody>
