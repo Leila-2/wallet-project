@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { baseTheme } from '../../../styles/variables';
 
 const StyledTableBalans = styled.div`
   .global-table {
@@ -19,9 +20,7 @@ const StyledTableBalans = styled.div`
   }
 
   .header-table {
-    font-family: 'Open Sans';
-    font-size: 16px;
-    line-height: 24px;
+    font-family: ${baseTheme.fonts.titleFont};
     background: #ffffff;
   }
 
@@ -32,17 +31,20 @@ const StyledTableBalans = styled.div`
   }
 
   .last-table {
+    padding-right:15px;
     border-radius: 0 30px 30px 0;
   }
   .table-list {
     text-align: center;
-    background-color: transpotate;
+  }
+
+  .table-list:not(:last-child){
+    border-bottom: 1px solid #dcdcdf;
+    border-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
   }
 
   .table-list td {
-    padding: 10px;
-    border-bottom: 1px solid #dcdcdf;
-    border-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
+    padding: 10px; 
   }
 `;
 

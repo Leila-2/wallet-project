@@ -41,5 +41,6 @@ export const StyledBalance = styled.div`
 
   @media screen and ${baseTheme.media.mobileMin} {
     width: 280px;
+    margin-bottom: 32px;
   }
 `;
