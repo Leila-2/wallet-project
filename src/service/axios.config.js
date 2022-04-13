@@ -100,9 +100,22 @@ export const transactionsId = async () => {
 };
 
 //===================TRANSACTIONS UPDATE=====================
-export const transactionsUpdate = async () => {
+export const transactionsUpdate = async ({
+  id,
+  date,
+  category,
+  comment,
+  amount,
+  type,
+}) => {
   try {
-    const res = await axios.put(`/transactions/:transactionId`);
+    const res = await axios.put(`/transactions/${id}`, {
+      date,
+      category,
+      comment,
+      amount,
+      type,
+    });
     return res;
   } catch (error) {
     console.error(error);

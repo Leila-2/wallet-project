@@ -11,11 +11,10 @@ import {
 
 import storage from 'redux-persist/lib/storage';
 import { modalReducer } from './modal/reducer';
-import categories from './categories/categories-reducer'
-
-
+import categories from './categories/categories-reducer';
 import transactionsReducer from './transactions/transaction-reducer';
 import authReducer from './auth/authReducer';
+import { modalEditReducer } from './modal/reducer';
 
 const middleware = [
   ...getDefaultMiddleware({
@@ -31,6 +30,7 @@ export const store = configureStore({
     transactions: transactionsReducer,
     modal: modalReducer,
     categories: categories,
+    editModal: modalEditReducer,
   },
   middleware,
   devTools: process.env.NODE_ENV === 'development',

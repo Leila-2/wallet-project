@@ -7,7 +7,7 @@ import Media from 'react-media';
 import MobileBg from '../../components/MobBg/MobBg';
 import TableBalansMobail from '../../components/TableBalans/Table/TableBalansMobail';
 import { useState, useEffect } from 'react';
-
+import ModalEditTransaction from '../../components/ModalEditTransaction/ModalEditTransaction';
 import { Fragment } from 'react';
 import Balance from '../../components/Balance/Balance';
 import TableBalance from '../../components/TableBalans/TableBalansElement';
@@ -17,6 +17,7 @@ import transactionOperations from '../../store/transactions/transaction-operatio
 // import  transactionsSelectors  from '../../store/transactions/transaction-selectors';
 import { Container } from '../../styles/Container';
 import { toggleModal } from '../../store/modal/actions';
+import { toggleEditModal } from '../../store/modal/actions';
 
 export default function MainPage() {
   const dispatch = useDispatch();
@@ -25,10 +26,13 @@ export default function MainPage() {
   useEffect(() => {
     dispatch(transactionOperations.getTransactions());
   }, [dispatch]);
+
   const showModal = useSelector(state => state.modal);
+  const showModalEdit = useSelector(state => state.editModal);
 
   const onClose = () => {
     dispatch(toggleModal());
+    dispatch(toggleEditModal());
   };
 
   return (
@@ -51,8 +55,7 @@ export default function MainPage() {
                       <Navigation />
                       <Balance />
 
-                      <TableBalance/>
-
+                      <TableBalance />
                     </Container>
                   </MobileBg>
                 </>
@@ -106,6 +109,7 @@ export default function MainPage() {
 
       <ButtonAddTransaction onClick={onClose} />
       {showModal && <Modal />}
+      {showModalEdit && <Modal />}
     </>
   );
 }
