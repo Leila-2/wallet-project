@@ -64,6 +64,7 @@ export const StyledCurrency = styled.div`
     padding-bottom: 12px;
     color: ${baseTheme.colors.white};
     border-bottom: 0px;
+    text-align: center;
   }
 
   @media screen and ${baseTheme.media.mobileMax} {
@@ -138,6 +139,7 @@ export const StyledCurrency = styled.div`
     padding-bottom: 6px;
     color: ${baseTheme.colors.white};
     border-bottom: 0px;
+    text-align: center;
   }
 
   .item {
@@ -148,5 +150,6 @@ export const StyledCurrency = styled.div`
     padding-bottom: 6px;
     color: ${baseTheme.colors.white};
     border-bottom: 0px;
+    text-align: center;
   }
 `;
