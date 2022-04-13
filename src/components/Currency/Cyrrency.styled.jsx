@@ -5,9 +5,15 @@ import currencyMobileTablet from './currency-tablet.svg';
 import currencyMobileDesktop from './currency-desktop.svg';
 
 export const StyledCurrency = styled.div`
+  @media screen and ${baseTheme.media.mobileMax} {
+    height: 100vh;
+  }
   .spinner-container {
+    width: 280px;
+    height: 174px;
     display: flex;
     justify-content: center;
+    align-items: center;
   }
 
   .table_container {
@@ -74,8 +80,8 @@ export const StyledCurrency = styled.div`
 
   @media screen and ${baseTheme.media.mobileMax} {
     .header {
-      padding-right: 5px;
-      padding-left: 5px;
+      padding-right: 10px;
+      padding-left: 10px;
     }
   }
 

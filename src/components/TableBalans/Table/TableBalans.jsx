@@ -29,10 +29,18 @@ export default function TableBalans({ transactions }) {
           {transactions.map(transaction => (
             <tr className="table-list" key={transaction.id}>
               <td>{transaction.date}</td>
-              <td >{transaction.type === 'expenses' ? '-' : '+'}</td>
+              <td>{transaction.type === 'expenses' ? '-' : '+'}</td>
               <td>{categories[transaction.category]}</td>
               <td>{transaction.comment}</td>
-              <td style={{color: `${transaction.type === 'expenses' ? '#FF6596':'#24CCA7'}` }}>{transaction.amount}</td>
+              <td
+                style={{
+                  color: `${
+                    transaction.type === 'expenses' ? '#FF6596' : '#24CCA7'
+                  }`,
+                }}
+              >
+                {transaction.amount}
+              </td>
               <td>{transaction.balance}</td>
             </tr>
           ))}

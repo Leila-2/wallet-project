@@ -127,8 +127,8 @@ export default function StatisticsPage() {
         </Media>
       </div>
 
-      <ButtonAddTransaction onClick={onClose} />
-      {showModal && <Modal showModal={showModal} setShowModal={setShowModal} />}
+      {/* <ButtonAddTransaction onClick={onClose} />
+      {showModal && <Modal showModal={showModal} setShowModal={setShowModal} />} */}
     </>
   );
 }
