@@ -50,8 +50,7 @@ export default function MainPage() {
                     <Container>
                       <Navigation />
                       <Balance />
-                      {/* <TableBalansMobail transactions={trans} /> */}
-                      <Currency />
+                      {/* <TableBalansMobail /> */}
                     </Container>
                   </MobileBg>
                 </>

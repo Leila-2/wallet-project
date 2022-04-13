@@ -2,6 +2,9 @@ import styled from 'styled-components';
 import { baseTheme } from '../../styles/variables';
 
 const StyledChart = styled.div`
+  @media screen and ${baseTheme.media.mobileMax} {
+    margin-top: 40px;
+  }
   .title {
     font-family: ${baseTheme.fonts.titleFont};
     font-weight: 400;
