@@ -5,58 +5,37 @@ import currencyMobileTablet from './currency-tablet.svg';
 import currencyMobileDesktop from './currency-desktop.svg';
 
 export const StyledCurrency = styled.div`
-  .sidebar {
-    margin-left: auto;
-    margin-right: auto;
-    min-width: auto;
-    min-height: auto;
-    overflow: auto;
-    padding-top: 30px;
-  }
-
-  @media screen and ${baseTheme.media.desktop} {
-    .sidebar {
-      width: 378px;
-    }
-  }
-
-  @media screen and ${baseTheme.media.tabletMax} and ${baseTheme.media
-      .tabletMin} {
-    .sidebar {
+  .spinner-container{
       display: flex;
       justify-content: center;
-      align-items: flex-start;
-      margin-bottom: 20px;
-    }
-  }
-
-  @media screen and ${baseTheme.media.mobileMax} {
-    .sidebar {
-      margin-left: auto;
-      margin-right: auto;
-      width: fit-content;
-    }
   }
 
   .table_container {
-    /* max-width: 348px;
-    min-width: 280px; */
-    max-height: 347px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    min-width: 280px;
     border-radius: 30px;
     background: ${baseTheme.colors.purple};
     color: ${baseTheme.colors.white};
+    overflow: hidden;
+}
 
-    @media screen and ${baseTheme.media.tabletMin} and ${baseTheme.media
-        .tabletMax} {
+  @media screen and ${baseTheme.media.tabletMin} and ${baseTheme.media
+    .tabletMax} {
+    .table_container {
+      margin-bottom: 20px;
       width: 336px;
-      height: 182px;
+      overflow: hidden;
     }
   }
 
   @media screen and ${baseTheme.media.desktop} {
     .table_container {
+      margin: 0;
+      width: 395px;
       height: 347px;
-      width: 393px;
+      overflow: hidden;
     }
   }
 
@@ -64,9 +43,9 @@ export const StyledCurrency = styled.div`
     .table {
       margin-left: auto;
       margin-right: auto;
-      min-width: auto;
+      min-width: 280px;
       min-height: auto;
-      width: 280px;
+      width: 100%;
       height: 174px;
       overflow: hidden;
     }
@@ -77,6 +56,7 @@ export const StyledCurrency = styled.div`
   }
 
   .header {
+    min-width: 73px;
     font-family: ${baseTheme.fonts.mainFont};
     font-size: 18px;
     font-weight: 700;
@@ -86,15 +66,38 @@ export const StyledCurrency = styled.div`
     border-bottom: 0px;
   }
 
-  @media screen and ${baseTheme.media.tabletMin} {
+  @media screen and ${baseTheme.media.mobileMax} {
+    .header{
+      padding-right: 5px;
+      padding-left: 5px;
+    }
+  }
+
+  @media screen and ${baseTheme.media.tabletMin} and ${baseTheme.media
+    .tabletMax} {
+    .header{
+      padding-right: 10px;
+      padding-left: 10px;
+    }
+  }
+  
+  @media screen and ${baseTheme.media.tabletMin} and ${baseTheme.media
+    .tabletMax} {
     .header {
+      min-width: 112px;
+    }
+  }
+
+  @media screen and ${baseTheme.media.desktop} {
+    .header {
+      width: 132px;
       padding-top: 17px;
       padding-bottom: 17px;
     }
   }
 
   .body {
-    background-size: contain;
+    background-size: cover;
     background-position: bottom;
   }
 
@@ -120,9 +123,10 @@ export const StyledCurrency = styled.div`
   @media screen and ${baseTheme.media.desktop} {
     .background {
       display: block;
-      margintop: 30px;
+      margin-top: 30px;
       height: 130px;
       background-image: url(${currencyMobileDesktop});
+      background-repeat: no-repeat;
     }
   }
 
@@ -130,8 +134,8 @@ export const StyledCurrency = styled.div`
     font-family: Montserrat, san-serif;
     font-size: 16px;
     font-weight: 400;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 6px;
+    padding-bottom: 6px;
     color: ${baseTheme.colors.white};
     border-bottom: 0px;
   }
@@ -140,6 +144,8 @@ export const StyledCurrency = styled.div`
     font-family: Montserrat, san-serif;
     font-size: 16px;
     font-weight: 400;
+    padding-top: 6px;
+    padding-bottom: 6px;
     color: ${baseTheme.colors.white};
     border-bottom: 0px;
   }
