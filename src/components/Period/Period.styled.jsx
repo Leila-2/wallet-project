@@ -11,6 +11,7 @@ export const StyledPeriod = styled.div`
   .form {
     display: flex;
     flex-direction: column;
+    align-items: center;
 
     @media screen and ${baseTheme.media.tabletMin} {
       flex-direction: row;
@@ -19,6 +20,7 @@ export const StyledPeriod = styled.div`
   }
 
   .inputWrapperMonth {
+    width: 280px;
     position: relative;
     margin-bottom: 20px;
 
@@ -37,6 +39,7 @@ export const StyledPeriod = styled.div`
   .inputWrapperYear {
     position: relative;
     margin: 0;
+    width: 280px;
 
     @media screen and ${baseTheme.media.tabletMin} {
       width: 160px;
