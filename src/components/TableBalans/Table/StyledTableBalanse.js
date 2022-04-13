@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { baseTheme } from '../../../styles/variables';
 
 const StyledTableBalans = styled.div`
   .global-table {
@@ -19,30 +20,49 @@ const StyledTableBalans = styled.div`
   }
 
   .header-table {
-    font-family: 'Open Sans';
-    font-size: 16px;
-    line-height: 24px;
+    font-family: ${baseTheme.fonts.titleFont};
+    letter-spacing: -0.04em;
     background: #ffffff;
   }
 
   .first-table {
+    text-align: left;
+    padding-left: 25px;
     padding-top: 15px;
     padding-bottom: 15px;
     border-radius: 30px 0 0 30px;
   }
 
   .last-table {
+    padding-right:15px;
     border-radius: 0 30px 30px 0;
   }
+
   .table-list {
     text-align: center;
-    background-color: transpotate;
+  }
+
+  .table-title{
+    text-align: left;
+    padding-left: 25px;
+  }
+
+  .title-type{
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+
+  .sum-title{
+    padding-right: 22px;
+  }
+
+  .table-list:not(:last-child){
+    border-bottom: 1px solid #dcdcdf;
+    border-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
   }
 
   .table-list td {
-    padding: 10px;
-    border-bottom: 1px solid #dcdcdf;
-    border-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
+    height: 55px;
   }
 `;
 

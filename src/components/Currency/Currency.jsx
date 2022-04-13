@@ -36,46 +36,47 @@ function Currency() {
     <>
       <StyledCurrency>
         {isLoading ? (
-         <Loader.Grid color="#4a56e2" height={80} width={80}/>
+          <div className="spinner-container">
+            <Loader.BallTriangle color="#4a56e2" height={80} width={80} />
+          </div>
         ) : (
-            <TableContainer className="table_container">
-          <Table className="table" size="small">
-            <TableHead className="head">
-              <TableRow className="head_row">
-                <TableCell className="header">Валюта</TableCell>
-                <TableCell align="center" className="header">
-                  Покупка
-                </TableCell>
-                <TableCell align="center" className="header">
-                  Продажа
-                </TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody className="body">
-              {currency?.map(element => (
-                <TableRow key={element.ccy}>
-                  <TableCell
-                    component="th"
-                    scope="row"
-                    align="left"
-                    className="name"
-                  >
-                    {element.ccy}
+          <TableContainer className="table_container">
+            <Table className="table" size="small">
+              <TableHead className="head">
+                <TableRow className="head_row">
+                  <TableCell className="header">Валюта</TableCell>
+                  <TableCell align="center" className="header">
+                    Покупка
                   </TableCell>
-                  <TableCell align="center" className="item">
-                    {Math.floor(element.buy * 100) / 100}
-                  </TableCell>
-                  <TableCell align="center" className="item">
-                    {Math.floor(element.sale * 100) / 100}
+                  <TableCell align="center" className="header">
+                    Продажа
                   </TableCell>
                 </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-          <div className="background"></div>
-        </TableContainer>
-        )
-      }
+              </TableHead>
+              <TableBody className="body">
+                {currency?.map(element => (
+                  <TableRow key={element.ccy}>
+                    <TableCell
+                      component="th"
+                      scope="row"
+                      align="left"
+                      className="name"
+                    >
+                      {element.ccy}
+                    </TableCell>
+                    <TableCell align="center" className="item">
+                      {Math.floor(element.buy * 100) / 100}
+                    </TableCell>
+                    <TableCell align="center" className="item">
+                      {Math.floor(element.sale * 100) / 100}
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+            <div className="background"></div>
+          </TableContainer>
+        )}
       </StyledCurrency>
     </>
   );

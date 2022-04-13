@@ -10,7 +10,6 @@ import { ReactComponent as LockIcon } from '../icons/lock.svg';
 import { actionLogin } from '../../../../store/auth/authActions';
 import { useDispatch } from 'react-redux';
 
-
 function LoginForm() {
   const dispatch = useDispatch();
 
@@ -19,7 +18,6 @@ function LoginForm() {
 
     dispatch(actionLogin(login));
   };
-
 
   return (
     <StyledRegisterForm>
@@ -59,7 +57,7 @@ function LoginForm() {
 
             <ul className="buttons-area">
               <li>
-                <FormButton title={'Вход'} />
+                <FormButton type="submit" title={'Вход'} />
               </li>
               <li className="link_item">
                 <FormLink title={'Регистрация'} path={'/register'} />
