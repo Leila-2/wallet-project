@@ -1,4 +1,3 @@
-
 import { categories } from '../../service/axios.config';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 

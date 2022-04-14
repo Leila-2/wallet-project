@@ -7,7 +7,8 @@ import Media from 'react-media';
 import MobileBg from '../../components/MobBg/MobBg';
 import TableBalansMobail from '../../components/TableBalans/Table/TableBalansMobail';
 import { useState, useEffect } from 'react';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { Fragment } from 'react';
 import Balance from '../../components/Balance/Balance';
 import TableBalance from '../../components/TableBalans/TableBalansElement';
@@ -36,6 +37,7 @@ export default function MainPage() {
 
   return (
     <>
+    <ToastContainer autoClose={3000} />
       <div>
         <Media
           queries={{

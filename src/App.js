@@ -8,7 +8,6 @@ import NotFound from './pages/NotFound/NotFound';
 import PrivateRoute from './components/Routes/PrivateRoute';
 import PublicRoute from './components/Routes/PublicRoute';
 import CurrencyMobPage from './pages/CurrencyMobPage/CurrencyMobPage';
-
 const AuthPage = lazy(() => import('./pages/AuthPage'));
 const MainPage = lazy(() => import('./pages/MainPage/MainPage'));
 

@@ -14,19 +14,13 @@ import Balance from '../../components/Balance/Balance';
 import transactionOperations from '../../store/transactions/transaction-operations';
 import { useDispatch, useSelector } from 'react-redux';
 import Currency from '../../components/Currency/Currency';
-//import TableBalans from '../../components/TableBalans/Table/TableBalans';
-
 import Period from '../../components/Period';
-
 import TableStatistic from '../../components/TableStatistic/TableStatistic';
 
 export default function StatisticsPage() {
   const dispatch = useDispatch();
   const [showModal, setShowModal] = useState(false);
-  const onClose = () => {
-    setShowModal(!showModal);
-  };
-
+ 
   const years = 2022 || [];
   const date = new Date();
   const [month, setMonth] = useState(() => date.getUTCMonth() + 1);
@@ -126,9 +120,6 @@ export default function StatisticsPage() {
           )}
         </Media>
       </div>
-
-      {/* <ButtonAddTransaction onClick={onClose} />
-      {showModal && <Modal showModal={showModal} setShowModal={setShowModal} />} */}
     </>
   );
 }

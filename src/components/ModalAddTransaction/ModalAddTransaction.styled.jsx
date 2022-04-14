@@ -40,6 +40,7 @@ export const FormModal = styled.div`
   .select {
     height: 30px;
     width: 394px;
+    resize:none;
     @media screen and ${baseTheme.media.mobileMax} {
       width: 280px;
     }
@@ -89,7 +90,7 @@ export const FormModal = styled.div`
     letter-spacing: 0.1em;
     text-transform: uppercase;
     @media screen and ${baseTheme.media.mobileMax} {
-      width: 200px;
+      width: 280px;
   }
 `;
 
