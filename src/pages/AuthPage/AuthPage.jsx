@@ -4,7 +4,8 @@ import { Container } from '../../styles/Container';
 import { useLocation } from 'react-router-dom';
 import { baseTheme } from '../../styles/variables';
 import { renderDesktop, renderTablet, renderMobile } from './MediaComponents';
-
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify';
 
 export default function AuthPage() {
   const { pathname } = useLocation();
@@ -12,6 +13,7 @@ export default function AuthPage() {
 
   return (
     <StyledAuthPage>
+        <ToastContainer autoClose={3000} />
       <Media
         queries={{
           small: baseTheme.media.mobileMax,

@@ -1,5 +1,6 @@
 import axios from 'axios';
-
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 axios.defaults.baseURL = `https://wallet-team-backend.herokuapp.com/api`;
 
 axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem(
@@ -13,7 +14,7 @@ export const register = async (name, email, password) => {
 
     return res;
   } catch (error) {
-    alert(error.response.data.message);
+    toast.error(error.message);
   }
 };
 
@@ -23,7 +24,8 @@ export const login = async (email, password) => {
     const res = await axios.post(`/users/login`, { email, password });
     return res;
   } catch (error) {
-    alert(error.response.data.message);
+    toast.error(error.message);
+    // alert(error.response.data.message);
   }
 };
 
@@ -33,6 +35,7 @@ export const logout = async () => {
     const res = await axios.get(`/users/logout`);
     return res;
   } catch (error) {
+    toast.error(error.message);
     console.error(error);
   }
 };
@@ -43,6 +46,7 @@ export const current = async () => {
     const res = await axios.get(`/users/current`);
     return res;
   } catch (error) {
+    toast.error(error.message);
     console.log(error.response.data.message);
   }
 };
@@ -50,9 +54,11 @@ export const current = async () => {
 //===================TRANSACTIONS ALL=====================
 export const transactionsAll = async () => {
   try {
-    const res = await axios.get(`/transactions/all`);
+    const res = await axios.get(`/transactions/all?limit=6
+    `);
     return res;
   } catch (error) {
+    toast.error(error.message);
     console.error(error);
   }
 };
@@ -76,6 +82,7 @@ export const transactionsCreate = async ({
     return res;
   } catch (error) {
     console.error(error);
+    toast.error(error.message);
   }
 };
 
@@ -85,6 +92,7 @@ export const transactionsStat = async () => {
     const res = await axios.get(`/transactions/statistics/?{month}&{year}`);
     return res;
   } catch (error) {
+    toast.error(error.message);
     console.error(error);
   }
 };
@@ -95,6 +103,7 @@ export const transactionsId = async () => {
     const res = await axios.get(`/transactions/:transactionId`);
     return res;
   } catch (error) {
+    toast.error(error.message);
     console.error(error);
   }
 };
@@ -105,6 +114,7 @@ export const transactionsUpdate = async () => {
     const res = await axios.put(`/transactions/:transactionId`);
     return res;
   } catch (error) {
+    toast.error(error.message);
     console.error(error);
   }
 };
@@ -115,6 +125,7 @@ export const transactionsDelete = async id => {
     const res = await axios.delete(`/transactions/${id}`);
     return res;
   } catch (error) {
+    toast.error(error.message);
     console.error(error);
   }
 };
@@ -125,6 +136,7 @@ export const categories = async () => {
     const res = await axios.get(`/transactions/categories`);
     return res;
   } catch (error) {
+    toast.error(error.message);
     console.error(error);
   }
 };

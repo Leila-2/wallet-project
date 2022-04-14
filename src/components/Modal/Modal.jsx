@@ -1,7 +1,7 @@
 import { createPortal } from 'react-dom';
 import { ModalWrapper } from './Modal.styled';
 import { ReactComponent as AddIconClose } from './closeBtn.svg'
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch} from 'react-redux';
 import { toggleModal } from '../../store/modal/actions';
 import ModalAddTransaction from '../ModalAddTransaction/ModalAddTransaction';
 import { useEffect } from 'react';
@@ -28,11 +28,6 @@ export default function Modal() {
       onClose();
     }
   };
-
-  const onSubmit = () => {
-    dispatch();
-  };
-
   return createPortal(
     <ModalWrapper onClick={handleClickBackdrop}>
       <div className="content"><AddIconClose className="closeBtn" type='button' onClick={onClose} />

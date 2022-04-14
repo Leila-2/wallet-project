@@ -40,7 +40,7 @@ export default function TableStatistic({}) {
         </thead>
 
         <tbody>
-          {Object.keys(transactions).map((key, index) => (
+          {Object.keys(transactions)?.map((key, index) => (
             <tr className="table-list" key={index}>
               <td className="table-categori">
                 <div

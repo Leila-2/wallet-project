@@ -7,6 +7,8 @@ import getAllCategories from '../../store/categories/categories-selectors';
 import { getCategories } from '../../store/categories/categories-actions';
 import { transactionsCreate } from '../../service/axios.config';
 import transactionOperations from '../../store/transactions/transaction-operations';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function ModalAddTransaction() {
   const [category, setCategory] = useState('Выберите категорию');
@@ -15,7 +17,6 @@ export default function ModalAddTransaction() {
   const [amount, setAmount] = useState('');
   const [date, setDate] = useState('');
   const [comment, setComment] = useState('');
-  const { income, expense } = useSelector(getAllCategories);
   const { categories } = useSelector(getAllCategories);
   const [cat, setCat] = useState([]);
 
@@ -48,7 +49,6 @@ export default function ModalAddTransaction() {
   };
 
   const reset = () => {
-    console.log('asdsad');
     setType(false);
     setCat([]);
     setAmount('');
@@ -58,15 +58,18 @@ export default function ModalAddTransaction() {
 
   const handleSubmit = e => {
     e.preventDefault();
+    
     let typeCheck = '';
     let categoryIncomes = '';
 
     if (type) {
       typeCheck = 'incomes';
       categoryIncomes = 'incomes';
+        toast.success('Доход добавлен');
     } else {
       typeCheck = 'expenses';
       categoryIncomes = category;
+      toast.warning('Расход добавлен');
     }
 
     const transaction = {
@@ -76,7 +79,9 @@ export default function ModalAddTransaction() {
       comment,
       amount,
     };
-
+    if(transaction.amount===''||transaction.date===''){
+      toast.warning('Заполните поля формы');
+    }
     transactionsCreate(transaction);
     reset();
     setTimeout(() => {

@@ -13,12 +13,14 @@ const StyledModal = styled.div`
     align-items: center;
     background-color: rgba(0, 0, 0, 0.8);
     z-index: 1200;
+   
   }
   .ModalLogoutModal {
     width: 400px;
     height: 400px;
     background: white;
     position: absolute;
+    border-radius: 20px;
   }
   .ModalLogoutQuestion {
     font-family: ${baseTheme.fonts.titleFont};

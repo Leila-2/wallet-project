@@ -14,7 +14,7 @@ export default function TableBalansMobail({ transactions }) {
 
   return (
     <StyledTableBalansMobail>
-      {transactions.map(transaction => (
+      {transactions?.map(transaction => (
         <div key={transaction.id} style={{ borderLeft: `${transaction.type === 'expenses' ? '5px solid #FF6596' : '5px solid #24CCA7'}`}}>
           <table className="global-table-mob"
            >

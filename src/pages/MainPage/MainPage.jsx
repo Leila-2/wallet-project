@@ -5,22 +5,21 @@ import ButtonAddTransaction from '../../components/BtnAddTransaction/BtnAddTrans
 import Modal from '../../components/Modal/Modal';
 import Media from 'react-media';
 import MobileBg from '../../components/MobBg/MobBg';
-import TableBalansMobail from '../../components/TableBalans/Table/TableBalansMobail';
 import { useState, useEffect } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { Fragment } from 'react';
 import Balance from '../../components/Balance/Balance';
 import TableBalance from '../../components/TableBalans/TableBalansElement';
 import Currency from '../../components/Currency/Currency';
 import { useDispatch, useSelector } from 'react-redux';
 import transactionOperations from '../../store/transactions/transaction-operations';
-// import  transactionsSelectors  from '../../store/transactions/transaction-selectors';
 import { Container } from '../../styles/Container';
 import { toggleModal } from '../../store/modal/actions';
 import authSelectors from '../../store/auth/authSelectors';
 
 export default function MainPage() {
   const dispatch = useDispatch();
-  // const transactions = useSelector(transactionsSelectors.getTransactions);
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
 
   useEffect(() => {
@@ -36,6 +35,7 @@ export default function MainPage() {
 
   return (
     <>
+    <ToastContainer autoClose={3000} />
       <div>
         <Media
           queries={{
