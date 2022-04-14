@@ -5,7 +5,6 @@ import ButtonAddTransaction from '../../components/BtnAddTransaction/BtnAddTrans
 import Modal from '../../components/Modal/Modal';
 import Media from 'react-media';
 import MobileBg from '../../components/MobBg/MobBg';
-import TableBalansMobail from '../../components/TableBalans/Table/TableBalansMobail';
 import { useState, useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -15,20 +14,19 @@ import TableBalance from '../../components/TableBalans/TableBalansElement';
 import Currency from '../../components/Currency/Currency';
 import { useDispatch, useSelector } from 'react-redux';
 import transactionOperations from '../../store/transactions/transaction-operations';
-// import  transactionsSelectors  from '../../store/transactions/transaction-selectors';
 import { Container } from '../../styles/Container';
 import { toggleModal } from '../../store/modal/actions';
+import authSelectors from '../../store/auth/authSelectors';
 
 export default function MainPage() {
   const dispatch = useDispatch();
-  const token = localStorage.getItem('AUTH_TOKEN');
-  // const transactions = useSelector(transactionsSelectors.getTransactions);
+  const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
 
   useEffect(() => {
-    if (token) {
+    if (isLoggedIn) {
       dispatch(transactionOperations.getTransactions());
     }
-  }, [dispatch, token]);
+  }, [dispatch, isLoggedIn]);
   const showModal = useSelector(state => state.modal);
 
   const onClose = () => {
