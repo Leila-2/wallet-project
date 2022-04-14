@@ -4,21 +4,31 @@ import { baseTheme } from '../../styles/variables';
 const StyledAuthPage = styled.div`
   background: rgb(231, 234, 242);
 
-  min-width: 100%;
+  min-width: 1280px;
+  width: 100%;
   height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 
   @media screen and ${baseTheme.media.mobileMax} {
     background: none;
   }
 
   .authPage {
+    min-width: 1280px;
+    /* width: 100%; */
+    height: 100vh;
     display: flex;
-    justify-content:center;
+    justify-content: center;
+    margin: auto;
     /* align-items:center; */
   }
   .authPage-left-side {
     background: rgb(231, 234, 242);
-    max-width: 100%;
+    min-width: 549px;
+    width: 40%;
     max-height: 100vh;
     background-repeat: no-repeat;
     background-position: left bottom;
@@ -41,10 +51,12 @@ const StyledAuthPage = styled.div`
 
   .authPage-right-side {
     min-width: 731px;
+    width: 60%;
     height: 100vh;
-    height: 720px;
+    /* height: 720px; */
+    height: 100vh;
     background-repeat: no-repeat;
-    background-size: auto auto;
+    background-size: cover;
 
     display: flex;
     justify-content: center;
