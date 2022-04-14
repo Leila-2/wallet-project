@@ -6,8 +6,10 @@ export const StyledBalance = styled.div`
   background: ${baseTheme.colors.white};
   height: 80px;
   position: relative;
-
-  span {
+  .balance-item {
+    font-weight: 400;
+  }
+  .balance {
     position: absolute;
     top: 8px;
     left: 40px;
@@ -21,7 +23,7 @@ export const StyledBalance = styled.div`
 
   p {
     font-family: ${baseTheme.fonts.titleFont};
-    font-weight: 400;
+    font-weight: 700;
     font-size: 30px;
     line-height: 1.5;
     padding-top: 30px;

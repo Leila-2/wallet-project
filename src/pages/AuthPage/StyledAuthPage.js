@@ -13,11 +13,13 @@ const StyledAuthPage = styled.div`
 
   .authPage {
     display: flex;
+    justify-content:center;
+    /* align-items:center; */
   }
   .authPage-left-side {
     background: rgb(231, 234, 242);
-    min-width: 521px;
-    height: 720px;
+    max-width: 100%;
+    max-height: 100vh;
     background-repeat: no-repeat;
     background-position: left bottom;
 

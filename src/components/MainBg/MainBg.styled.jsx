@@ -5,28 +5,29 @@ import img2 from '../../images/MainBg/Rectangle-desktop.jpg';
 
 export const MainBgImage = styled.div`
   background-color: rgba(255, 255, 255, 0.4);
-  /* height: 100vh; */
   display: flex;
   box-sizing:border-box;
   
  @media screen and ${baseTheme.media.tabletMin} and ${baseTheme.media.tabletMax}{
-   margin-right:auto;
-   margin-left:auto;
-   /* height:100vh; */
+  justify-content: center;
+ 
  }
 
   @media screen and ${baseTheme.media.tabletMin} {
     background-image: url(${img});
-    width: 100%;
+    min-width: 100%;
+    min-height:100vh;
     background-repeat: no-repeat;
     background-size: cover;
+
    
     .wrapper-right {
       padding: 40px 35px 47px 35px;
     }
     .wrapper-left {
       padding-top: 32px;
-     padding-right: 32px;
+      padding-bottom:24px;
+     
     }
     
     }

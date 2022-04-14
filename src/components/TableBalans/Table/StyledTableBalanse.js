@@ -2,6 +2,30 @@ import styled from 'styled-components';
 import { baseTheme } from '../../../styles/variables';
 
 const StyledTableBalans = styled.div`
+text-align:left;
+table{
+  letter-spacing: -0.04em;
+}
+.amount, .balance{
+  text-align:right;
+  width:110px;
+}
+
+tr{
+  height:55px;
+  width:30px;
+}
+td{
+ padding:0 20px;
+}
+th{
+  width:40px;
+  padding:0 20px;
+  text-align:center;
+}
+.table-date{
+  /* padding-left:20px; */
+}
   .global-table {
     border-collapse: collapse;
     min-width: 715px;
@@ -27,33 +51,34 @@ const StyledTableBalans = styled.div`
 
   .first-table {
     text-align: left;
-    padding-left: 25px;
+    /* padding-left: 25px;
     padding-top: 15px;
-    padding-bottom: 15px;
+    padding-bottom: 15px; */
     border-radius: 30px 0 0 30px;
   }
 
   .last-table {
-    padding-right:15px;
+    /* padding-right:15px; */
     border-radius: 0 30px 30px 0;
   }
 
   .table-list {
-    text-align: center;
+    /* text-align: center; */
   }
 
   .table-title{
     text-align: left;
-    padding-left: 25px;
+    /* padding-left: 25px; */
   }
 
   .title-type{
-    padding-left: 22px;
-    padding-right: 22px;
+    /* padding-left: 22px;
+    padding-right: 22px; */
+    text-align:center;
   }
 
   .sum-title{
-    padding-right: 22px;
+    /* padding-right: 22px; */
   }
 
   .table-list:not(:last-child){
@@ -62,7 +87,7 @@ const StyledTableBalans = styled.div`
   }
 
   .table-list td {
-    height: 55px;
+    /* height: 55px; */
   }
 `;
 

@@ -36,7 +36,7 @@ export default function TableBalans({ transactions }) {
         <tbody>
           {transactions.map(transaction => (
             <tr className="table-list" key={transaction.id}>
-              <td>{dataNormalath(transaction.date)}</td>
+              <td className="table-date">{dataNormalath(transaction.date)}</td>
 
               <td className="title-type">
                 {transaction.type === 'expenses' ? '-' : '+'}
@@ -46,16 +46,23 @@ export default function TableBalans({ transactions }) {
               </td>
               <td className="table-title">{transaction.comment}</td>
               <td
+                className="amount"
                 style={{
                   color: `${
                     transaction.type === 'expenses' ? '#FF6596' : '#24CCA7'
                   }`,
                 }}
               >
-                {transaction.amount}
+                {transaction.amount
+                  .toFixed(2)
+                  .replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ')}
               </td>
 
-              <td>{transaction.balance}</td>
+              <td className="balance">
+                {transaction.balance
+                  .toFixed(2)
+                  .replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ')}
+              </td>
             </tr>
           ))}
         </tbody>

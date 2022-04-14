@@ -100,6 +100,14 @@ const StyledTableStatistic = styled.div`
     text-align: left;
     padding-left: 15px;
   }
+  .income {
+    color: ${baseTheme.colors.green};
+    font-weight: 600;
+  }
+  .expenses {
+    color: ${baseTheme.colors.red};
+    font-weight: 600;
+  }
 `;
 
 export default StyledTableStatistic;

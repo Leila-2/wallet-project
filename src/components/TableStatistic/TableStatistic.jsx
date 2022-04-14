@@ -49,17 +49,27 @@ export default function TableStatistic({}) {
                 ></div>
                 <span className="text">{categories[key]}</span>
               </td>
-              <td className="table-data">{transactions[key]}</td>
+              <td className="table-data">
+                {transactions[key]
+                  .toFixed(2)
+                  .replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ')}
+              </td>
             </tr>
           ))}
 
           <tr className="table-list">
             <th className="table-title">Расходы:</th>
-            <td className="last-data">{expenses}</td>
+            <td className="last-data expenses">
+              {expenses
+                .toFixed(2)
+                .replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ')}
+            </td>
           </tr>
           <tr className="table-list">
             <th className="table-title">Доходы:</th>
-            <td className="last-data">{incomes}</td>
+            <td className="last-data income">
+              {incomes.toFixed(2).replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ')}
+            </td>
           </tr>
         </tbody>
       </table>
