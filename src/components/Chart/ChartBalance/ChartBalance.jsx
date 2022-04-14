@@ -5,7 +5,7 @@ const ChartBalance = ({ balance }) => {
   return (
     <StyledChartBalance>
       <div>
-        <p className="balance">&#8372; {balance}</p>
+        <p className="balance">&#8372; {balance.toFixed(2)}</p>
       </div>
     </StyledChartBalance>
   );
