@@ -20,11 +20,11 @@ export default function AuthPage() {
         }}
       >
         {matches => (
-          <Container>
+          <>
             {matches.small && renderMobile(pathname)}
             {matches.medium && renderTablet(pathname)}
             {matches.large && renderDesktop(pathname)}
-          </Container>
+          </>
         )}
       </Media>
     </StyledAuthPage>

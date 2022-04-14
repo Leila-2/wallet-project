@@ -34,7 +34,7 @@ export default function TableBalans({ transactions }) {
         </thead>
 
         <tbody>
-          {transactions.map(transaction => (
+          {transactions?.map(transaction => (
             <tr className="table-list" key={transaction.id}>
               <td className="table-date">{dataNormalath(transaction.date)}</td>
 

@@ -20,7 +20,6 @@ import authSelectors from '../../store/auth/authSelectors';
 
 export default function MainPage() {
   const dispatch = useDispatch();
-  const token = localStorage.getItem('AUTH_TOKEN');
   // const transactions = useSelector(transactionsSelectors.getTransactions);
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
 

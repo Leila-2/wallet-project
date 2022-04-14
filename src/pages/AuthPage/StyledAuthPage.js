@@ -4,21 +4,28 @@ import { baseTheme } from '../../styles/variables';
 const StyledAuthPage = styled.div`
   background: rgb(231, 234, 242);
 
-  min-width: 100%;
+  min-width: 1280px;
+  width: 100%;
   height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 
   @media screen and ${baseTheme.media.mobileMax} {
     background: none;
   }
 
   .authPage {
+    min-width: 1280px;
     display: flex;
-    justify-content:center;
+    justify-content: center;
+    margin: auto;
     /* align-items:center; */
   }
   .authPage-left-side {
     background: rgb(231, 234, 242);
-    max-width: 100%;
+    min-width: 549px;
     max-height: 100vh;
     background-repeat: no-repeat;
     background-position: left bottom;
