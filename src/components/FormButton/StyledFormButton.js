@@ -14,7 +14,7 @@ const StyledFormButton = styled.button`
   text-transform: uppercase;
   color: ${baseTheme.colors.white};
   @media screen and ${baseTheme.media.mobileMax} {
-    width: 200px;
+    width: 280px;
   }
 `;
 

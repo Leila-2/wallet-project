@@ -20,11 +20,14 @@ import { toggleModal } from '../../store/modal/actions';
 
 export default function MainPage() {
   const dispatch = useDispatch();
+  const token = localStorage.getItem('AUTH_TOKEN');
   // const transactions = useSelector(transactionsSelectors.getTransactions);
 
   useEffect(() => {
-    dispatch(transactionOperations.getTransactions());
-  }, [dispatch]);
+    if (token) {
+      dispatch(transactionOperations.getTransactions());
+    }
+  }, [dispatch, token]);
   const showModal = useSelector(state => state.modal);
 
   const onClose = () => {
@@ -51,8 +54,7 @@ export default function MainPage() {
                       <Navigation />
                       <Balance />
 
-                      <TableBalance/>
-
+                      <TableBalance />
                     </Container>
                   </MobileBg>
                 </>
