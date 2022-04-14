@@ -24,7 +24,7 @@ function App() {
     if (token) {
       dispatch(actionCurrent());
     }
-  }, []);
+  }, [dispatch, token]);
   return (
     <>
       <GlobalStyles />
@@ -69,7 +69,7 @@ function App() {
               </PrivateRoute>
             }
           />
-          
+
 
           <Route path="*" element={<NotFound />}></Route>
         </Routes>
