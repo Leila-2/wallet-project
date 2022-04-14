@@ -13,6 +13,12 @@ export default function TableBalans({ transactions }) {
     education: 'Образование',
     other: 'Остальные',
   };
+
+  const dataNormalath = function (data) {
+    let dataUpdeyt = data.split('-').reverse().join('.');
+    return dataUpdeyt;
+  };
+
   return (
     <StyledTableBalans>
       <table className="global-table">
@@ -30,7 +36,7 @@ export default function TableBalans({ transactions }) {
         <tbody>
           {transactions.map(transaction => (
             <tr className="table-list" key={transaction.id}>
-              <td>{transaction.date}</td>
+              <td>{dataNormalath(transaction.date)}</td>
 
               <td className="title-type">
                 {transaction.type === 'expenses' ? '-' : '+'}
