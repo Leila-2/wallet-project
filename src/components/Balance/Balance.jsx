@@ -10,7 +10,7 @@ export default function Balance() {
       <span className="balance">ВАШ БАЛАНС</span>
       <p>
         <span className="balance-item">₴ </span>
-        {balance.toFixed(2).replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ')}
+        {balance?.toFixed(2).replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ')}
       </p>
     </StyledBalance>
   );
