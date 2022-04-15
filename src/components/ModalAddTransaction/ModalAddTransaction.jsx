@@ -154,6 +154,7 @@ export default function ModalAddTransaction() {
         value={comment}
         placeholder="Комментарий"
         onChange={handleInputChange}
+        autocomplete="off"
       />
       <div className="formBtn">
         <FormButton title={'Добавить'} handler={handleSubmit} />
