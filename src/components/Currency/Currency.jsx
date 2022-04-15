@@ -11,10 +11,13 @@ import {
 } from '@material-ui/core';
 import fetchData from '../../service/currencyAPI';
 import * as Loader from 'react-loader-spinner';
+import authSelectors from '../../store/auth/authSelectors';
+import { useDispatch, useSelector } from 'react-redux';
 
 function Currency() {
   const [currency, setCurrency] = useState([]);
   const [isLoading, setLoading] = useState(false);
+  const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
 
   const fetch = async () => {
     setLoading(true);
@@ -29,8 +32,10 @@ function Currency() {
   };
 
   useEffect(() => {
-    fetch();
-  }, []);
+    if (isLoggedIn) {
+      fetch();
+    }
+  }, [isLoggedIn]);
 
   return (
     <>

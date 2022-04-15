@@ -1,4 +1,3 @@
-
 import { toast } from 'react-toastify';
 import axios from 'axios';
 import {
@@ -29,18 +28,18 @@ const getTransactions = () => async dispatch => {
 
 const getStatistics =
   ({ year, month }) =>
-    async dispatch => {
-      dispatch(getStatisticsRequest());
-      try {
-        const { data } = await axios.get(
-          `/transactions/statistics?month=${month}&year=${year}`,
-        );
-        dispatch(getStatisticsSuccess(data));
-      } catch (error) {
-        dispatch(getStatisticsError(error.message));
-        toast.error('Статистика не загружена');
-      }
-    };
+  async dispatch => {
+    dispatch(getStatisticsRequest());
+    try {
+      const { data } = await axios.get(
+        `/transactions/statistics?month=${month}&year=${year}`,
+      );
+      dispatch(getStatisticsSuccess(data));
+    } catch (error) {
+      dispatch(getStatisticsError(error.message));
+      toast.error('Статистика не загружена');
+    }
+  };
 const addTransaction = transaction => async dispatch => {
   dispatch(addTransRequest());
   try {

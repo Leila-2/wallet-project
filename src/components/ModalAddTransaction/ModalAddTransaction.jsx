@@ -65,11 +65,11 @@ export default function ModalAddTransaction() {
     if (type) {
       typeCheck = 'incomes';
       categoryIncomes = 'incomes';
-      toast.success('Доход добавлен');
+      // toast.success('Доход добавлен');
     } else {
       typeCheck = 'expenses';
       categoryIncomes = category;
-      toast.success('Расход добавлен');
+      // toast.success('Расход добавлен');
     }
 
     const transaction = {
@@ -87,7 +87,7 @@ export default function ModalAddTransaction() {
     setTimeout(() => {
       dispatch(transactionOperations.getTransactions());
       dispatch(toggleModal());
-    }, 100);
+    }, 1000);
   };
 
   return (

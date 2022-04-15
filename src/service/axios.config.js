@@ -11,7 +11,7 @@ axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem(
 export const register = async (name, email, password) => {
   try {
     const res = await axios.post(`/users/signup`, { name, email, password });
-
+    toast.success('Регистрация успешна');
     return res;
   } catch (error) {
     toast.error('Oшибка регистрации');
@@ -22,9 +22,10 @@ export const register = async (name, email, password) => {
 export const login = async (email, password) => {
   try {
     const res = await axios.post(`/users/login`, { email, password });
+    toast.success('Авторизация успешна');
     return res;
   } catch (error) {
-    toast.error('Ошибка логинизации');
+    toast.error('Ошибка авторизации');
     // alert(error.response.data.message);
   }
 };
@@ -47,7 +48,6 @@ export const current = async () => {
     return res;
   } catch (error) {
     toast.error('Юзер не найден');
-
   }
 };
 
@@ -79,10 +79,17 @@ export const transactionsCreate = async ({
       amount,
       type,
     });
+
+    console.log(res.data.data.transaction.type);
+    if (res.data.data.transaction.type === 'incomes') {
+      toast.success('Доход добавлен');
+    } else if (res.data.data.transaction.type === 'expenses') {
+      toast.success('Расход добавлен');
+    }
+
     return res;
   } catch (error) {
     console.error(error);
-
   }
 };
 
@@ -103,7 +110,6 @@ export const transactionsId = async () => {
     const res = await axios.get(`/transactions/:transactionId`);
     return res;
   } catch (error) {
-
     console.error(error);
   }
 };
@@ -114,7 +120,6 @@ export const transactionsUpdate = async () => {
     const res = await axios.put(`/transactions/:transactionId`);
     return res;
   } catch (error) {
-
     console.error(error);
   }
 };
@@ -125,7 +130,6 @@ export const transactionsDelete = async id => {
     const res = await axios.delete(`/transactions/${id}`);
     return res;
   } catch (error) {
-
     console.error(error);
   }
 };
