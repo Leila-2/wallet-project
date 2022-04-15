@@ -1,3 +1,5 @@
+
+import { toast } from 'react-toastify';
 import axios from 'axios';
 import {
   getTransactionsRequest,
@@ -21,6 +23,7 @@ const getTransactions = () => async dispatch => {
     dispatch(getTransactionsSuccess(data));
   } catch (error) {
     dispatch(getTransactionsError(error.message));
+    toast.error('Транзакции не загружены');
   }
 };
 
@@ -35,6 +38,7 @@ const getStatistics =
         dispatch(getStatisticsSuccess(data));
       } catch (error) {
         dispatch(getStatisticsError(error.message));
+        toast.error('Статистика не загружена');
       }
     };
 const addTransaction = transaction => async dispatch => {
@@ -45,6 +49,7 @@ const addTransaction = transaction => async dispatch => {
     dispatch(addTransSuccess(data));
   } catch (error) {
     dispatch(addTransError(error.message));
+    toast.error('Транзакция не добавлена');
   }
 };
 

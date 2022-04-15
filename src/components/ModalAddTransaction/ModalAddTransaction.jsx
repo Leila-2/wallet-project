@@ -58,18 +58,18 @@ export default function ModalAddTransaction() {
 
   const handleSubmit = e => {
     e.preventDefault();
-    
+
     let typeCheck = '';
     let categoryIncomes = '';
 
     if (type) {
       typeCheck = 'incomes';
       categoryIncomes = 'incomes';
-        toast.success('Доход добавлен');
+      toast.success('Доход добавлен');
     } else {
       typeCheck = 'expenses';
       categoryIncomes = category;
-      toast.warning('Расход добавлен');
+      toast.success('Расход добавлен');
     }
 
     const transaction = {
@@ -79,7 +79,7 @@ export default function ModalAddTransaction() {
       comment,
       amount,
     };
-    if(transaction.amount===''||transaction.date===''){
+    if (transaction.amount === '' || transaction.date === '') {
       toast.warning('Заполните поля формы');
     }
     transactionsCreate(transaction);

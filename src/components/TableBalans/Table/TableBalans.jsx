@@ -1,6 +1,5 @@
 import StyledTableBalans from './StyledTableBalanse';
-import EditBtn from '../../EditBtn/EditBtn';
-import RemoveBtn from '../../RemoveBtn/RemoveBtn';
+
 
 export default function TableBalans({ transactions }) {
   const categories = {

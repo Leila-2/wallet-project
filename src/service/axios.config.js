@@ -14,7 +14,7 @@ export const register = async (name, email, password) => {
 
     return res;
   } catch (error) {
-    toast.error(error.message);
+    toast.error('Oшибка регистрации');
   }
 };
 
@@ -24,7 +24,7 @@ export const login = async (email, password) => {
     const res = await axios.post(`/users/login`, { email, password });
     return res;
   } catch (error) {
-    toast.error(error.message);
+    toast.error('Ошибка логинизации');
     // alert(error.response.data.message);
   }
 };
@@ -35,7 +35,7 @@ export const logout = async () => {
     const res = await axios.get(`/users/logout`);
     return res;
   } catch (error) {
-    toast.error(error.message);
+    toast.error('Упс, что-то случилось');
     console.error(error);
   }
 };
@@ -46,8 +46,8 @@ export const current = async () => {
     const res = await axios.get(`/users/current`);
     return res;
   } catch (error) {
-    toast.error(error.message);
-    console.log(error.response.data.message);
+    toast.error('Юзер не найден');
+
   }
 };
 
@@ -58,7 +58,7 @@ export const transactionsAll = async () => {
     `);
     return res;
   } catch (error) {
-    toast.error(error.message);
+    toast.error('Транзакции не загружены');
     console.error(error);
   }
 };
@@ -82,7 +82,7 @@ export const transactionsCreate = async ({
     return res;
   } catch (error) {
     console.error(error);
-    toast.error(error.message);
+
   }
 };
 
@@ -92,7 +92,7 @@ export const transactionsStat = async () => {
     const res = await axios.get(`/transactions/statistics/?{month}&{year}`);
     return res;
   } catch (error) {
-    toast.error(error.message);
+    toast.error('Статистика не загружена');
     console.error(error);
   }
 };
@@ -103,7 +103,7 @@ export const transactionsId = async () => {
     const res = await axios.get(`/transactions/:transactionId`);
     return res;
   } catch (error) {
-    toast.error(error.message);
+
     console.error(error);
   }
 };
@@ -114,7 +114,7 @@ export const transactionsUpdate = async () => {
     const res = await axios.put(`/transactions/:transactionId`);
     return res;
   } catch (error) {
-    toast.error(error.message);
+
     console.error(error);
   }
 };
@@ -125,7 +125,7 @@ export const transactionsDelete = async id => {
     const res = await axios.delete(`/transactions/${id}`);
     return res;
   } catch (error) {
-    toast.error(error.message);
+
     console.error(error);
   }
 };
@@ -136,7 +136,7 @@ export const categories = async () => {
     const res = await axios.get(`/transactions/categories`);
     return res;
   } catch (error) {
-    toast.error(error.message);
+    toast.error('Категории не загружены');
     console.error(error);
   }
 };
