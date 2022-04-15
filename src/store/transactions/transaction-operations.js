@@ -16,7 +16,7 @@ axios.defaults.baseURL = 'https://wallet-team-backend.herokuapp.com/api';
 const getTransactions = () => async dispatch => {
   dispatch(getTransactionsRequest());
   try {
-    const { data } = await axios.get('/transactions/all');
+    const { data } = await axios.get('/transactions/all?limit=6');
 
     dispatch(getTransactionsSuccess(data));
   } catch (error) {
