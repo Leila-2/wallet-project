@@ -4,7 +4,7 @@ import { baseTheme } from '../../styles/variables';
 const StyledAuthPage = styled.div`
   background: rgb(231, 234, 242);
 
-  min-width: 1280px;
+  /* min-width: 1280px; */
   width: 100%;
   height: 100vh;
   display: flex;
@@ -14,10 +14,11 @@ const StyledAuthPage = styled.div`
 
   @media screen and ${baseTheme.media.mobileMax} {
     background: none;
+    /* min-width: unset; */
   }
 
   .authPage {
-    min-width: 1280px;
+    /* min-width: 1280px; */
     /* width: 100%; */
     height: 100vh;
     display: flex;
