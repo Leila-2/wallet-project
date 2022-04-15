@@ -12,6 +12,7 @@ export default function TableBalans({ transactions }) {
     house: 'Дом',
     education: 'Образование',
     other: 'Остальные',
+    incomes: 'Доход',
   };
 
   const dataNormalath = function (data) {
