@@ -40,7 +40,7 @@ export const MainBgImage = styled.div`
 
     .wrapper-right {
       padding: 40px 19px 40px 19px;
-      height: 100vh;
+      /* height: 100vh; */
       min-width: 480px;
       border-right: 3px solid #e7e5f2;
       box-shadow: 1px 0 0 0 rgba(255, 255, 255, 0.8),
