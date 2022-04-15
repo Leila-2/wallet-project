@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { baseTheme } from '../../styles/variables';
 
-
 export const ModalWrapper = styled.div`
   position: fixed;
   top: 0;
@@ -23,6 +22,7 @@ export const ModalWrapper = styled.div`
     @media screen and ${baseTheme.media.mobileMin} and ${baseTheme.media.mobileMax} {
       width: 100%;
       padding: 0 20px;
+         height: 630px;
     }
     @media screen and ${baseTheme.media.mobileMax} {
       width: 100%;
@@ -59,4 +59,3 @@ export const ModalWrapper = styled.div`
   }
   
 `;
-
