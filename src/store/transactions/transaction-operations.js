@@ -16,7 +16,7 @@ axios.defaults.baseURL = 'https://wallet-team-backend.herokuapp.com/api';
 const getTransactions = () => async dispatch => {
   dispatch(getTransactionsRequest());
   try {
-    const { data } = await axios.get('/transactions/all');
+    const { data } = await axios.get('/transactions/all?limit=6');
 
     dispatch(getTransactionsSuccess(data));
   } catch (error) {
@@ -26,17 +26,17 @@ const getTransactions = () => async dispatch => {
 
 const getStatistics =
   ({ year, month }) =>
-  async dispatch => {
-    dispatch(getStatisticsRequest());
-    try {
-      const { data } = await axios.get(
-        `/transactions/statistics?month=${month}&year=${year}`,
-      );
-      dispatch(getStatisticsSuccess(data));
-    } catch (error) {
-      dispatch(getStatisticsError(error.message));
-    }
-  };
+    async dispatch => {
+      dispatch(getStatisticsRequest());
+      try {
+        const { data } = await axios.get(
+          `/transactions/statistics?month=${month}&year=${year}`,
+        );
+        dispatch(getStatisticsSuccess(data));
+      } catch (error) {
+        dispatch(getStatisticsError(error.message));
+      }
+    };
 const addTransaction = transaction => async dispatch => {
   dispatch(addTransRequest());
   try {

@@ -5,8 +5,8 @@ import ButtonAddTransaction from '../../components/BtnAddTransaction/BtnAddTrans
 import Modal from '../../components/Modal/Modal';
 import Media from 'react-media';
 import MobileBg from '../../components/MobBg/MobBg';
-import { useState, useEffect } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
+import { useEffect } from 'react';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Fragment } from 'react';
 import Balance from '../../components/Balance/Balance';
@@ -21,13 +21,13 @@ import authSelectors from '../../store/auth/authSelectors';
 export default function MainPage() {
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
+  const showModal = useSelector(state => state.modal);
 
   useEffect(() => {
     if (isLoggedIn) {
       dispatch(transactionOperations.getTransactions());
     }
   }, [dispatch, isLoggedIn]);
-  const showModal = useSelector(state => state.modal);
 
   const onClose = () => {
     dispatch(toggleModal());
@@ -35,7 +35,7 @@ export default function MainPage() {
 
   return (
     <>
-    <ToastContainer autoClose={3000} />
+      <ToastContainer autoClose={3000} />
       <div>
         <Media
           queries={{
