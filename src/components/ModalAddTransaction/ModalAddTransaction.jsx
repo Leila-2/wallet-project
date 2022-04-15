@@ -83,8 +83,8 @@ export default function ModalAddTransaction() {
     };
     if (transaction.amount === '' || transaction.date === '') {
       toast.warning('Заполните поля формы');
-    } else if (amount > balance) {
-      toast.warning('Сначала добавьте доход');
+    } else if (amount > balance && type === false) {
+      toast.warning('Недостаточно денег');
     }
     transactionsCreate(transaction);
     reset();
@@ -146,7 +146,9 @@ export default function ModalAddTransaction() {
           onChange={handleInputChange}
         />
       </div>
-      <textarea
+      <input
+        type="text"
+        maxLength={35}
         className="comment"
         name="comment"
         value={comment}
