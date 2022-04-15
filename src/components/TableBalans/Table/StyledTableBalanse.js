@@ -8,7 +8,7 @@ table{
 }
 .amount, .balance{
   text-align:right;
-  width:110px;
+  width:130px;
 }
 
 tr{
