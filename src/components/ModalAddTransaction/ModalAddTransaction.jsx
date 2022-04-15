@@ -9,6 +9,7 @@ import { transactionsCreate } from '../../service/axios.config';
 import transactionOperations from '../../store/transactions/transaction-operations';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import transactionsSelectors from '../../store/transactions/transaction-selectors';
 
 export default function ModalAddTransaction() {
   const [category, setCategory] = useState('Выберите категорию');
@@ -19,6 +20,7 @@ export default function ModalAddTransaction() {
   const [comment, setComment] = useState('');
   const { categories } = useSelector(getAllCategories);
   const [cat, setCat] = useState([]);
+  const balance = useSelector(transactionsSelectors.getBalance);
 
   useEffect(() => {
     dispatch(getCategories());
@@ -81,6 +83,8 @@ export default function ModalAddTransaction() {
     };
     if (transaction.amount === '' || transaction.date === '') {
       toast.warning('Заполните поля формы');
+    } else if (amount > balance) {
+      toast.warning('Сначала добавьте доход');
     }
     transactionsCreate(transaction);
     reset();
