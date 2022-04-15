@@ -30,8 +30,10 @@ const StyledChart = styled.div`
       margin-right: 32px;
     }
     @media screen and ${baseTheme.media.mobileMax} {
-      margin: 0;
-      width: 320px;
+      /* width: 320px; */
+      display: flex;
+      justify-content: center;
+      align-content: center;
     }
 
     /* @media screen and ${baseTheme.media.mobileMin} {
