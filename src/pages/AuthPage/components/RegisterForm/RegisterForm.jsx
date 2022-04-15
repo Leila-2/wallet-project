@@ -90,7 +90,7 @@ function RegisterForm() {
             />
             <ul className="buttons-area">
               <li>
-                <FormButton title={'Регистрация'} />
+                <FormButton title={'Регистрация'} type="submit" />
               </li>
               <li className="link_item">
                 <FormLink title={'Вход'} path={'/login'} />
